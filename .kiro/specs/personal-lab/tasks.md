@@ -56,7 +56,7 @@ Rules that apply to every task:
     - _Requirements: 12.2, 12.3, 74.1_
 
 - [ ] 2. Shared pure helpers and image processing
-  - [~] 2.1 Implement math, time, text and id helpers with shared core generators
+  - [x] 2.1 Implement math, time, text and id helpers with shared core generators
     - `src/core/math/round.ts` (`round(x, decimals)` half away from zero, exponent-string method), `decimal.ts` (`parseDecimal`, `isMultipleOfStep`), `tolerance.ts` (`relClose`).
     - `src/core/time/localDate.ts` (`toLocalDate`, `addDays`, `daysBetween`, `startOfLocalDate`), `monthRange.ts` (`monthsBack`), `format.ts` (`formatClock`, `formatDurationMinutes`).
     - `src/core/text/fold.ts` (`fold`) and `compare.ts` (`compareFolded`); `src/core/ids.ts` (`newId`, `newIdemKey` via `crypto.randomUUID`).
