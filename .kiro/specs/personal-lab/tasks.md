@@ -372,7 +372,7 @@ Rules that apply to every task:
 
 ## Part 2: UI kit and app shell
 
-- [ ] 12. UI component kit
+- [x] 12. UI component kit
   - [~] 12.1 Implement styles, layout primitives, form fields and status components
     - `src/ui/styles/index.css`: Tailwind v4 theme tokens, `tabular-nums` on numeric text, `h1, h2, h3 { text-wrap: balance }`, `.rounded-continuous` with `@supports (corner-shape: squircle)`, `.tap` (44 × 44 px minimum or transparent `::before` hit area), safe-area utilities.
     - `src/ui/primitives/`: `Button`, `IconButton`, `ListRow`, `CardFrame`, `ChartFrame` (all apply `.tap` where interactive).
@@ -465,7 +465,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/ui/command`; commit `feat(ui): add command menu sheet`
     - _Requirements: 72.1, 72.5, 72.6, 72.8, 73.1_
 
-- [ ] 14. App shell, start-up gate, dashboard and Settings_Screen
+- [x] 14. App shell, start-up gate, dashboard and Settings_Screen
   - [~] 14.1 Implement the start-up gate and first-run Profile
     - `src/app/StartupGate.tsx`: `validateRegistry(MODULES)` first (full-screen `RegistryErrorScreen` naming every problem; database not opened), then `openDatabase()` with the three blocking screens (newer version → reload; migration failed → "no data was lost" + emergency export; unavailable → Retry), then `requestPersistOnce()` without awaiting, then `FirstRunProfile` when no Profile exists.
     - `src/app/FirstRunProfile.tsx`: six empty fields, `validateProfile` on save, nothing stored until valid.
