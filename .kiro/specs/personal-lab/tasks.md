@@ -76,7 +76,7 @@ Rules that apply to every task:
     - **Validates: Requirements 28.2, 45.6**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p28.property`; commit `test(core): add clock formatting property test (P28)`
 
-  - [~] 2.4 Write property test for month ranges
+  - [x] 2.4 Write property test for month ranges
     - **Property 29: Month ranges**
     - **Validates: Requirements 25.4, 45.8**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p29.property`; commit `test(core): add month range property test (P29)`
