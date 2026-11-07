@@ -101,7 +101,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/registry`; commit `feat(core): add module registry types, validator and derivation`
     - _Requirements: 2.1, 2.3, 2.5, 29.3_
 
-  - [~] 3.2 Create stub Gym, Nutrition and Chess module definitions and the Module_Registry
+  - [x] 3.2 Create stub Gym, Nutrition and Chess module definitions and the Module_Registry
     - `src/modules/{gym,nutrition,chess}/tables.ts` with the version 1 index specs from the design's Dexie schema table.
     - `src/modules/{gym,nutrition,chess}/index.ts`: valid `ModuleDefinition`s with the design ids and names, a placeholder icon, one tab-root route rendering a placeholder screen, a placeholder `DashboardCard`, the tables, `exportData` returning empty data, a no-op `importData` and `backup: { dataVersion: 1, schema, migrations: {}, sections }` with empty-data schemas. Later module tasks replace these pieces.
     - `src/core/registry/modules.ts`: `MODULES = [gymModule, nutritionModule, chessModule]`.
