@@ -203,7 +203,7 @@ Rules that apply to every task:
     - Run against generated generic table states with delete, replace and bulk-delete actions here; task 38.4 extends the same test to every module destructive action listed in the property.
     - Verify and commit: `npm run typecheck`; `npx vitest --run p23.property`; commit `test(core): add undo identity property test (P23)`
 
-  - [~] 6.3 Implement optimistic overlays
+  - [x] 6.3 Implement optimistic overlays
     - `src/core/optimistic/overlay.ts` (pure `applyOverlay(stored, ops)`), `useOptimisticList.ts` (`items`, `run(op)` applying synchronously, writing through `enqueueWrite`, removing the op on settle, calling an injected `onError(error, op)` so the UI can show the R3.5 Toast and close a delete's Undo_Toast).
     - Example tests: overlay applies within the same render; a failed write reverts to stored data.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/optimistic`; commit `feat(core): add optimistic list overlay`
