@@ -1,4 +1,5 @@
-// Feature: personal-lab, Property 1: Backup round trip and import idempotence
+// Feature: personal-lab, Property 15: Backup round trip
+// Also covers Property 16: Import is idempotent
 import { describe, expect, it, vi } from 'vitest';
 import fc from 'fast-check';
 import { arbAppState, clearAppDb, dumpAppState, seedAppState, storedStateOf, withTestApp } from '../../../test/arbitraries/appState';

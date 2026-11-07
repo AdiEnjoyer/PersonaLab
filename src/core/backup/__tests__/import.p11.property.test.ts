@@ -122,7 +122,7 @@ function expectedMessage(stage: Stage, c: Corruption): string | RegExp {
 describe('checkBackupFile', () => {
   it('reports the earliest corrupted stage in R7.1 order and leaves the database unchanged', async () => {
     await withTestApp(async ({ database, modules }) => {
-      const [stored] = fc.sample(arbAppState, { numRuns: 1, seed: 11 });
+      const [stored] = fc.sample(arbAppState, { numRuns: 100, seed: 11 });
       await seedAppState(database, stored!, 'AIzaUntouched');
       const start = await dumpAppState(database);
 
