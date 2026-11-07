@@ -161,7 +161,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run p21.property`; commit `test(core): add missing idempotency key property test (P21)`
 
 - [ ] 5. Settings and profile
-  - [~] 5.1 Implement settings, secrets and module setting schemas
+  - [x] 5.1 Implement settings, secrets and module setting schemas
     - `src/core/settings/schema.ts` (core key `core.backupReminderDays`, default 7; a schema registry that merges core schemas with each module's `settings.schema` read through `MODULES`), `repo.ts`, `useSetting.ts` (`[value, commit]`, stored value unchanged on failure, accepted-values text on error), `secrets.ts` (`getSecret`, `setSecret`, `deleteSecret`, Gemini key schema, `maskKey`).
     - `src/modules/gym/settings.ts`, `src/modules/nutrition/settings.ts`, `src/modules/chess/settings.ts`: the schemas and defaults from the design's module settings table; attach them to the stub definitions (`settings.Section` stays a placeholder until the module settings screens are built).
     - Example tests: unset key reads its default; invalid commit leaves the stored value; `maskKey('abcd1234')`.

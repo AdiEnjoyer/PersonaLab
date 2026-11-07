@@ -1,6 +1,7 @@
 import { createElement } from 'react';
 import { z } from 'zod';
 import type { ModuleDefinition } from '../../core/registry/types';
+import { gymSettings } from './settings';
 import { gymTables } from './tables';
 
 // Stub definition: the Gym tasks replace the icon, screens, card, export/import and backup schema.
@@ -34,4 +35,5 @@ export const gymModule: ModuleDefinition<GymBackupData> = {
   exportData: async () => ({}),
   importData: async () => undefined,
   backup: { dataVersion: 1, schema: gymBackupSchema, migrations: {}, sections: () => [] },
+  settings: gymSettings,
 };

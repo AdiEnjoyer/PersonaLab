@@ -1,6 +1,7 @@
 import { createElement } from 'react';
 import { z } from 'zod';
 import type { ModuleDefinition } from '../../core/registry/types';
+import { nutritionSettings } from './settings';
 import { nutritionTables } from './tables';
 
 // Stub definition: the Nutrition tasks replace the icon, screens, card, export/import and backup schema.
@@ -34,4 +35,5 @@ export const nutritionModule: ModuleDefinition<NutritionBackupData> = {
   exportData: async () => ({}),
   importData: async () => undefined,
   backup: { dataVersion: 1, schema: nutritionBackupSchema, migrations: {}, sections: () => [] },
+  settings: nutritionSettings,
 };

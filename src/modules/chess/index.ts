@@ -1,6 +1,7 @@
 import { createElement } from 'react';
 import { z } from 'zod';
 import type { ModuleDefinition } from '../../core/registry/types';
+import { chessSettings } from './settings';
 import { chessTables } from './tables';
 
 // Stub definition: the Chess tasks replace the icon, screens, card, export/import and backup schema.
@@ -34,4 +35,5 @@ export const chessModule: ModuleDefinition<ChessBackupData> = {
   exportData: async () => ({}),
   importData: async () => undefined,
   backup: { dataVersion: 1, schema: chessBackupSchema, migrations: {}, sections: () => [] },
+  settings: chessSettings,
 };
