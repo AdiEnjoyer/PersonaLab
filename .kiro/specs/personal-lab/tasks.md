@@ -35,7 +35,7 @@ Rules that apply to every task:
     - Verify and commit: no code yet, so no typecheck or tests; the commit above is this sub-task's commit.
     - _Requirements: 12.1, 12.9_
 
-  - [~] 1.3 Scaffold the Vite + React + TypeScript project and install every dependency
+  - [x] 1.3 Scaffold the Vite + React + TypeScript project and install every dependency
     - Create `package.json` (`name: personallab`, `version: 1.0.0`, `type: module`, `private: true`) with the scripts from the design: `dev`, `typecheck` (`tsc -b --noEmit`; if the installed TypeScript rejects this combination, set `noEmit` in the tsconfigs and use `tsc -b`), `test` (`vitest --run`), `build` (temporarily `vite build`; task 10.1 sets the final command), `preview`, `data:exercises` (`tsx scripts/build-exercises.ts`) and `data:puzzles` (`tsx scripts/build-puzzles.ts`). The data scripts take their arguments on the command line.
     - Install all runtime dependencies now so later tasks never edit `package.json` in parallel: `react`, `react-dom`, `react-router`, `dexie`, `dexie-react-hooks`, `zod` (v4), `recharts`, `chess.js`, `react-chessboard`, `stockfish`, `@zxing/browser`, `@zxing/library`, `blurhash`, `workbox-precaching`, `workbox-routing`, `workbox-strategies`, `workbox-cacheable-response`, `workbox-core`.
     - Install all dev dependencies: `vite`, `@vitejs/plugin-react`, `typescript`, `tailwindcss` (v4), `@tailwindcss/vite`, `vite-plugin-pwa`, `vitest`, `jsdom`, `@testing-library/react`, `@testing-library/user-event`, `@testing-library/jest-dom`, `fake-indexeddb`, `fast-check`, `tsx`, `sharp`, `@types/node`, `@types/react`, `@types/react-dom`, `@cloudflare/workers-types`.
@@ -48,7 +48,7 @@ Rules that apply to every task:
     - Verify and commit: no commit here; task 1.4 verifies and commits the scaffold.
     - _Requirements: 74.1, 12.5, 1.1_
 
-  - [~] 1.4 Verify the workspace path with typecheck, tests and build, then commit the scaffold
+  - [x] 1.4 Verify the workspace path with typecheck, tests and build, then commit the scaffold
     - Run `npm run typecheck`, `npx vitest --run` and `npx vite build`. Confirm `dist/index.html` exists and asset URLs start with `/PersonalLab/`.
     - If any of these fails because of the Hebrew/OneDrive path (for example Vite or Rollup failing to resolve a path, `sharp` failing to load its native binary, or file lock errors), stop and report clearly: the command, the error output, and that the workspace path is the cause. Do not move the folder and do not work around it silently; ask the user how to proceed.
     - Delete `dist/` after the check (it is gitignored).
