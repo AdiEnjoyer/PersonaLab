@@ -108,7 +108,6 @@ export default function GymSettingsSection() {
     <section aria-label="Gym settings" className="flex flex-col gap-4">
       <h2 className="text-lg font-semibold">Gym</h2>
       <RestSettings />
-      <RestSettings />
       <ArchivedExercises />
       <PhotoDownload />
     </section>
