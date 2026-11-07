@@ -270,7 +270,7 @@ Rules that apply to every task:
     - **Validates: Requirements 6.3**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p9.property`; commit `test(core): add backup key exclusion property test (P9)`
 
-  - [~] 7.10 Write property test for the backup file name
+  - [x] 7.10 Write property test for the backup file name
     - **Property 10: Backup file name format**
     - **Validates: Requirements 6.4**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p10.property`; commit `test(core): add backup file name property test (P10)`
