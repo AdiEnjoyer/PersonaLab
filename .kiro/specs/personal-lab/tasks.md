@@ -1,4 +1,4 @@
-﻿# Implementation Plan: PersonalLab
+# Implementation Plan: PersonalLab
 
 ## Overview
 
@@ -8,7 +8,7 @@ Rules that apply to every task:
 
 - **Branch**: all work after task 1.2 happens on `feature/personal-lab`. Before committing, check `git branch --show-current`. Never commit to `main` after task 1.2, never merge, never push, and never change git config.
 - **"Verify and commit" step**: every sub-task ends with this step. Run `npm run typecheck` and the listed `npx vitest --run <filter>` command. Fix failures in the files this task owns. Then stage only the files this task created or changed (`git add <paths>`, never `git add -A`; checkbox updates in `tasks.md` may be staged too) and run `git commit -m "<message>"` with the conventional-commit message given. Never commit failing code, never use `--no-verify` and never amend. If the typecheck fails only in files owned by a task running in parallel, wait and re-run it instead of editing those files. If `.git/index.lock` exists because a parallel task is committing, wait and retry.
-- **Property tests are required**, not optional. Each one lives in its own file `<area>/__tests__/<topic>.p<N>.property.test.ts`, starts with the tag comment `// Feature: personal-lab, Property N: <title>`, uses `numRuns` ג‰¥ 100 and the generators, ranges and tolerances stated in the design's Correctness Properties section. Oracles go in `src/test/oracles/` and never import production code. The filter `npx vitest --run p<N>.property` runs exactly that file.
+- **Property tests are required**, not optional. Each one lives in its own file `<area>/__tests__/<topic>.p<N>.property.test.ts`, starts with the tag comment `// Feature: personal-lab, Property N: <title>`, uses `numRuns` ≥ 100 and the generators, ranges and tolerances stated in the design's Correctness Properties section. Oracles go in `src/test/oracles/` and never import production code. The filter `npx vitest --run p<N>.property` runs exactly that file.
 - **Logic purity**: files under any `logic/` folder import only other `logic/` code, `src/core/math`, `src/core/time`, `src/core/text` and `chess.js` (checked by the architecture test from task 3.3).
 - **Design verification items** are resolved where the affected code is written: Stockfish file names in 10.1, licence names in 14.3, Open Food Facts fields in 27.4 and the Gemini model id and CORS in 27.5.
 
@@ -61,14 +61,14 @@ Rules that apply to every task:
     - `src/core/time/localDate.ts` (`toLocalDate`, `addDays`, `daysBetween`, `startOfLocalDate`), `monthRange.ts` (`monthsBack`), `format.ts` (`formatClock`, `formatDurationMinutes`).
     - `src/core/text/fold.ts` (`fold`) and `compare.ts` (`compareFolded`); `src/core/ids.ts` (`newId`, `newIdemKey` via `crypto.randomUUID`).
     - `src/test/arbitraries/core.ts`: `arbText`, `arbLocalDate`, `arbEpoch`, `arbImageBytes` as defined in the design's shared generators table.
-    - Example tests: `round(1.005, 2) = 1.01`, `round(-2.5) = -3`, `addDays` across the Asia/Jerusalem DST change, `monthsBack('2025-03-31', 1) = '2025-02-28'`, `formatDurationMinutes` for 45 min and 65 min, `fold('ֳ‰ֳ©')`.
+    - Example tests: `round(1.005, 2) = 1.01`, `round(-2.5) = -3`, `addDays` across the Asia/Jerusalem DST change, `monthsBack('2025-03-31', 1) = '2025-02-28'`, `formatDurationMinutes` for 45 min and 65 min, `fold('Éé')`.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/math src/core/time src/core/text`; commit `feat(core): add rounding, decimal, date, text and id helpers`
     - _Requirements: Conventions (Rounding, Local_Date), 4.2, 4.3, 11.1, 14.1, 25.4, 28.2, 45.6, 72.3_
 
   - [x] 2.2 Write property test for rounding
     - **Property 31: Rounding is half away from zero**
     - **Validates: Conventions (Rounding)**
-    - BigInt oracle; values with up to 6 fractional digits; `d גˆˆ [0, 3]`.
+    - BigInt oracle; values with up to 6 fractional digits; `d ∈ [0, 3]`.
     - Verify and commit: `npm run typecheck`; `npx vitest --run p31.property`; commit `test(core): add rounding property test (P31)`
 
   - [x] 2.3 Write property test for clock formatting
@@ -82,7 +82,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run p29.property`; commit `test(core): add month range property test (P29)`
 
   - [x] 2.5 Implement shared image processing
-    - `src/core/image/processImage.ts`: `scaleDims`, `processImage` (decode with `createImageBitmap(..., { imageOrientation: 'from-image' })`, `<img>` fallback, canvas re-encode to JPEG with no metadata, 32 ֳ— 32 BlurHash with `encode(ג€¦, 4, 3)`), `ImageDecodeError`.
+    - `src/core/image/processImage.ts`: `scaleDims`, `processImage` (decode with `createImageBitmap(..., { imageOrientation: 'from-image' })`, `<img>` fallback, canvas re-encode to JPEG with no metadata, 32 × 32 BlurHash with `encode(…, 4, 3)`), `ImageDecodeError`.
     - Unit tests with mocked `createImageBitmap`, canvas and `toBlob` (jsdom has no canvas): decode failure throws `ImageDecodeError`; output is JPEG with the scaled size.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/image`; commit `feat(core): add image scaling and blurhash processing`
     - _Requirements: 15.3, 36.2, 37.7, 66.1_
@@ -124,7 +124,7 @@ Rules that apply to every task:
 
 - [x] 4. Database layer
   - [x] 4.1 Implement the Dexie database, versioning, open handling and change tracking
-    - `src/core/db/tables.ts` (`buildStores(modules)` ג†’ `${id}_${short}` plus core stores `core_profile`, `core_settings`, `core_secrets`, `core_meta`), `versions.ts` (`DB_VERSION = 1`, `DbMigration`, `MIGRATIONS = []`, `MODULE_DATA_VERSIONS_V1`), `db.ts` (the `db` instance from `MODULES`, migration chain declaration, `openDatabase(): Promise<OpenResult>` mapping `VersionError` ג†’ `newer-version`, upgrade error or abort ג†’ `migration-failed`, anything else ג†’ `unavailable`).
+    - `src/core/db/tables.ts` (`buildStores(modules)` → `${id}_${short}` plus core stores `core_profile`, `core_settings`, `core_secrets`, `core_meta`), `versions.ts` (`DB_VERSION = 1`, `DbMigration`, `MIGRATIONS = []`, `MODULE_DATA_VERSIONS_V1`), `db.ts` (the `db` instance from `MODULES`, migration chain declaration, `openDatabase(): Promise<OpenResult>` mapping `VersionError` → `newer-version`, upgrade error or abort → `migration-failed`, anything else → `unavailable`).
     - `changeTracker.ts`: DBCore middleware that sets `core_meta.lastDataChangeAt` and, when absent, `firstDataAt` after successful mutations of every table except `core_secrets` and `core_meta`.
     - `src/core/db/strip.ts`: `stripUndefined`.
     - `src/test/helpers/db.ts`: `withFreshDb` (fresh database name per run or `Dexie.delete`).
@@ -146,7 +146,7 @@ Rules that apply to every task:
   - [x] 4.4 Write property test for database migrations
     - **Property 4: Database migrations preserve records**
     - **Validates: Requirements 3.3, 3.4**
-    - Synthetic v1 ג†’ v2 ג†’ v3 chain with one field transform and one declared deletion; a throwing v3 step leaves v1 intact.
+    - Synthetic v1 → v2 → v3 chain with one field transform and one declared deletion; a throwing v3 step leaves v1 intact.
     - Verify and commit: `npm run typecheck`; `npx vitest --run p4.property`; commit `test(core): add migration preservation property test (P4)`
 
   - [x] 4.5 Write property test for idempotent creates
@@ -223,7 +223,7 @@ Rules that apply to every task:
     - _Requirements: 6.1, 6.2, 6.4, 7.6, 8.3_
 
   - [x] 7.2 Implement backup file checking in R7.1 order
-    - `src/core/backup/import.ts`: `checkBackupFile(file, modules = MODULES)` and a pure `validateBackupValue(parsed, modules)` running read ג†’ JSON ג†’ envelope ג†’ version support (file and module data versions) ג†’ migration ג†’ record validation (core profile, core settings per key, module entries in file order with `module.backup.schema` and `sections()` positions); `ImportPlan` with `present`, `absent`, `skipped`.
+    - `src/core/backup/import.ts`: `checkBackupFile(file, modules = MODULES)` and a pure `validateBackupValue(parsed, modules)` running read → JSON → envelope → version support (file and module data versions) → migration → record validation (core profile, core settings per key, module entries in file order with `module.backup.schema` and `sections()` positions); `ImportPlan` with `present`, `absent`, `skipped`.
     - `src/core/backup/messages.ts`: the exact R7 messages.
     - Example tests for each message, including section, 1-based record position and field path.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/backup`; commit `feat(core): add backup file validation pipeline`
@@ -231,7 +231,7 @@ Rules that apply to every task:
 
   - [x] 7.3 Implement backup export, sharing and the generic app-state generator
     - `src/core/backup/export.ts`: `buildBackup(now, modules = MODULES)` (each `exportData` once in order; failure names the module id or `core data`; JSON text; Gemini key absence assertion; self-validation with `validateBackupValue`), `exportBackup()` returning `ExportOutcome`; on `shared` or `downloaded` write `core_meta.lastBackupAt`.
-    - `src/core/backup/share.ts`: Web Share with `canShare`, `AbortError` ג†’ `dismissed`, other rejection ג†’ download fallback, `<a download>` with object URL.
+    - `src/core/backup/share.ts`: Web Share with `canShare`, `AbortError` → `dismissed`, other rejection → download fallback, `<a download>` with object URL.
     - `src/test/arbitraries/appState.ts`: `arbAppState` and `arbBackupFile` over core data plus a test registry of generic table-backed modules (each with zod record schemas and images), so backup properties run before the real modules exist.
     - Example tests with mocked `navigator.share`/`canShare`: shared, dismissed (no `lastBackupAt`), failed share falls back to download, failing module export leaves `lastBackupAt` unchanged.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/backup`; commit `feat(core): add backup export and share flow`
@@ -322,7 +322,7 @@ Rules that apply to every task:
 - [ ] 8. Network utilities
   - [~] 8.1 Implement online state, fetch with timeout, stale-while-revalidate and age labels
     - `src/core/net/online.ts` (`useOnline`, `reportUnreachable`, 5 s probe of `version.json` with `cache: 'no-store'`, `online` event clears flags), `fetchWithTimeout.ts` (timeout, caller abort, network `TypeError`, HTTP status), `swr.ts` (`useRemoteResource` with one in-flight promise per key, data kept on failure, `offline` state), `ageLabel.ts` (pure).
-    - Example tests with fake timers: unreachable ג†’ probe ג†’ recovered within 5 s; two components share one fetch; failure keeps cached data.
+    - Example tests with fake timers: unreachable → probe → recovered within 5 s; two components share one fetch; failure keeps cached data.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/net`; commit `feat(core): add online state, timed fetch and stale-while-revalidate`
     - _Requirements: 1.5, 1.9, 1.10, 65.1, 65.2, 65.3, 65.4, 65.5, 65.6_
 
@@ -360,21 +360,21 @@ Rules that apply to every task:
     - _Requirements: 1.1, 12.5, 12.6, 12.9, 55.1_
 
   - [~] 10.2 Add the GitHub Pages deployment workflow and source safety scans
-    - `.github/workflows/deploy.yml` as in the design: push to `main` only, permissions, `concurrency: { group: pages, cancel-in-progress: true }`, `npm ci` ג†’ `npm run typecheck` ג†’ `npx vitest --run` ג†’ `BASE_PATH=/${{ github.event.repository.name }}/ npm run build` ג†’ newest-commit guard (`git ls-remote origin refs/heads/main` must equal `$GITHUB_SHA`) ג†’ `actions/upload-pages-artifact` (path `dist`) ג†’ `deploy` job with `actions/deploy-pages`.
+    - `.github/workflows/deploy.yml` as in the design: push to `main` only, permissions, `concurrency: { group: pages, cancel-in-progress: true }`, `npm ci` → `npm run typecheck` → `npx vitest --run` → `BASE_PATH=/${{ github.event.repository.name }}/ npm run build` → newest-commit guard (`git ls-remote origin refs/heads/main` must equal `$GITHUB_SHA`) → `actions/upload-pages-artifact` (path `dist`) → `deploy` job with `actions/deploy-pages`.
     - `src/test/safety.test.ts`: no secret patterns in `src/`; every absolute `https://` URL used in `fetch` calls is on the allow-list (own origin, `api.chess.com`, the proxy setting, `world.openfoodfacts.org`, `generativelanguage.googleapis.com`).
     - Example test that parses `deploy.yml` as text and checks the step order and the `main`-only trigger.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/test`; commit `ci: add github pages deploy workflow and safety scans`
     - _Requirements: 12.1, 12.2, 12.3, 12.4, 12.7, 12.8, 12.9_
 
 - [~] 11. Checkpoint: core platform
-  - Run `npm run typecheck`, `npx vitest --run` and `npm run build`; fix any failure and commit fixes with `fix(core): ג€¦`.
+  - Run `npm run typecheck`, `npx vitest --run` and `npm run build`; fix any failure and commit fixes with `fix(core): …`.
   - Ensure all tests pass, ask the user if questions arise.
 
 ## Part 2: UI kit and app shell
 
 - [ ] 12. UI component kit
   - [~] 12.1 Implement styles, layout primitives, form fields and status components
-    - `src/ui/styles/index.css`: Tailwind v4 theme tokens, `tabular-nums` on numeric text, `h1, h2, h3 { text-wrap: balance }`, `.rounded-continuous` with `@supports (corner-shape: squircle)`, `.tap` (44 ֳ— 44 px minimum or transparent `::before` hit area), safe-area utilities.
+    - `src/ui/styles/index.css`: Tailwind v4 theme tokens, `tabular-nums` on numeric text, `h1, h2, h3 { text-wrap: balance }`, `.rounded-continuous` with `@supports (corner-shape: squircle)`, `.tap` (44 × 44 px minimum or transparent `::before` hit area), safe-area utilities.
     - `src/ui/primitives/`: `Button`, `IconButton`, `ListRow`, `CardFrame`, `ChartFrame` (all apply `.tap` where interactive).
     - `src/ui/form/`: `NumberField` (`inputMode="decimal"`, "," normalised to "."), `TextField`, `Select`, `Switch`, `FieldError`.
     - `src/ui/status/`: `OfflineNotice`, `AgeLabel`, `ErrorPanel` (with Retry), `EmptyState`; `src/ui/ErrorBoundary.tsx` (fallback prop and reset).
@@ -395,13 +395,13 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run p26.property`; commit `test(ui): add gesture release property test (P26)`
 
   - [~] 12.4 Implement the Bottom_Sheet with drag, interruption and discard confirmation
-    - `src/ui/sheet/Sheet.tsx` (portal, `role="dialog"`, `aria-modal`, focus trap, safe-area padding), `useSheetDrag.ts` (offset `max(0, ג€¦)`, inner scroll first, release rule, WAAPI snap-back ג‰₪ 250 ms, interrupt by reading the computed transform), `ConfirmDiscard.tsx` ("Discard changes?" with "Discard" / "Keep editing" when `dirty`).
+    - `src/ui/sheet/Sheet.tsx` (portal, `role="dialog"`, `aria-modal`, focus trap, safe-area padding), `useSheetDrag.ts` (offset `max(0, …)`, inner scroll first, release rule, WAAPI snap-back ≤ 250 ms, interrupt by reading the computed transform), `ConfirmDiscard.tsx` ("Discard changes?" with "Discard" / "Keep editing" when `dirty`).
     - Component tests: Escape and backdrop call `onRequestClose`; a dirty sheet shows the confirmation instead of closing.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/ui/sheet`; commit `feat(ui): add draggable bottom sheet`
     - _Requirements: 68.1, 68.2, 68.3, 68.4, 68.5, 68.6, 68.7, 68.8, 70.3_
 
   - [~] 12.5 Implement Toasts and the Undo_Toast
-    - `src/ui/toast/toastStore.ts` (`toast.show({ message, kind, action, durationMs })`), `ToastHost.tsx` (outside the routed outlet, `aria-live="polite"`, stacked above the tab bar and home indicator, horizontal swipe dismiss), Undo_Toast bound to `undoService.subscribe` (6 s, "Undo" button disabled after the first tap, swipe finalises, failure message "Could not undo: ג€¦").
+    - `src/ui/toast/toastStore.ts` (`toast.show({ message, kind, action, durationMs })`), `ToastHost.tsx` (outside the routed outlet, `aria-live="polite"`, stacked above the tab bar and home indicator, horizontal swipe dismiss), Undo_Toast bound to `undoService.subscribe` (6 s, "Undo" button disabled after the first tap, swipe finalises, failure message "Could not undo: …").
     - Component tests with fake timers: Undo_Toast disappears after 6 s; second tap does nothing; swipe dismiss calls `undoService.dismiss`.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/ui/toast`; commit `feat(ui): add toast host and undo toast`
     - _Requirements: 64.1, 64.4, 64.5, 64.6, 64.7, 70.3_
@@ -418,7 +418,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run p25.property`; commit `test(ui): add skeleton gate property test (P25)`
 
   - [~] 12.8 Implement BlurHashImage
-    - `src/ui/image/BlurHashImage.tsx` (fixed aspect box, 32 ֳ— 32 decode to data URL, 200 ms fade or instant under reduced motion, image-off icon on error, neutral placeholder SVG when no or invalid BlurHash), `blurhashCache.ts` (LRU).
+    - `src/ui/image/BlurHashImage.tsx` (fixed aspect box, 32 × 32 decode to data URL, 200 ms fade or instant under reduced motion, image-off icon on error, neutral placeholder SVG when no or invalid BlurHash), `blurhashCache.ts` (LRU).
     - Component tests: error keeps the BlurHash and shows the icon; missing BlurHash shows the neutral placeholder; no Toast.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/ui/image`; commit `feat(ui): add blurhash image placeholder`
     - _Requirements: 66.1, 66.2, 66.3, 14.9_
@@ -430,7 +430,7 @@ Rules that apply to every task:
     - _Requirements: 67.1, 67.2, 67.3, 67.4, 67.5, 67.6, 67.7_
 
   - [~] 12.10 Implement the iOS edge swipe back
-    - `src/ui/gestures/EdgeSwipeBack.tsx` (start at `clientX ג‰₪ 20`, not on tab roots, not inside `[data-gesture="board"]`, previous screen kept mounted `inert` at גˆ’30 %, release at 35 % or 0.5 px/ms, snap back ג‰₪ 250 ms) and `useUnsavedChanges(dirty)` (snap back and `ConfirmDiscard` on a qualifying release).
+    - `src/ui/gestures/EdgeSwipeBack.tsx` (start at `clientX ≤ 20`, not on tab roots, not inside `[data-gesture="board"]`, previous screen kept mounted `inert` at −30 %, release at 35 % or 0.5 px/ms, snap back ≤ 250 ms) and `useUnsavedChanges(dirty)` (snap back and `ConfirmDiscard` on a qualifying release).
     - Component tests with simulated touch events: release past 35 % navigates back; a start inside the board area is ignored; dirty form asks first.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/ui/gestures`; commit `feat(ui): add edge swipe back gesture`
     - _Requirements: 69.1, 69.2, 69.3, 69.4, 69.5, 69.6_
@@ -460,14 +460,14 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run p27.property`; commit `test(core): add command ranking property test (P27)`
 
   - [~] 13.3 Implement the Command_Menu sheet
-    - `src/ui/command/CommandMenu.tsx`: opened from the header button or Cmd/Ctrl+K with the input focused; empty query shows "Recent" then all entries by type; selection closes, records the recent, checks `exists?.()` (false ג†’ keep open, drop entry, Toast "This item no longer exists"), disables `needsNetwork` entries offline with the offline note, then runs.
+    - `src/ui/command/CommandMenu.tsx`: opened from the header button or Cmd/Ctrl+K with the input focused; empty query shows "Recent" then all entries by type; selection closes, records the recent, checks `exists?.()` (false → keep open, drop entry, Toast "This item no longer exists"), disables `needsNetwork` entries offline with the offline note, then runs.
     - Component test: keyboard flow (open with Cmd+K, type, arrow down, Enter runs the entry).
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/ui/command`; commit `feat(ui): add command menu sheet`
     - _Requirements: 72.1, 72.5, 72.6, 72.8, 73.1_
 
 - [ ] 14. App shell, start-up gate, dashboard and Settings_Screen
   - [~] 14.1 Implement the start-up gate and first-run Profile
-    - `src/app/StartupGate.tsx`: `validateRegistry(MODULES)` first (full-screen `RegistryErrorScreen` naming every problem; database not opened), then `openDatabase()` with the three blocking screens (newer version ג†’ reload; migration failed ג†’ "no data was lost" + emergency export; unavailable ג†’ Retry), then `requestPersistOnce()` without awaiting, then `FirstRunProfile` when no Profile exists.
+    - `src/app/StartupGate.tsx`: `validateRegistry(MODULES)` first (full-screen `RegistryErrorScreen` naming every problem; database not opened), then `openDatabase()` with the three blocking screens (newer version → reload; migration failed → "no data was lost" + emergency export; unavailable → Retry), then `requestPersistOnce()` without awaiting, then `FirstRunProfile` when no Profile exists.
     - `src/app/FirstRunProfile.tsx`: six empty fields, `validateProfile` on save, nothing stored until valid.
     - `src/main.tsx`: boot through `StartupGate`; start `updateService`.
     - Component tests: invalid registry renders the error and no tabs; each open failure screen; first-run save with an invalid field stores nothing.
@@ -491,13 +491,13 @@ Rules that apply to every task:
     - _Requirements: 1.7, 4.1, 4.2, 4.3, 4.5, 4.6, 4.7, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7_
 
   - [~] 14.4 Implement backup export and import screens with the rejection-message component test
-    - `BackupSection.tsx`: "Export backup" running `exportBackup()` with success and error Toasts; "Import backup" file picker ג†’ `checkBackupFile` ג†’ confirmation `Sheet` (local export time, record count per present module, absent modules marked unchanged, replacement warning) ג†’ `applyImport` ג†’ result Toast listing skipped ids; cancel or picker dismissal changes nothing.
+    - `BackupSection.tsx`: "Export backup" running `exportBackup()` with success and error Toasts; "Import backup" file picker → `checkBackupFile` → confirmation `Sheet` (local export time, record count per present module, absent modules marked unchanged, replacement warning) → `applyImport` → result Toast listing skipped ids; cancel or picker dismissal changes nothing.
     - Component test (R74.7): one case per R7 message using crafted files (empty, invalid JSON, wrong format, newer schema, newer module version, failing migration, invalid record with section, position and field, unreadable file).
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/app`; commit `feat(app): add backup export and import screens`
     - _Requirements: 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.1, 7.2, 7.3, 7.4, 7.5, 7.7, 7.8, 7.12, 7.13, 7.14, 9.5, 74.7_
 
 - [~] 15. Checkpoint: UI kit and app shell
-  - Run `npm run typecheck`, `npx vitest --run` and `npm run build`; fix any failure and commit fixes with `fix(ui): ג€¦` or `fix(app): ג€¦`.
+  - Run `npm run typecheck`, `npx vitest --run` and `npm run build`; fix any failure and commit fixes with `fix(ui): …` or `fix(app): …`.
   - Ensure all tests pass, ask the user if questions arise.
 
 ## Part 3: Gym module
@@ -512,7 +512,7 @@ Rules that apply to every task:
 
   - [~] 16.2 Implement the pure exercise normalisation library
     - `scripts/lib/exercises.ts`: `normaliseExercise(raw, index)` (`ok` / `excluded` / `fatal`), `findDuplicateIds`, `sortById`, and `serialiseExercises` with fixed key order and no timestamps.
-    - Example tests: whitespace and case variants of muscles map to canonical spelling; missing equipment ג†’ `other`; blank name ג†’ excluded with reason; unknown level ג†’ fatal.
+    - Example tests: whitespace and case variants of muscles map to canonical spelling; missing equipment → `other`; blank name → excluded with reason; unknown level → fatal.
     - Verify and commit: `npm run typecheck`; `npx vitest --run scripts`; commit `feat(gym): add exercise source normalisation`
     - _Requirements: 13.1, 13.3, 13.4, 13.8_
 
@@ -523,7 +523,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run p32.property`; commit `test(gym): add exercise normalisation property test (P32)`
 
   - [~] 16.4 Implement the Exercise_Build_Script CLI with fixture-based tests
-    - `scripts/build-exercises.ts`: `--src <free-exercise-db checkout> --out <dir>`; read `dist/exercises.json`; run all fatal checks first and exit non-zero before writing; resize images with `sharp` (`fit: 'inside'`, 600 px, `withoutEnlargement`, JPEG quality 80); BlurHash from a 32 ֳ— 32 raw render with `encode(ג€¦, 4, 3)`; drop and print missing or undecodable images; write into a temp directory and rename over the output only on success; print included and excluded counts.
+    - `scripts/build-exercises.ts`: `--src <free-exercise-db checkout> --out <dir>`; read `dist/exercises.json`; run all fatal checks first and exit non-zero before writing; resize images with `sharp` (`fit: 'inside'`, 600 px, `withoutEnlargement`, JPEG quality 80); BlurHash from a 32 × 32 raw render with `encode(…, 4, 3)`; drop and print missing or undecodable images; write into a temp directory and rename over the output only on success; print included and excluded counts.
     - `scripts/fixtures/free-exercise-db/`: 5 exercises with small images, including one missing and one corrupt image, plus a fatal-input variant.
     - `scripts/__tests__/build-exercises.test.ts`: two runs into two temp directories are byte-identical (every file); fatal input exits non-zero and leaves an existing output directory unchanged; images are at most 600 px on the long side and small images are not enlarged.
     - Verify and commit: `npm run typecheck`; `npx vitest --run scripts`; commit `feat(gym): add exercise build script with fixture tests`
@@ -532,7 +532,7 @@ Rules that apply to every task:
 - [ ] 17. Gym strength metrics and PR detection
   - [~] 17.1 Implement strength metrics, entry parsing and weight display
     - `src/modules/gym/logic/metrics.ts` (`isValidStoredSet`, `isCompletedSet`, `e1rm`, `setVolume`, `exerciseVolume`, `sessionVolume`, `topWeight`, `bestE1rm`, `topSet`, `sessionDurationMs`, `volumeChange`), `entry.ts` (`parseWeight`, `parseReps`, `canComplete`), `format.ts` (`formatWeight`, `formatE1rm`, `formatVolume`).
-    - Example tests: E1RM 100 kg ֳ— 5 displays 116.7 kg (R74.5 reference); `volumeChange(0, undefined)` is `first`; no `pct` when the previous volume is 0.
+    - Example tests: E1RM 100 kg × 5 displays 116.7 kg (R74.5 reference); `volumeChange(0, undefined)` is `first`; no `pct` when the previous volume is 0.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/gym/logic`; commit `feat(gym): add strength metrics and set entry parsing`
     - _Requirements: 19.1, 19.6, 19.7, 19.8, 19.9, 22.2, 22.5, 22.8, 23.1, 23.2, 23.3, 23.4, 23.5, 23.6, 23.7, 23.8, 23.9, 23.10_
 
@@ -578,14 +578,14 @@ Rules that apply to every task:
 
   - [~] 17.10 Implement the PR_Detector
     - `src/modules/gym/logic/pr.ts`: `completionOrder`, `PriorStats`, `statsOf`, `evaluateAgainst`, `detectPrs` (one pass with a max-Fenwick tree over distinct weights in descending order), `prInputsForExercise` (Finished and Active Sessions), and a memoised selector `prMarksFor(sessions, exerciseId)`.
-    - Example tests: first set gets `[]`; equal weight is not a weight PR; E1RM gain of exactly 0.001 kg is not a PR; rep PR needs a prior set with weight ג‰¥ the current weight.
+    - Example tests: first set gets `[]`; equal weight is not a weight PR; E1RM gain of exactly 0.001 kg is not a PR; rep PR needs a prior set with weight ≥ the current weight.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/gym/logic`; commit `feat(gym): add PR detector`
     - _Requirements: 24.1, 24.2, 24.3, 24.4, 24.5, 24.6, 24.8, 24.9, 24.10, 24.11, 24.12, 24.13_
 
   - [~] 17.11 Write property test for PR detection against the reference model
     - **Property 61: PR detection matches the reference model**
     - **Validates: Requirements 24.1, 24.2, 24.3, 24.4, 24.5, 24.6, 24.11, 24.12**
-    - Naive O(nֲ²) oracle in `src/test/oracles/pr.ts`.
+    - Naive O(n²) oracle in `src/test/oracles/pr.ts`.
     - Verify and commit: `npm run typecheck`; `npx vitest --run p61.property`; commit `test(gym): add PR reference-model property test (P61)`
 
   - [~] 17.12 Write property test for incremental PR evaluation
@@ -613,7 +613,7 @@ Rules that apply to every task:
 
   - [~] 18.3 Implement session editing operations and the session reducer
     - `src/modules/gym/logic/session.ts` (part 1): `startFromRoutine`, `startEmpty`, `addExercises`, `addSet` (no-op at 20 sets), `removeSet`, `removeEntry`, `restoreRemoved`, `moveEntry`, `editSetField`, `completeSet` (sets `completedAt`, starts the rest timer with the entry's `restSec` or the default), `uncompleteSet`, and `sessionReducer` dispatching these. Ids and time come from an injected context.
-    - Example tests: starting from a routine with 3 ֳ— 8ג€“12 gives 3 drafts; removing the last Set keeps the empty entry.
+    - Example tests: starting from a routine with 3 × 8–12 gives 3 drafts; removing the last Set keeps the empty entry.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/gym/logic`; commit `feat(gym): add active session editing operations`
     - _Requirements: 18.1, 18.2, 18.3, 18.4, 18.8, 18.9, 19.5, 19.7, 19.10, 20.1_
 
@@ -630,7 +630,7 @@ Rules that apply to every task:
     - _Requirements: 20.1, 20.2, 20.3, 20.4, 20.5_
 
   - [~] 18.6 Implement Routine operations and validation
-    - `src/modules/gym/logic/routine.ts`: `appendItems` (defaults 3 ֳ— 8ג€“12, no rest), `moveItem`, `moveUp`, `moveDown`, `validateItemField`, `validateRoutineName`, plus the 50-item cap.
+    - `src/modules/gym/logic/routine.ts`: `appendItems` (defaults 3 × 8–12, no rest), `moveItem`, `moveUp`, `moveDown`, `validateItemField`, `validateRoutineName`, plus the 50-item cap.
     - Example tests: rest 20 s is rejected; min 12 > max 10 is rejected.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/gym/logic`; commit `feat(gym): add routine operations and validation`
     - _Requirements: 17.1, 17.3, 17.4, 17.5, 17.6, 17.9, 17.10, 17.11_
@@ -765,7 +765,7 @@ Rules that apply to every task:
 
 - [ ] 20. Gym data access and module wiring
   - [~] 20.1 Implement exercise data access
-    - `src/modules/gym/data/exercises.ts`: `useLibrary()` (fetch precached `exercises/exercises.json` once per run, error state), `useExercises()` (library + custom + archive flags, live), `createCustomExercise` via `createIdempotent` with the photo stored in `gym_images`, `updateCustomExercise`, `archiveExercise` (one write: archive flag + removal of every referencing Routine_Item, `recordDiffUndo('Exercise archived', ג€¦)`), `restoreExercise` (never re-adds Routine_Items), `getImageUrl` for stored photos.
+    - `src/modules/gym/data/exercises.ts`: `useLibrary()` (fetch precached `exercises/exercises.json` once per run, error state), `useExercises()` (library + custom + archive flags, live), `createCustomExercise` via `createIdempotent` with the photo stored in `gym_images`, `updateCustomExercise`, `archiveExercise` (one write: archive flag + removal of every referencing Routine_Item, `recordDiffUndo('Exercise archived', …)`), `restoreExercise` (never re-adds Routine_Items), `getImageUrl` for stored photos.
     - Data tests on fake-indexeddb: archive removes routine items and Undo restores them; image read failure is reported.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/gym/data`; commit `feat(gym): add exercise data access with archive and undo`
     - _Requirements: 14.7, 14.8, 15.2, 15.3, 15.5, 15.6, 15.8, 16.1, 16.3, 16.4, 16.5, 16.6, 16.7, 16.8, 16.9, 16.11_
@@ -792,7 +792,7 @@ Rules that apply to every task:
     - `src/modules/gym/data/backup.ts`: `exportData` (custom exercises, library state, routines, sessions, images as base64 with MIME type), `importData` inside the caller's transaction, `backup.schema` and `sections()` in the design order.
     - `src/modules/gym/data/trainingLog.ts`: `provides.trainingLog.listFinishedSessions()`.
     - `src/modules/gym/index.ts`: every route from the design table, each lazily loading its screen file under `src/modules/gym/ui/screens/` (create placeholder screens now; tasks 21.x replace them), `useCommandEntries` (non-archived exercises, routines, "Gym" screen, "Start workout" action), `Overlay` (`ui/ActiveSessionLink.tsx` placeholder), `StartupPrompt` (`ui/ResumePrompt.tsx` placeholder), `lifecycle.flushPendingWrites` (Autosaver flush), `settings.Section` (`ui/GymSettingsSection.tsx` placeholder), `DashboardCard` (`ui/GymDashboardCard.tsx` placeholder).
-    - Example test: export ג†’ clear ג†’ import restores equal records for a small fixture state.
+    - Example test: export → clear → import restores equal records for a small fixture state.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/gym`; commit `feat(gym): add gym backup and module wiring`
     - _Requirements: 2.1, 2.3, 2.7, 6.2, 8.4, 10.4, 20.7, 21.2, 29.2, 72.2_
 
@@ -829,7 +829,7 @@ Rules that apply to every task:
   - [~] 21.2 Build the Custom_Exercise form, archive flow and Gym settings section
     - Custom_Exercise form (create and edit): name, primary and secondary muscle pickers, equipment, one photo through `processImage` (1024 px, quality 0.85), duplicate-name warning, inline errors, dirty-sheet confirmation.
     - Archive action on the detail screen with the confirmation listing affected Routines and item counts, then Undo_Toast.
-    - `GymSettingsSection.tsx`: default rest time (30ג€“600 in 15 s steps), rest sound switch, "Download all exercise photos" with "N of M" and disabled button while running, archived exercises sorted by name with "Restore" and an empty state.
+    - `GymSettingsSection.tsx`: default rest time (30–600 in 15 s steps), rest sound switch, "Download all exercise photos" with "N of M" and disabled button while running, archived exercises sorted by name with "Restore" and an empty state.
     - Component tests: invalid form names every failing field; archive confirmation lists routines.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/gym/ui`; commit `feat(gym): add custom exercise form, archive flow and gym settings`
     - _Requirements: 5.2, 13.7, 13.10, 15.1, 15.2, 15.3, 15.4, 15.5, 15.7, 15.8, 15.9, 16.1, 16.2, 16.5, 16.6, 16.8, 16.9, 16.10_
@@ -848,7 +848,7 @@ Rules that apply to every task:
 
   - [~] 21.5 Build Session_Logger part 2: set rows, PR labels, rest timer and autosave wiring
     - Set rows: weight and reps `NumberField`s with pre-fill styling, "previous" label, complete button gated by `canComplete`, swipe-to-delete with Undo, add set (disabled at 20), PR highlight and labels from `prMarksFor`.
-    - Rest timer: full timer on the session screen and `ActiveSessionLink.tsx` overlay with compact timer on every other route; גˆ’15 s, +15 s, skip; foreground alert; sound `public/sounds/rest-done.m4a` (ג‰₪ 2 s; generate it with a small script; if no AAC encoder is available, generate a WAV and add `wav` to the precache glob) played through an `HTMLAudioElement` primed on the first tap, failures swallowed, respecting `gym.restSound`.
+    - Rest timer: full timer on the session screen and `ActiveSessionLink.tsx` overlay with compact timer on every other route; −15 s, +15 s, skip; foreground alert; sound `public/sounds/rest-done.m4a` (≤ 2 s; generate it with a small script; if no AAC encoder is available, generate a WAV and add `wav` to the precache glob) played through an `HTMLAudioElement` primed on the first tap, failures swallowed, respecting `gym.restSound`.
     - Autosave wiring through the `Autosaver` with revert and error Toast on failure.
     - Component tests: completing a set starts the timer; a PR label appears for a new best weight.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/gym/ui`; commit `feat(gym): add set rows, rest timer and autosave wiring`
@@ -874,12 +874,12 @@ Rules that apply to every task:
     - _Requirements: 26.8, 26.9, 26.10, 27.9, 27.11, 28.1, 28.2, 28.3, 28.4, 28.5, 28.6_
 
   - [~] 21.9 Write the Session logging component test with autosave and resume
-    - `src/modules/gym/ui/__tests__/sessionLogging.test.tsx` (R74.7): start from a routine, edit and complete sets (PR label appears), advance fake timers past 500 ms, unmount, remount ג†’ resume prompt ג†’ identical state; stale prompt after 3 h with and without completed sets; finish with incomplete sets confirmation; autosave failure revert.
+    - `src/modules/gym/ui/__tests__/sessionLogging.test.tsx` (R74.7): start from a routine, edit and complete sets (PR label appears), advance fake timers past 500 ms, unmount, remount → resume prompt → identical state; stale prompt after 3 h with and without completed sets; finish with incomplete sets confirmation; autosave failure revert.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/gym/ui`; commit `test(gym): add session logging autosave and resume component test`
     - _Requirements: 21.1, 21.2, 21.3, 21.4, 21.7, 22.3, 74.7_
 
 - [~] 22. Checkpoint: Gym module
-  - Run `npm run typecheck`, `npx vitest --run` and `npm run build`; fix any failure and commit fixes with `fix(gym): ג€¦`.
+  - Run `npm run typecheck`, `npx vitest --run` and `npm run build`; fix any failure and commit fixes with `fix(gym): …`.
   - Ensure all tests pass, ask the user if questions arise.
 
 ## Part 4: Nutrition module
@@ -894,7 +894,7 @@ Rules that apply to every task:
 
   - [~] 23.2 Implement the Energy_Calculator
     - `src/modules/nutrition/logic/energy.ts`: `bmr`, `currentWeight`, `loggedTrainingHours`, `effectiveTrainingHours`, `activityFactor`, `computeEnergy`, `calorieTarget`, `proteinTarget`, `proteinFactorFor`; no intermediate rounding.
-    - Reference example tests (R74.5): Mifflin male W 80, H 180, A 30 ג†’ 1780; female W 60, H 165, A 25 ג†’ 1345.25; logged hours with earliest session 3 days ago and sessions 1 h, 1.5 h, 5 h ג†’ 6.5 h and factor 1.725; earliest 60 days ago with capped sum 12 h ג†’ 3.0 h and factor 1.55; factor boundaries 0.99 ג†’ 1.2 and 1 ג†’ 1.375; calorie floor for each sex.
+    - Reference example tests (R74.5): Mifflin male W 80, H 180, A 30 → 1780; female W 60, H 165, A 25 → 1345.25; logged hours with earliest session 3 days ago and sessions 1 h, 1.5 h, 5 h → 6.5 h and factor 1.725; earliest 60 days ago with capped sum 12 h → 3.0 h and factor 1.55; factor boundaries 0.99 → 1.2 and 1 → 1.375; calorie floor for each sex.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/nutrition/logic`; commit `feat(nutrition): add energy calculator`
     - _Requirements: 29.1, 29.2, 29.3, 29.4, 29.5, 29.7, 29.8, 29.9, 29.10, 29.12, 30.1, 30.3, 30.4, 30.5, 30.6, 30.7, 30.8, 30.10_
 
@@ -968,7 +968,7 @@ Rules that apply to every task:
 
   - [~] 24.8 Implement barcode check digits, UPC-E expansion and normalisation
     - `src/modules/nutrition/logic/barcode.ts`: `gs1CheckDigit`, `isValidGs1`, `expandUpcE`, `isValidUpcE`, `normaliseBarcode`, `validateTyped`, `validFor(format, text)`.
-    - Example tests: UPC-E expansions for each `x[5]` case from the design table; typed "4006381333931" ג†’ EAN_13; "12345" ג†’ length error.
+    - Example tests: UPC-E expansions for each `x[5]` case from the design table; typed "4006381333931" → EAN_13; "12345" → length error.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/nutrition/logic`; commit `feat(nutrition): add barcode validation and normalisation`
     - _Requirements: 33.3, 33.5, 33.7, 33.8, 33.9_
 
@@ -1089,7 +1089,7 @@ Rules that apply to every task:
 
   - [~] 26.12 Implement the Trend_Corrector
     - `src/modules/nutrition/logic/trend.ts`: `trendCorrection`, `correctedBurn`, `suggestionView`, `acceptedOffset(C, tdee)`.
-    - Reference example test (R39.12, R74.5): L 21, I 2200, blocks 80.0 ג†’ 79.5 gives C = 2475.
+    - Reference example test (R39.12, R74.5): L 21, I 2200, blocks 80.0 → 79.5 gives C = 2475.
     - Example tests: shortfall list when L < 14; out-of-range C; close-enough when within 100 kcal.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/nutrition/logic`; commit `feat(nutrition): add trend corrector`
     - _Requirements: 39.1, 39.2, 39.3, 39.4, 39.5, 39.6, 39.7, 39.8, 39.9, 39.10, 39.12, 39.13, 39.14, 39.15, 39.16_
@@ -1135,7 +1135,7 @@ Rules that apply to every task:
     - _Requirements: 4.5, 29.3, 29.6, 29.11, 29.13, 39.9, 39.10, 39.11_
 
   - [~] 27.4 Implement the Open Food Facts client, Product_Cache and Food_Lookup flow
-    - Design verification item 2: check with one live request (developer machine only, no Owner data) whether `fields=energy-kcal_100g,ג€¦` returns nutrient values; if not, switch `OFF.FIELDS` to `product_name,brands,serving_quantity,nutriments` and record the deviation from R34.2 in a code comment and the task summary. If the network is unavailable, keep the design field list and report that the check was not possible.
+    - Design verification item 2: check with one live request (developer machine only, no Owner data) whether `fields=energy-kcal_100g,…` returns nutrient values; if not, switch `OFF.FIELDS` to `product_name,brands,serving_quantity,nutriments` and record the deviation from R34.2 in a code comment and the task summary. If the network is unavailable, keep the design field list and report that the check was not possible.
     - `src/modules/nutrition/net/off.ts` (GET with `credentials: 'omit'`, 10 s timeout, request token so late responses are ignored), `data/foodLookup.ts` (the design flowchart: unsupported barcode, cache hit, manual records never refetched, 30-day background revalidation, offline, not found, error with Retry), `data/products.ts` (manual product save).
     - Integration tests with mocked `fetch` (R74.8): cache hit with no request, stale revalidation, not found, missing kcal, offline, timeout with a late response ignored, manual record never refetched.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/nutrition`; commit `feat(nutrition): add open food facts lookup and product cache`
@@ -1156,7 +1156,7 @@ Rules that apply to every task:
   - [~] 27.7 Implement Nutrition backup and the full Nutrition ModuleDefinition
     - `src/modules/nutrition/data/backup.ts`: `exportData` (food entries, saved meals, day marks, products, weights, state, thumbnails as base64), `importData`, `backup.schema`, `sections()`.
     - `src/modules/nutrition/index.ts`: every route from the design list, each lazily loading a screen file under `src/modules/nutrition/ui/screens/` (create placeholders now; tasks 28.x replace them), `useCommandEntries` (Saved_Meals, "Nutrition" screen, "Log food", "Scan barcode", "Estimate meal from photo" with `needsNetwork`, "Log weight"), `settings.Section` (`ui/NutritionSettingsSection.tsx` placeholder), `DashboardCard` (`ui/NutritionDashboardCard.tsx` placeholder).
-    - Example test: export ג†’ clear ג†’ import restores equal records for a small fixture state.
+    - Example test: export → clear → import restores equal records for a small fixture state.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/nutrition`; commit `feat(nutrition): add nutrition backup and module wiring`
     - _Requirements: 2.1, 2.3, 2.7, 6.2, 8.4, 72.2_
 
@@ -1198,7 +1198,7 @@ Rules that apply to every task:
     - _Requirements: 37.2, 37.3, 37.4, 37.5, 37.6, 37.7, 37.8, 37.9, 37.18, 37.19, 74.7_
 
   - [~] 28.7 Build the weight log, trend chart and trend suggestion
-    - `/nutrition/weight`: weight form (date ג‰₪ today, replace confirmation), list with delete and Undo, chart with entries and trend line (30/90/180/365 days, all), gaps for missing trend values; trend suggestion card using `suggestionView` with Accept and Ignore, shortfall list and out-of-range note.
+    - `/nutrition/weight`: weight form (date ≤ today, replace confirmation), list with delete and Undo, chart with entries and trend line (30/90/180/365 days, all), gaps for missing trend values; trend suggestion card using `suggestionView` with Accept and Ignore, shortfall list and out-of-range note.
     - Component tests: Accept stores the rounded Burn_Offset; Ignore hides the card for 7 days.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/nutrition/ui`; commit `feat(nutrition): add weight log, trend chart and burn suggestion`
     - _Requirements: 38.1, 38.2, 38.3, 38.4, 38.5, 38.9, 38.10, 38.11, 39.7, 39.8, 39.9, 39.10, 39.11, 39.15, 39.16_
@@ -1212,7 +1212,7 @@ Rules that apply to every task:
     - _Requirements: 4.4, 5.2, 5.7, 29.6, 29.13, 30.2, 30.4, 30.9, 32.4, 32.5, 32.7, 32.8, 36.8, 39.11_
 
 - [~] 29. Checkpoint: Nutrition module
-  - Run `npm run typecheck`, `npx vitest --run` and `npm run build`; fix any failure and commit fixes with `fix(nutrition): ג€¦`.
+  - Run `npm run typecheck`, `npx vitest --run` and `npm run build`; fix any failure and commit fixes with `fix(nutrition): …`.
   - Ensure all tests pass, ask the user if questions arise.
 
 ## Part 5: Chess module
@@ -1227,7 +1227,7 @@ Rules that apply to every task:
 
   - [~] 30.2 Implement rating bands, daily tip rotation and the Tips_Library
     - `src/modules/chess/logic/bands.ts` (`ratingBand`, `chessRating`), `tips.ts` (`selectDailyTip`, `filterTips`).
-    - `public/data/tips.json`: authored tips meeting R41.1 and R41.2 (at least 12 tips for each of the bands 800ג€“999, 1000ג€“1199, 1200ג€“1399, 1400ג€“1599 and at least 6 for each other band), topic tags from `TOPICS`, detector tags from `DETECTOR_IDS` so that every detector has tips in every band where possible.
+    - `public/data/tips.json`: authored tips meeting R41.1 and R41.2 (at least 12 tips for each of the bands 800–999, 1000–1199, 1200–1399, 1400–1599 and at least 6 for each other band), topic tags from `TOPICS`, detector tags from `DETECTOR_IDS` so that every detector has tips in every band where possible.
     - Data test (R41.3): loads `tips.json`, validates every tip against criterion 1 and the per-band minimum counts.
     - Example tests: bands for 799, 800, 999, 1000, 1999, 2000.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/chess/logic`; commit `feat(chess): add rating bands, daily tips and tips library`
@@ -1244,7 +1244,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run p108.property`; commit `test(chess): add daily tip rotation property test (P108)`
 
   - [~] 30.5 Implement free-board history
-    - `src/modules/chess/logic/boardHistory.ts`: `play`, `undo`, `redo`, `reset`, `fenOf`, `loadInput` (FEN ג‰₪ 100 characters, PGN ג‰₪ 100,000 characters, PGN shows its final position).
+    - `src/modules/chess/logic/boardHistory.ts`: `play`, `undo`, `redo`, `reset`, `fenOf`, `loadInput` (FEN ≤ 100 characters, PGN ≤ 100,000 characters, PGN shows its final position).
     - Example tests: illegal move returns `null`; an oversized PGN is rejected with the limit message.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/chess/logic`; commit `feat(chess): add free board history`
     - _Requirements: 42.2, 42.3, 42.7, 42.8, 42.9, 42.10_
@@ -1267,7 +1267,7 @@ Rules that apply to every task:
 
 - [ ] 31. Chess.com client, Game_Sync, game logic and CORS_Proxy
   - [~] 31.1 Implement the ChessCom_Client
-    - `src/modules/chess/net/chesscom.ts`: `createChessComClient` with the serial FIFO queue, offline short-circuit, `credentials: 'omit'`, lowercase usernames, 15 s timeout without retry, 429 waits of 1, 2 and 4 s, 404/410, 5xx, other status, non-JSON, direct `TypeError` ג†’ sticky proxy for the run or `network-direct-no-proxy`, proxy `TypeError` ג†’ `network-proxy`, `onUnreachable`, `resetRoute`; `net/messages.ts` with the exact R40.5 and R46 strings.
+    - `src/modules/chess/net/chesscom.ts`: `createChessComClient` with the serial FIFO queue, offline short-circuit, `credentials: 'omit'`, lowercase usernames, 15 s timeout without retry, 429 waits of 1, 2 and 4 s, 404/410, 5xx, other status, non-JSON, direct `TypeError` → sticky proxy for the run or `network-direct-no-proxy`, proxy `TypeError` → `network-proxy`, `onUnreachable`, `resetRoute`; `net/messages.ts` with the exact R40.5 and R46 strings.
     - Integration tests with mocked `fetch` and fake timers (R74.8): 200, 404, 410, 429 with the three waits, 429 exhausted, 5xx, 15 s timeout, non-JSON body, CORS `TypeError` with and without proxy, proxy sticky for the run and reset on URL change.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/chess/net`; commit `feat(chess): add chess.com client with retries and proxy fallback`
     - _Requirements: 1.9, 3.2, 40.5, 46.1, 46.2, 46.3, 46.4, 46.5, 46.6, 46.7, 46.8, 46.9, 74.8_
@@ -1343,7 +1343,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run p119.property`; commit `test(chess): add clock comment property test (P119)`
 
   - [~] 31.15 Implement the Cloudflare CORS_Proxy with tests and deploy guide
-    - `worker/src/index.ts` (OPTIONS 204, non-GET 403, WHATWG path normalisation, only `/pub/` forwarded, status, body and content type kept, `Access-Control-Allow-Origin: ALLOWED_ORIGIN`), `worker/wrangler.toml` (`ALLOWED_ORIGIN` var), `worker/tsconfig.json` with `@cloudflare/workers-types`, `worker/README.md` (step-by-step free-tier deploy and where to paste the URL in Settings ג†’ Chess).
+    - `worker/src/index.ts` (OPTIONS 204, non-GET 403, WHATWG path normalisation, only `/pub/` forwarded, status, body and content type kept, `Access-Control-Allow-Origin: ALLOWED_ORIGIN`), `worker/wrangler.toml` (`ALLOWED_ORIGIN` var), `worker/tsconfig.json` with `@cloudflare/workers-types`, `worker/README.md` (step-by-step free-tier deploy and where to paste the URL in Settings → Chess).
     - Add a `worker` project to `vitest.config.ts` `test.projects` (node environment).
     - `worker/test/index.test.ts` with a stubbed global `fetch` (R74.8): forwarded `/pub/player/x` GET, rejected POST, rejected `/pub/../admin` and `/%2e%2e/x`.
     - Verify and commit: `npm run typecheck`; `npx vitest --run worker`; commit `feat(chess): add cloudflare cors proxy worker`
@@ -1371,7 +1371,7 @@ Rules that apply to every task:
 
   - [~] 32.3 Implement the Glicko2_Calculator
     - `src/modules/chess/logic/glicko2.ts`: `glicko2` (Illinois volatility iteration, `Glicko2NonConvergence` after `maxIter`), `clampRd`, `initialRating(chessRating)`, `displayRating`.
-    - Reference example test (R49.5, R74.5): (1500, 200, 0.06) against win (1400, 30), loss (1550, 100), loss (1700, 300) ג†’ 1464.06 ֲ± 0.01, RD 151.52 ֲ± 0.01, ֿƒ 0.05999 ֲ± 0.00001.
+    - Reference example test (R49.5, R74.5): (1500, 200, 0.06) against win (1400, 30), loss (1550, 100), loss (1700, 300) → 1464.06 ± 0.01, RD 151.52 ± 0.01, σ 0.05999 ± 0.00001.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/chess/logic`; commit `feat(chess): add glicko-2 calculator`
     - _Requirements: 49.1, 49.2, 49.3, 49.4, 49.5, 49.8_
 
@@ -1408,7 +1408,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run p128.property`; commit `test(chess): add theme statistics property test (P128)`
 
   - [~] 32.10 Implement puzzle data loading and attempt recording
-    - `src/modules/chess/data/puzzles.ts`: `loadPuzzles` (fetch `data/puzzles.json` once, parse with zod, "Puzzles could not be loaded." on failure), `recordAttempt` (one transaction, rated only when no stored attempt for the puzzle, initial rating from Chess_Rating with RD 350 and ֿƒ 0.06, clamped RD, idempotent on `idemKey`), `usePuzzleRating`, `useAttempts`.
+    - `src/modules/chess/data/puzzles.ts`: `loadPuzzles` (fetch `data/puzzles.json` once, parse with zod, "Puzzles could not be loaded." on failure), `recordAttempt` (one transaction, rated only when no stored attempt for the puzzle, initial rating from Chess_Rating with RD 350 and σ 0.06, clamped RD, idempotent on `idemKey`), `usePuzzleRating`, `useAttempts`.
     - Data tests: a retried attempt with the same key stores once and updates the rating once; a load failure stores nothing.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/chess/data`; commit `feat(chess): add puzzle loading and attempt recording`
     - _Requirements: 47.10, 48.10, 48.11, 48.12, 48.13, 49.2, 49.4_
@@ -1505,7 +1505,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run p141.property`; commit `test(chess): add opening statistics property test (P141)`
 
   - [~] 33.17 Implement the starter Repertoire and Repertoire data access
-    - `public/data/repertoire-starter.json`: four trees as in R51.1 (Italian/Giuoco Piano and London for White, Caro-Kann and Two Knights for Black), each with a main line of at least 16 plies and at least 2 common opponent replies at the first 3 opponent-to-move positions, optional explanations ג‰₪ 300 characters.
+    - `public/data/repertoire-starter.json`: four trees as in R51.1 (Italian/Giuoco Piano and London for White, Caro-Kann and Two Knights for Black), each with a main line of at least 16 plies and at least 2 common opponent replies at the first 3 opponent-to-move positions, optional explanations ≤ 300 characters.
     - `src/modules/chess/data/repertoire.ts`: load the starter set through `addMove`, tree CRUD, add/replace/delete with `recordDiffUndo`, reset with confirmation data and Undo, grade transaction (`put` SRS + `add` review), session-local graded set.
     - Data test (R51.2): starter ply and reply counts and legality of every move.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/chess`; commit `feat(chess): add starter repertoire and repertoire data access`
@@ -1563,7 +1563,7 @@ Rules that apply to every task:
     - _Requirements: 57.2, 57.3, 57.4, 57.5, 57.12, 57.13_
 
   - [~] 34.10 Implement Mistake_Detectors part 2: missed own tactic, delayed castling, early queen
-    - `detectors/missedOwnTactic.ts` (mates as ֲ±10,000, gain ג‰¥ 200 cp), `delayedCastling.ts` (once, Owner's 12th move), `earlyQueen.ts` (once, first five Owner moves, non-capture).
+    - `detectors/missedOwnTactic.ts` (mates as ±10,000, gain ≥ 200 cp), `delayedCastling.ts` (once, Owner's 12th move), `earlyQueen.ts` (once, first five Owner moves, non-capture).
     - `logic/analysis/__tests__/detectors.part2.fixtures.test.ts` (R57.13): one firing and one silent fixture per detector.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/chess/logic/analysis`; commit `feat(chess): add missed tactic, delayed castling and early queen detectors`
     - _Requirements: 57.2, 57.6, 57.7, 57.8, 57.12, 57.13_
@@ -1597,7 +1597,7 @@ Rules that apply to every task:
 
   - [~] 34.16 Implement the Pattern_Report
     - `src/modules/chess/logic/analysis/patterns.ts`: `patternReport` (scope and time-class filter, too-few below 5 games, game and loss shares per detector and move bucket, qualifying rule, sorting, text from a phrase table, Practice or Read tips action).
-    - Example test: the R59.5 sentence "You hang pieces in moves 21ג€“30 in 40 % of losses (4 of 10)".
+    - Example test: the R59.5 sentence "You hang pieces in moves 21–30 in 40 % of losses (4 of 10)".
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/chess/logic/analysis`; commit `feat(chess): add cross-game pattern report`
     - _Requirements: 59.1, 59.2, 59.3, 59.4, 59.5, 59.6, 59.7, 59.8_
 
@@ -1613,14 +1613,14 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run p151.property`; commit `test(chess): add pattern bounds property test (P151)`
 
   - [~] 34.19 Implement Game_Analyzer part 1: queue and per-position evaluation loop
-    - `src/modules/chess/engine/gameAnalyzer.ts`: `enqueue` (newest first, one game at a time, default queue of 10), per game `buildPositions` ג†’ read stored evals for (gameId, depth, version) ג†’ terminal positions stored without the engine ג†’ each missing position analysed and stored before the next ג†’ progress "N of T positions" ג†’ when complete, `buildReport` and one transaction storing the report and deleting reports and evals of other depth or version.
+    - `src/modules/chess/engine/gameAnalyzer.ts`: `enqueue` (newest first, one game at a time, default queue of 10), per game `buildPositions` → read stored evals for (gameId, depth, version) → terminal positions stored without the engine → each missing position analysed and stored before the next → progress "N of T positions" → when complete, `buildReport` and one transaction storing the report and deleting reports and evals of other depth or version.
     - `data/analysisStore.ts` (`AnalysisStore` over `chess_evals` and `chess_reports`).
     - Integration tests with the mock engine: a second run reuses stored evals and sends no `go` for them; the outdated report is replaced.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/chess/engine`; commit `feat(chess): add game analyzer queue and evaluation loop`
     - _Requirements: 55.2, 55.3, 55.4, 55.5, 55.7, 55.11, 60.1, 60.2, 60.3, 60.4, 60.5_
 
   - [~] 34.20 Implement Game_Analyzer part 2: failures, cancel and pause
-    - Worker error or timeout ג†’ restart and retry the same position once ג†’ second failure stops analysis and queue with "Analysis stopped: the engine stopped responding."; start failure message with Retry; storage failure stops analysis and queue keeping stored evals; `cancel` (stop engine within 1 s, clear queue, keep evals); `pause`/`resume` on `visibilitychange`.
+    - Worker error or timeout → restart and retry the same position once → second failure stops analysis and queue with "Analysis stopped: the engine stopped responding."; start failure message with Retry; storage failure stops analysis and queue keeping stored evals; `cancel` (stop engine within 1 s, clear queue, keep evals); `pause`/`resume` on `visibilitychange`.
     - Integration tests with the mock engine (R74.8): restart-and-retry succeeds; second failure stops the queue; cancel keeps evals; storage failure stops.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/chess/engine`; commit `feat(chess): add game analyzer failure handling, cancel and pause`
     - _Requirements: 55.6, 55.8, 55.9, 55.10, 60.7, 74.8_
@@ -1633,13 +1633,13 @@ Rules that apply to every task:
 - [ ] 35. Chess module wiring and screens
   - [~] 35.1 Implement Chess backup and the full Chess ModuleDefinition
     - `src/modules/chess/data/backup.ts`: `exportData` (games, sync state, ratings, puzzle attempts and rating, trees, SRS, reviews, tip state, evals, reports), `importData`, `backup.schema`, `sections()`.
-    - `src/modules/chess/index.ts`: every route from the design list, each lazily loading a screen file under `src/modules/chess/ui/screens/` (create placeholders now; tasks 35.2ג€“35.9 replace them), `useCommandEntries` (repertoire trees, "Chess" screen, "Next puzzle", "Drill openings", "Sync chess games" with `needsNetwork`), `settings.Section` (`ui/ChessSettingsSection.tsx` placeholder), `DashboardCard` (`ui/ChessDashboardCard.tsx` placeholder).
-    - Example test: export ג†’ clear ג†’ import restores equal records including evals and reports.
+    - `src/modules/chess/index.ts`: every route from the design list, each lazily loading a screen file under `src/modules/chess/ui/screens/` (create placeholders now; tasks 35.2–35.9 replace them), `useCommandEntries` (repertoire trees, "Chess" screen, "Next puzzle", "Drill openings", "Sync chess games" with `needsNetwork`), `settings.Section` (`ui/ChessSettingsSection.tsx` placeholder), `DashboardCard` (`ui/ChessDashboardCard.tsx` placeholder).
+    - Example test: export → clear → import restores equal records including evals and reports.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/chess`; commit `feat(chess): add chess backup and module wiring`
     - _Requirements: 2.1, 2.3, 2.7, 8.4, 60.6, 72.2_
 
   - [~] 35.2 Build the Chess start screen and the tips browser
-    - Start screen: daily tip with band, Chess.com ratings with age label and background refresh, "Using manual rating" note, Puzzle_Rating ("provisional" while RD > 110, "ג€”" when none), due drill count, shortcuts.
+    - Start screen: daily tip with band, Chess.com ratings with age label and background refresh, "Using manual rating" note, Puzzle_Rating ("provisional" while RD > 110, "—" when none), due drill count, shortcuts.
     - Tips browser with band filter (default the Chess_Rating band) and topic filter, "No tips match" with "Clear filters", tip detail.
     - Component tests: daily tip stays the same after a band change on the same date; empty filter state.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/chess/ui`; commit `feat(chess): add chess start screen and tips browser`
@@ -1690,7 +1690,7 @@ Rules that apply to every task:
     - _Requirements: 5.2, 40.1, 40.2, 40.3, 40.4, 40.5, 40.6, 40.7, 40.8, 46.7, 61.1, 61.2, 61.3, 61.4, 61.5_
 
 - [~] 36. Checkpoint: Chess module
-  - Run `npm run typecheck`, `npx vitest --run` and `npm run build`; fix any failure and commit fixes with `fix(chess): ג€¦`.
+  - Run `npm run typecheck`, `npx vitest --run` and `npm run build`; fix any failure and commit fixes with `fix(chess): …`.
   - Ensure all tests pass, ask the user if questions arise.
 
 ## Part 6: Final integration
@@ -1716,7 +1716,7 @@ Rules that apply to every task:
 - [ ] 38. Cross-module properties and end-to-end wiring
   - [~] 38.1 Run the backup properties against the real Module_Registry
     - `src/test/arbitraries/appStateReal.ts`: `arbAppState` over core data and every table of the real Gym, Nutrition and Chess modules (built from the module arbitraries, each table possibly empty, Hebrew and emoji text, full-precision fractions, stored images).
-    - Switch the Property 14, 15 and 16 tests from the generic test registry to `MODULES` and this generator; keep their tags and `numRuns` ג‰¥ 100.
+    - Switch the Property 14, 15 and 16 tests from the generic test registry to `MODULES` and this generator; keep their tags and `numRuns` ≥ 100.
     - Verify and commit: `npm run typecheck`; `npx vitest --run p14.property p15.property p16.property`; commit `test(core): run backup properties against the real module registry`
     - _Requirements: 7.9, 8.1, 8.2, 8.5, 8.6_
 
@@ -1744,7 +1744,7 @@ Rules that apply to every task:
     - _Requirements: 1.3, 1.5, 1.10, 2.3, 2.7, 5.1, 12.5, 47.9, 72.2_
 
 - [~] 39. Final checkpoint: whole app
-  - Run `npm run typecheck`, `npx vitest --run` and `npm run build` from a clean state (`npm ci` first); fix any failure and commit fixes with `fix(<scope>): ג€¦`.
+  - Run `npm run typecheck`, `npx vitest --run` and `npm run build` from a clean state (`npm ci` first); fix any failure and commit fixes with `fix(<scope>): …`.
   - Confirm `git status` shows no uncommitted changes other than task status updates in `tasks.md`, and that every commit since the initial one is on `feature/personal-lab`. Leave the branch unmerged and unpushed; ask the user before merging into `main` (a push to `main` deploys to GitHub Pages).
   - Ensure all tests pass, ask the user if questions arise.
 
