@@ -197,7 +197,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/undo`; commit `feat(core): add undo service and record-diff undo`
     - _Requirements: 64.2, 64.3, 64.4, 64.5, 64.6, 64.7_
 
-  - [~] 6.2 Write property test for undo identity
+  - [x] 6.2 Write property test for undo identity
     - **Property 23: Undo restores the exact previous state**
     - **Validates: Requirements 64.2, 64.3, 7.11, 16.6, 38.2, 38.3**
     - Run against generated generic table states with delete, replace and bulk-delete actions here; task 38.4 extends the same test to every module destructive action listed in the property.
