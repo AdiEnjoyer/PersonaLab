@@ -319,7 +319,7 @@ Rules that apply to every task:
     - Oracle in `src/test/oracles/reminder.ts`.
     - Verify and commit: `npm run typecheck`; `npx vitest --run p19.property`; commit `test(core): add backup reminder property test (P19)`
 
-- [ ] 8. Network utilities
+- [x] 8. Network utilities
   - [~] 8.1 Implement online state, fetch with timeout, stale-while-revalidate and age labels
     - `src/core/net/online.ts` (`useOnline`, `reportUnreachable`, 5 s probe of `version.json` with `cache: 'no-store'`, `online` event clears flags), `fetchWithTimeout.ts` (timeout, caller abort, network `TypeError`, HTTP status), `swr.ts` (`useRemoteResource` with one in-flight promise per key, data kept on failure, `offline` state), `ageLabel.ts` (pure).
     - Example tests with fake timers: unreachable → probe → recovered within 5 s; two components share one fetch; failure keeps cached data.
