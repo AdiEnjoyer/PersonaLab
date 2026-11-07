@@ -275,7 +275,7 @@ Rules that apply to every task:
     - **Validates: Requirements 6.4**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p10.property`; commit `test(core): add backup file name property test (P10)`
 
-  - [~] 7.11 Write property test for validation stage order
+  - [x] 7.11 Write property test for validation stage order
     - **Property 11: Import validation stops at the earliest failing stage**
     - **Validates: Requirements 7.1, 7.2, 7.3, 7.4**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p11.property`; commit `test(core): add import stage order property test (P11)`
