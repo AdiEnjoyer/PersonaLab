@@ -243,7 +243,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/db`; commit `feat(core): add emergency export for failed migrations`
     - _Requirements: 3.4_
 
-  - [~] 7.5 Implement import application with snapshot undo
+  - [x] 7.5 Implement import application with snapshot undo
     - `applyImport(plan)` in `src/core/backup/apply.ts`: snapshot core and present-module tables, one `rw` transaction clearing and rewriting core data and present modules via `importData`, `core_secrets` untouched, `undoService.push({ label: 'Backup imported', undo: restoreSnapshot })` on success, error without undo on failure; returns the skipped ids for the result Toast.
     - Example tests: failed transaction leaves data unchanged and pushes no undo; undo restores the pre-import state.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/backup`; commit `feat(core): add transactional backup import with undo`

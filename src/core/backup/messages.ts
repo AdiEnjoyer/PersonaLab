@@ -17,6 +17,8 @@ export const IMPORT_MESSAGES = {
   /** R7.5: section (core data or the module id), 1-based record position and field path. */
   invalidRecord: (section: string, position: number, field: string) =>
     `Invalid record in ${section}, record ${position}: ${field}.`,
+  /** R7.10: the import transaction failed and nothing was changed; `reason` is the short write-failure reason. */
+  applyFailed: (reason: string) => `Backup not imported: ${reason}. Your data is unchanged.`,
 } as const;
 
 /** Error Toast texts of a failed export (R6.10, R8.7, R9.7). */
