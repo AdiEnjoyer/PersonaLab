@@ -884,7 +884,7 @@ Rules that apply to every task:
 
 ## Part 4: Nutrition module
 
-- [ ] 23. Nutrition domain model and Energy_Calculator
+- [x] 23. Nutrition domain model and Energy_Calculator
   - [~] 23.1 Define Nutrition constants, types, zod schemas and generators
     - `src/modules/nutrition/constants.ts` (exactly the design constants), `schema.ts` (zod schemas for `FoodEntry`, `SavedMeal`, `SavedMealItem`, `DayMark`, `Product`, `WeightEntry`, the state records and the Nutrition backup data object), `types.ts`.
     - `src/test/arbitraries/nutrition.ts`: `arbFoodEntry`, `arbSavedMeal`, `arbWeightEntries`, `arbDayMarks`, `arbOffProduct`, `arbProfile`, `arbTrainingSessions`.

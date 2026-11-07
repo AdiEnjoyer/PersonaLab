@@ -1,4 +1,4 @@
-import { createElement } from 'react';
+import { createElement, lazy, Suspense } from 'react';
 import { z } from 'zod';
 import { isMultipleOfStep } from '../../core/math/decimal';
 import type { ModuleSettings } from '../../core/registry/types';
@@ -65,11 +65,16 @@ export const nutritionSettingsDefaults: {
   proteinFactor: { cut: 'default', maintain: 'default', bulk: 'default' },
 };
 
-// Placeholder: the Nutrition settings screen task replaces this section.
-function NutritionSettingsSection() {
+/** Keeps the section heading visible while the section (which uses the database) loads. */
+function NutritionSettingsFallback() {
   return createElement('section', { 'aria-label': 'Nutrition settings' }, createElement('h2', null, 'Nutrition'));
 }
 
+const LazyNutritionSettings = lazy(() => import('./ui/NutritionSettingsSection'));
+
+function NutritionSettingsSection() {
+  return createElement(Suspense, { fallback: createElement(NutritionSettingsFallback) }, createElement(LazyNutritionSettings));
+}
 export const nutritionSettings: ModuleSettings = {
   schema: nutritionSettingsSchema,
   defaults: nutritionSettingsDefaults,
