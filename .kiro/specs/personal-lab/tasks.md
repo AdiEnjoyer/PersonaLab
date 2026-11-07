@@ -122,7 +122,7 @@ Rules that apply to every task:
     - Oracle in `src/test/oracles/registry.ts`.
     - Verify and commit: `npm run typecheck`; `npx vitest --run p3.property`; commit `test(core): add registry validator property test (P3)`
 
-- [ ] 4. Database layer
+- [x] 4. Database layer
   - [x] 4.1 Implement the Dexie database, versioning, open handling and change tracking
     - `src/core/db/tables.ts` (`buildStores(modules)` → `${id}_${short}` plus core stores `core_profile`, `core_settings`, `core_secrets`, `core_meta`), `versions.ts` (`DB_VERSION = 1`, `DbMigration`, `MIGRATIONS = []`, `MODULE_DATA_VERSIONS_V1`), `db.ts` (the `db` instance from `MODULES`, migration chain declaration, `openDatabase(): Promise<OpenResult>` mapping `VersionError` → `newer-version`, upgrade error or abort → `migration-failed`, anything else → `unavailable`).
     - `changeTracker.ts`: DBCore middleware that sets `core_meta.lastDataChangeAt` and, when absent, `firstDataAt` after successful mutations of every table except `core_secrets` and `core_meta`.
@@ -155,7 +155,7 @@ Rules that apply to every task:
     - Run against generic idempotent test tables here; task 38.3 extends the same test to every real module create path.
     - Verify and commit: `npm run typecheck`; `npx vitest --run p20.property`; commit `test(core): add idempotent create property test (P20)`
 
-  - [~] 4.6 Write property test for creates without a key
+  - [x] 4.6 Write property test for creates without a key
     - **Property 21: Creates without a key are rejected**
     - **Validates: Requirements 11.5**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p21.property`; commit `test(core): add missing idempotency key property test (P21)`
