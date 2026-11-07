@@ -55,7 +55,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run`; commit `package.json`, `package-lock.json`, configs, `index.html` and `src/` with `chore: scaffold vite react typescript project`.
     - _Requirements: 12.2, 12.3, 74.1_
 
-- [ ] 2. Shared pure helpers and image processing
+- [x] 2. Shared pure helpers and image processing
   - [x] 2.1 Implement math, time, text and id helpers with shared core generators
     - `src/core/math/round.ts` (`round(x, decimals)` half away from zero, exponent-string method), `decimal.ts` (`parseDecimal`, `isMultipleOfStep`), `tolerance.ts` (`relClose`).
     - `src/core/time/localDate.ts` (`toLocalDate`, `addDays`, `daysBetween`, `startOfLocalDate`), `monthRange.ts` (`monthsBack`), `format.ts` (`formatClock`, `formatDurationMinutes`).
@@ -87,7 +87,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/image`; commit `feat(core): add image scaling and blurhash processing`
     - _Requirements: 15.3, 36.2, 37.7, 66.1_
 
-  - [~] 2.6 Write property test for image scaling
+  - [x] 2.6 Write property test for image scaling
     - **Property 30: Image scaling dimensions**
     - **Validates: Requirements 13.2, 15.3, 36.2**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p30.property`; commit `test(core): add image scaling property test (P30)`
