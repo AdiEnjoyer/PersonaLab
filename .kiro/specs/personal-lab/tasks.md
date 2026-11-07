@@ -109,7 +109,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/registry src/modules`; commit `feat(core): register stub gym, nutrition and chess modules`
     - _Requirements: 2.2, 2.6, 2.7_
 
-  - [~] 3.3 Add the architecture import scan and the numRuns meta test
+  - [x] 3.3 Add the architecture import scan and the numRuns meta test
     - `src/test/architecture.test.ts`: parse every `.ts/.tsx` under `src/` with the TypeScript compiler API, resolve import specifiers and assert the three dependency rules of the design (core/app/ui import modules only via `core/registry/modules.ts`; no module imports another module; `logic/` files import no `dexie`, `react`, `react-dom`, `db/`, `data/`, `ui/`, `app/`, `net/` or `engine/` path).
     - `src/test/numruns.test.ts`: read every `*.property.test.ts` and fail if any `numRuns` literal is below 100 or the tag comment is missing.
     - Include negative self-tests with in-memory source strings so each rule is shown to fail on a violating import.
