@@ -27,4 +27,6 @@ export const EXPORT_MESSAGES = {
   invalidFile: (detail: string) => `Backup not created: ${detail}`,
   /** Defence for R6.3: the serialised file would contain the Gemini key. */
   containsSecret: 'Backup not created: the file would contain the Gemini key.',
+  /** Neither the share sheet nor the download could be started. */
+  deliveryFailed: 'Backup not created: the file could not be shared or downloaded.',
 } as const;

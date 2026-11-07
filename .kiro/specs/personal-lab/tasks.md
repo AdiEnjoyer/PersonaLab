@@ -229,7 +229,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/backup`; commit `feat(core): add backup file validation pipeline`
     - _Requirements: 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.13, 7.14_
 
-  - [~] 7.3 Implement backup export, sharing and the generic app-state generator
+  - [x] 7.3 Implement backup export, sharing and the generic app-state generator
     - `src/core/backup/export.ts`: `buildBackup(now, modules = MODULES)` (each `exportData` once in order; failure names the module id or `core data`; JSON text; Gemini key absence assertion; self-validation with `validateBackupValue`), `exportBackup()` returning `ExportOutcome`; on `shared` or `downloaded` write `core_meta.lastBackupAt`.
     - `src/core/backup/share.ts`: Web Share with `canShare`, `AbortError` → `dismissed`, other rejection → download fallback, `<a download>` with object URL.
     - `src/test/arbitraries/appState.ts`: `arbAppState` and `arbBackupFile` over core data plus a test registry of generic table-backed modules (each with zod record schemas and images), so backup properties run before the real modules exist.
