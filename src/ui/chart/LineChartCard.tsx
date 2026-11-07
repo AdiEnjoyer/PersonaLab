@@ -7,6 +7,8 @@ export interface ChartPoint {
   x: number | string;
   /** `null` leaves a gap in the line. */
   y: number | null;
+  /** Drawn with a larger, distinct marker (e.g. a personal record). */
+  marked?: boolean;
 }
 
 export interface LineChartCardProps {
@@ -19,8 +21,31 @@ export interface LineChartCardProps {
   xFormatter?: (x: number | string) => string;
 }
 
+interface DotProps {
+  cx?: number;
+  cy?: number;
+  index?: number;
+  payload?: ChartPoint;
+}
+
+function renderDot({ cx, cy, index, payload }: DotProps) {
+  const marked = payload?.marked === true;
+  return (
+    <circle
+      key={index}
+      cx={cx}
+      cy={cy}
+      r={marked ? 6 : 3}
+      fill={marked ? 'var(--pl-warning, #f59e0b)' : 'var(--pl-accent)'}
+      stroke={marked ? 'var(--pl-fg)' : 'none'}
+      strokeWidth={marked ? 2 : 0}
+    />
+  );
+}
+
 export function LineChartCard({ title, data, height = 180, actions, yUnit, xFormatter }: LineChartCardProps) {
   const reduced = useReducedMotion();
+  const hasMarks = data.some((p) => p.marked === true);
   return (
     <CardFrame aria-label={title}>
       <div className="mb-2 flex items-center justify-between gap-2">
@@ -39,7 +64,7 @@ export function LineChartCard({ title, data, height = 180, actions, yUnit, xForm
               dataKey="y"
               stroke="var(--pl-accent)"
               strokeWidth={2}
-              dot={{ r: 3 }}
+              dot={hasMarks ? renderDot : { r: 3 }}
               connectNulls={false}
               isAnimationActive={!reduced}
             />
