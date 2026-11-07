@@ -1,0 +1,2050 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Check the toolchain before changing anything": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050275542
+      },
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050324981
+      },
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050540859
+      }
+    ],
+    "1.2 Create the initial commit on `main` and switch to `feature/personal-lab`": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050276038
+      },
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050585436
+      }
+    ],
+    "1.3 Scaffold the Vite + React + TypeScript project and install every dependency": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050276515
+      }
+    ],
+    "1.4 Verify the workspace path with typecheck, tests and build, then commit the scaffold": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050276666
+      }
+    ],
+    "2.1 Implement math, time, text and id helpers with shared core generators": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050276830
+      }
+    ],
+    "2.2 Write property test for rounding": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050277009
+      }
+    ],
+    "2.3 Write property test for clock formatting": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050277159
+      }
+    ],
+    "2.4 Write property test for month ranges": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050277290
+      }
+    ],
+    "2.5 Implement shared image processing": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050277417
+      }
+    ],
+    "2.6 Write property test for image scaling": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050277563
+      }
+    ],
+    "3.1 Implement registry types, capabilities, validator and derivation helpers": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050277713
+      }
+    ],
+    "3.2 Create stub Gym, Nutrition and Chess module definitions and the Module_Registry": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050277893
+      }
+    ],
+    "3.3 Add the architecture import scan and the numRuns meta test": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050278006
+      }
+    ],
+    "3.4 Write property test for the registry validator": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050278195
+      }
+    ],
+    "4.1 Implement the Dexie database, versioning, open handling and change tracking": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050278332
+      }
+    ],
+    "4.2 Implement the write path, idempotent creates and the per-record write queue": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050278508
+      }
+    ],
+    "4.3 Write property test for registry derivation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050278684
+      }
+    ],
+    "4.4 Write property test for database migrations": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050278945
+      }
+    ],
+    "4.5 Write property test for idempotent creates": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050279068
+      }
+    ],
+    "4.6 Write property test for creates without a key": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050279211
+      }
+    ],
+    "5.1 Implement settings, secrets and module setting schemas": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050279378
+      }
+    ],
+    "5.2 Implement the Profile schema, text validation and repository": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050279510
+      }
+    ],
+    "5.3 Write property test for Profile validation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050279620
+      }
+    ],
+    "5.4 Write property test for settings acceptance": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050279765
+      }
+    ],
+    "5.5 Write property test for the key mask": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050279971
+      }
+    ],
+    "6.1 Implement the Undo service and record-diff undo": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050280091
+      }
+    ],
+    "6.2 Write property test for undo identity": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050280233
+      }
+    ],
+    "6.3 Implement optimistic overlays": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050280353
+      }
+    ],
+    "6.4 Write property test for optimistic consistency": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050280477
+      }
+    ],
+    "7.1 Implement the backup format, zod envelope, base64, file name and migrations": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050280723
+      }
+    ],
+    "7.2 Implement backup file checking in R7.1 order": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050280874
+      }
+    ],
+    "7.3 Implement backup export, sharing and the generic app-state generator": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050281049
+      }
+    ],
+    "7.4 Implement the emergency export for failed migrations": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050281172
+      }
+    ],
+    "7.5 Implement import application with snapshot undo": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050281310
+      }
+    ],
+    "7.6 Implement the backup reminder decision": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050281438
+      }
+    ],
+    "7.7 Write property test for export call order": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050281721
+      }
+    ],
+    "7.8 Write property test for image base64 round trip": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050281882
+      }
+    ],
+    "7.9 Write property test for Gemini key exclusion from backups": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050282520
+      }
+    ],
+    "7.10 Write property test for the backup file name": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050282646
+      }
+    ],
+    "7.11 Write property test for validation stage order": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050282778
+      }
+    ],
+    "7.12 Write property test for the first invalid record": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050282902
+      }
+    ],
+    "7.13 Write property test for skipping unregistered modules": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050283014
+      }
+    ],
+    "7.14 Write property test for module replacement on import": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050283120
+      }
+    ],
+    "7.15 Write property test for the backup round trip": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050283245
+      }
+    ],
+    "7.16 Write property test for import idempotence": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050283365
+      }
+    ],
+    "7.17 Write property test for backup parse/print": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050283484
+      }
+    ],
+    "7.18 Write property test for the backup reminder": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050283599
+      }
+    ],
+    "8.1 Implement online state, fetch with timeout, stale-while-revalidate and age labels": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050283736
+      }
+    ],
+    "8.2 Write property test for age labels": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050283931
+      }
+    ],
+    "9.1 Configure the PWA plugin, service worker, manifest, icons and build info": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050284058
+      }
+    ],
+    "9.2 Implement the update service, precache status and persistent storage request": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050284228
+      }
+    ],
+    "10.1 Implement engine copy, 404 fallback and build output checks": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050284397
+      }
+    ],
+    "10.2 Add the GitHub Pages deployment workflow and source safety scans": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050284591
+      }
+    ],
+    "11. Checkpoint: core platform": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050284834
+      }
+    ],
+    "12.1 Implement styles, layout primitives, form fields and status components": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050285187
+      }
+    ],
+    "12.2 Implement reduced-motion detection and gesture math": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050285549
+      }
+    ],
+    "12.3 Write property test for gesture release": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050285707
+      }
+    ],
+    "12.4 Implement the Bottom_Sheet with drag, interruption and discard confirmation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050285837
+      }
+    ],
+    "12.5 Implement Toasts and the Undo_Toast": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050285950
+      }
+    ],
+    "12.6 Implement Skeletons and the skeleton gate": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050286063
+      }
+    ],
+    "12.7 Write property test for the skeleton gate": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050286191
+      }
+    ],
+    "12.8 Implement BlurHashImage": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050286298
+      }
+    ],
+    "12.9 Implement view transitions": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050286403
+      }
+    ],
+    "12.10 Implement the iOS edge swipe back": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050286514
+      }
+    ],
+    "12.11 Implement hardware keyboard shortcuts and hints": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050286632
+      }
+    ],
+    "12.12 Implement the progress ring, chart card, range selector and virtual list": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050286748
+      }
+    ],
+    "13.1 Implement command ranking, recents and core commands": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050286867
+      }
+    ],
+    "13.2 Write property test for Command_Menu ranking": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050287005
+      }
+    ],
+    "13.3 Implement the Command_Menu sheet": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050287112
+      }
+    ],
+    "14.1 Implement the start-up gate and first-run Profile": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050287223
+      }
+    ],
+    "14.2 Implement the router, AppShell, tab bar and Home_Dashboard": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050287329
+      }
+    ],
+    "14.3 Implement the Settings_Screen with Profile, Backup interval, module sections and About": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050287450
+      }
+    ],
+    "14.4 Implement backup export and import screens with the rejection-message component test": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050287565
+      }
+    ],
+    "15. Checkpoint: UI kit and app shell": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050287736
+      }
+    ],
+    "16.1 Define Gym constants, types, zod schemas and generators": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050287932
+      }
+    ],
+    "16.2 Implement the pure exercise normalisation library": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050288082
+      }
+    ],
+    "16.3 Write property test for exercise normalisation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050288230
+      }
+    ],
+    "16.4 Implement the Exercise_Build_Script CLI with fixture-based tests": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050288356
+      }
+    ],
+    "17.1 Implement strength metrics, entry parsing and weight display": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050288480
+      }
+    ],
+    "17.2 Write property test for weight and reps parsing": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050288593
+      }
+    ],
+    "17.3 Write property test for weight display": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050288708
+      }
+    ],
+    "17.4 Write property test for the completion gate": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050288814
+      }
+    ],
+    "17.5 Write property test for session duration": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050288921
+      }
+    ],
+    "17.6 Write property test for top set selection": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050289033
+      }
+    ],
+    "17.7 Write property test for E1RM": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050289130
+      }
+    ],
+    "17.8 Write property test for volume additivity": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050289264
+      }
+    ],
+    "17.9 Write property test for aggregates over valid sets": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050289403
+      }
+    ],
+    "17.10 Implement the PR_Detector": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050289520
+      }
+    ],
+    "17.11 Write property test for PR detection against the reference model": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050289637
+      }
+    ],
+    "17.12 Write property test for incremental PR evaluation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050289751
+      }
+    ],
+    "17.13 Write property test for maximum weight provenance": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050289856
+      }
+    ],
+    "18.1 Implement set pre-fill": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050289967
+      }
+    ],
+    "18.2 Write property test for pre-fill": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050290086
+      }
+    ],
+    "18.3 Implement session editing operations and the session reducer": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050290197
+      }
+    ],
+    "18.4 Implement session finishing, resume decisions and summary logic": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050290307
+      }
+    ],
+    "18.5 Implement Rest_Timer arithmetic": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050290494
+      }
+    ],
+    "18.6 Implement Routine operations and validation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050290674
+      }
+    ],
+    "18.7 Write property test for reordering": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050290822
+      }
+    ],
+    "18.8 Write property test for appending picked exercises": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050290941
+      }
+    ],
+    "18.9 Write property test for routine field validation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050291054
+      }
+    ],
+    "18.10 Write property test for starting from a routine": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050291180
+      }
+    ],
+    "18.11 Write property test for adding exercises and sets": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050291292
+      }
+    ],
+    "18.12 Write property test for remove and restore": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050291407
+      }
+    ],
+    "18.13 Write property test for rest timer arithmetic": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050291523
+      }
+    ],
+    "18.14 Write property test for the last set time": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050291647
+      }
+    ],
+    "18.15 Write property test for finishing a session": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050291774
+      }
+    ],
+    "18.16 Write property test for the volume change baseline": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050291900
+      }
+    ],
+    "19.1 Implement Exercise_Library filters and Custom_Exercise validation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050292014
+      }
+    ],
+    "19.2 Write property test for library sort order": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050292125
+      }
+    ],
+    "19.3 Write property test for library filter intersection": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050292230
+      }
+    ],
+    "19.4 Write property test for Custom_Exercise validation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050292353
+      }
+    ],
+    "19.5 Write property test for duplicate name detection": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050292464
+      }
+    ],
+    "19.6 Write property test for the archive confirmation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050292599
+      }
+    ],
+    "19.7 Implement the Split_Analyzer": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050292713
+      }
+    ],
+    "19.8 Write property test for weekly set counting": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050292818
+      }
+    ],
+    "19.9 Write property test for weekly set conservation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050292966
+      }
+    ],
+    "19.10 Write property test for order independence": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050293083
+      }
+    ],
+    "19.11 Write property test for split monotonicity": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050293203
+      }
+    ],
+    "19.12 Write property test for split flags": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050293311
+      }
+    ],
+    "19.13 Implement progress chart and dashboard statistics": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050293528
+      }
+    ],
+    "19.14 Write property test for chart points": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050293675
+      }
+    ],
+    "20.1 Implement exercise data access": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050293783
+      }
+    ],
+    "20.2 Implement Routine data access": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050293898
+      }
+    ],
+    "20.3 Implement Session data access and the Autosaver": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050294017
+      }
+    ],
+    "20.4 Implement the exercise photo download": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050294148
+      }
+    ],
+    "20.5 Implement Gym backup and the full Gym ModuleDefinition": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050294267
+      }
+    ],
+    "20.6 Write property test for Gym referential invariants": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050294389
+      }
+    ],
+    "20.7 Write property test for archiving and history": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050294495
+      }
+    ],
+    "20.8 Write property test for a single Active Session": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050294602
+      }
+    ],
+    "20.9 Write property test for Active Session persistence": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050294715
+      }
+    ],
+    "21.1 Build the Gym start screen, Exercise_Library and exercise detail": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050294817
+      }
+    ],
+    "21.2 Build the Custom_Exercise form, archive flow and Gym settings section": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050294933
+      }
+    ],
+    "21.3 Build the Routine list and Routine_Builder": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050295046
+      }
+    ],
+    "21.4 Build Session_Logger part 1: start, conflict, resume and exercise list": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050295157
+      }
+    ],
+    "21.5 Build Session_Logger part 2: set rows, PR labels, rest timer and autosave wiring": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050295266
+      }
+    ],
+    "21.6 Build Session_Logger part 3: finishing and the summary": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050295417
+      }
+    ],
+    "21.7 Build history, Finished Session detail and the progress chart": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050295534
+      }
+    ],
+    "21.8 Build the split analysis screen and the Gym DashboardCard": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050295652
+      }
+    ],
+    "21.9 Write the Session logging component test with autosave and resume": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050295767
+      }
+    ],
+    "22. Checkpoint: Gym module": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050295883
+      }
+    ],
+    "23.1 Define Nutrition constants, types, zod schemas and generators": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050295998
+      }
+    ],
+    "23.2 Implement the Energy_Calculator": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050296108
+      }
+    ],
+    "23.3 Write property test for current weight selection": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050296216
+      }
+    ],
+    "23.4 Write property test for the energy pipeline": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050296366
+      }
+    ],
+    "23.5 Write property test for BMR metamorphic relations": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050296607
+      }
+    ],
+    "23.6 Write property test for TDEE monotonicity": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050296756
+      }
+    ],
+    "23.7 Write property test for the calorie floor": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050296905
+      }
+    ],
+    "23.8 Write property test for protein target bounds": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050297034
+      }
+    ],
+    "24.1 Implement food log, Saved_Meal scaling and ring state": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050297169
+      }
+    ],
+    "24.2 Write property test for daily totals and grouping": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050297301
+      }
+    ],
+    "24.3 Write property test for food and Saved_Meal form validation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050297445
+      }
+    ],
+    "24.4 Write property test for the Logged_Day definition": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050297569
+      }
+    ],
+    "24.5 Write property test for Saved_Meal scaling": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050297712
+      }
+    ],
+    "24.6 Write property test for the largest allowed multiplier": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050297886
+      }
+    ],
+    "24.7 Write property test for ring state": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050298045
+      }
+    ],
+    "24.8 Implement barcode check digits, UPC-E expansion and normalisation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050298159
+      }
+    ],
+    "24.9 Write property test for typed barcode validation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050298274
+      }
+    ],
+    "24.10 Write property test for GS1 check digits and UPC-E expansion": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050298381
+      }
+    ],
+    "24.11 Write property test for barcode normalisation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050298489
+      }
+    ],
+    "25.1 Implement Open Food Facts mapping and portion scaling": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050298604
+      }
+    ],
+    "25.2 Write property test for Open Food Facts mapping validity": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050298723
+      }
+    ],
+    "25.3 Write property test for nutrient parsing and kJ fallback": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050298831
+      }
+    ],
+    "25.4 Write property test for portion identity and missing values": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050298946
+      }
+    ],
+    "25.5 Write property test for portion linearity": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050299080
+      }
+    ],
+    "25.6 Write property test for servings and grams": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050299205
+      }
+    ],
+    "25.7 Write property test for finite scaled values": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050299316
+      }
+    ],
+    "25.8 Write property test for portion input validation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050299441
+      }
+    ],
+    "26.1 Implement Gemini response validation and review logic": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050299560
+      }
+    ],
+    "26.2 Write property test for the estimate validator": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050299719
+      }
+    ],
+    "26.3 Write property test for gram edits": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050300067
+      }
+    ],
+    "26.4 Write property test for review totals and save blockers": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050300466
+      }
+    ],
+    "26.5 Write property test for the consistency warning": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050300615
+      }
+    ],
+    "26.6 Write property test for Gemini HTTP status mapping": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050300783
+      }
+    ],
+    "26.7 Implement weight log validation and the Weight_Trend": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050300922
+      }
+    ],
+    "26.8 Write property test for weight form validation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050301034
+      }
+    ],
+    "26.9 Write property test for the weight trend definition": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050301150
+      }
+    ],
+    "26.10 Write property test for weight trend bounds": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050301270
+      }
+    ],
+    "26.11 Write property test for constant weights": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050301383
+      }
+    ],
+    "26.12 Implement the Trend_Corrector": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050301533
+      }
+    ],
+    "26.13 Write property test for trend correction": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050301672
+      }
+    ],
+    "26.14 Write property test for suggestion visibility": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050301793
+      }
+    ],
+    "26.15 Write property test for zero weight change": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050301924
+      }
+    ],
+    "26.16 Write property test for corrected burn relations": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050302041
+      }
+    ],
+    "27.1 Implement food log, Saved_Meal, day mark and weight data access": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050302162
+      }
+    ],
+    "27.2 Write property test for one Weight_Entry per date": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050302280
+      }
+    ],
+    "27.3 Implement the live energy hook": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050302401
+      }
+    ],
+    "27.4 Implement the Open Food Facts client, Product_Cache and Food_Lookup flow": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050302530
+      }
+    ],
+    "27.5 Implement the Gemini client": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050302680
+      }
+    ],
+    "27.6 Write property test for Gemini key leakage": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050302816
+      }
+    ],
+    "27.7 Implement Nutrition backup and the full Nutrition ModuleDefinition": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050302954
+      }
+    ],
+    "28.1 Build the daily Food_Log, rings, day view and add-food form": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050303075
+      }
+    ],
+    "28.2 Build Saved_Meals and the add-meal sheet": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050303199
+      }
+    ],
+    "28.3 Build the Barcode_Scanner": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050303313
+      }
+    ],
+    "28.4 Build the product and portion screen": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050303436
+      }
+    ],
+    "28.5 Build the Meal_Estimator request flow": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050303560
+      }
+    ],
+    "28.6 Build the AI review screen with its component test": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050303793
+      }
+    ],
+    "28.7 Build the weight log, trend chart and trend suggestion": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050303959
+      }
+    ],
+    "28.8 Build the energy screen, Nutrition settings section and Nutrition DashboardCard": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050304102
+      }
+    ],
+    "29. Checkpoint: Nutrition module": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050304243
+      }
+    ],
+    "30.1 Define Chess constants, types, zod schemas and generators": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050304381
+      }
+    ],
+    "30.2 Implement rating bands, daily tip rotation and the Tips_Library": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050304497
+      }
+    ],
+    "30.3 Write property test for rating bands": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050304613
+      }
+    ],
+    "30.4 Write property test for daily tip rotation": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050304731
+      }
+    ],
+    "30.5 Implement free-board history": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050304854
+      }
+    ],
+    "30.6 Write property test for legal move acceptance": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050304978
+      }
+    ],
+    "30.7 Write property test for undo/redo": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050305129
+      }
+    ],
+    "30.8 Implement the interactive board component": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050305270
+      }
+    ],
+    "31.1 Implement the ChessCom_Client": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050305397
+      }
+    ],
+    "31.2 Write property test for serial Chess.com requests": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050305516
+      }
+    ],
+    "31.3 Implement pure Game_Sync and rating mapping logic": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050305645
+      }
+    ],
+    "31.4 Write property test for rating sanitising": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050305762
+      }
+    ],
+    "31.5 Write property test for archive months and selection": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050305892
+      }
+    ],
+    "31.6 Write property test for Owner colour matching": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050306020
+      }
+    ],
+    "31.7 Implement Game_Sync, ratings refresh and username verification": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050306140
+      }
+    ],
+    "31.8 Write property test for Game_Sync idempotence": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050306287
+      }
+    ],
+    "31.9 Write property test for Game_Sync confluence": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050306439
+      }
+    ],
+    "31.10 Write property test for no duplicate games": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050306563
+      }
+    ],
+    "31.11 Implement game list, clock parsing and rating history logic": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050306687
+      }
+    ],
+    "31.12 Write property test for game list order and filters": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050306814
+      }
+    ],
+    "31.13 Write property test for opening names": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050306961
+      }
+    ],
+    "31.14 Write property test for clock comments": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050307079
+      }
+    ],
+    "31.15 Implement the Cloudflare CORS_Proxy with tests and deploy guide": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050307193
+      }
+    ],
+    "31.16 Write property test for the proxy forwarding rule": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050307395
+      }
+    ],
+    "32.1 Implement the Puzzle_Build_Script with fixture-based tests": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050307716
+      }
+    ],
+    "32.2 Write property test for puzzle selection": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050308202
+      }
+    ],
+    "32.3 Implement the Glicko2_Calculator": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050308382
+      }
+    ],
+    "32.4 Write property test for Glicko-2 direction": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050308573
+      }
+    ],
+    "32.5 Write property test for Glicko-2 validity": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050308784
+      }
+    ],
+    "32.6 Implement puzzle selection, scoring and theme statistics": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050308934
+      }
+    ],
+    "32.7 Write property test for puzzle scoring": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050309058
+      }
+    ],
+    "32.8 Write property test for the puzzle pick window": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050309180
+      }
+    ],
+    "32.9 Write property test for theme statistics": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050309300
+      }
+    ],
+    "32.10 Implement puzzle data loading and attempt recording": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050309430
+      }
+    ],
+    "32.11 Write property test for first-attempt rating": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050309560
+      }
+    ],
+    "33.1 Implement the Repertoire model": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050309686
+      }
+    ],
+    "33.2 Write property test for transpositions": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050309817
+      }
+    ],
+    "33.3 Write property test for the repertoire invariant": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050309971
+      }
+    ],
+    "33.4 Write property test for learn lines": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050310117
+      }
+    ],
+    "33.5 Implement the SRS_Scheduler (SM-2)": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050310253
+      }
+    ],
+    "33.6 Write property test for SM-2 against the integer reference": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050310377
+      }
+    ],
+    "33.7 Write property test for SM-2 input rejection": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050310515
+      }
+    ],
+    "33.8 Write property test for the SM-2 invariant": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050310655
+      }
+    ],
+    "33.9 Write property test for SM-2 reset": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050310788
+      }
+    ],
+    "33.10 Write property test for the SM-2 fixed point": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050310911
+      }
+    ],
+    "33.11 Write property test for SM-2 interval growth": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050311043
+      }
+    ],
+    "33.12 Implement drill scheduling and opening statistics": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050311186
+      }
+    ],
+    "33.13 Write property test for drill reply choice": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050311321
+      }
+    ],
+    "33.14 Write property test for drill queue order": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050311450
+      }
+    ],
+    "33.15 Write property test for opening matching": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050311665
+      }
+    ],
+    "33.16 Write property test for opening statistics": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050311978
+      }
+    ],
+    "33.17 Implement the starter Repertoire and Repertoire data access": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050312474
+      }
+    ],
+    "34.1 Implement the Stockfish engine client": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050312999
+      }
+    ],
+    "34.2 Implement position building and move classification": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050313183
+      }
+    ],
+    "34.3 Write property test for the Win_Probability formula": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050313325
+      }
+    ],
+    "34.4 Write property test for label monotonicity": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050313458
+      }
+    ],
+    "34.5 Write property test for drop bounds": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050313591
+      }
+    ],
+    "34.6 Write property test for best moves": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050313758
+      }
+    ],
+    "34.7 Implement board attack helpers and Game_Phase": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050313878
+      }
+    ],
+    "34.8 Write property test for Game_Phase": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050314002
+      }
+    ],
+    "34.9 Implement Mistake_Detectors part 1: hanging piece, missed fork, missed mate": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050314114
+      }
+    ],
+    "34.10 Implement Mistake_Detectors part 2: missed own tactic, delayed castling, early queen": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050314243
+      }
+    ],
+    "34.11 Implement Mistake_Detectors part 3: endgame technique, time pressure and the detector runner": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050314364
+      }
+    ],
+    "34.12 Write property test for the detector invariant": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050314483
+      }
+    ],
+    "34.13 Implement the Game_Report builder": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050314612
+      }
+    ],
+    "34.14 Write property test for key mistakes": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050314748
+      }
+    ],
+    "34.15 Write property test for report tip selection": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050314892
+      }
+    ],
+    "34.16 Implement the Pattern_Report": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050315025
+      }
+    ],
+    "34.17 Write property test for pattern shares": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050315154
+      }
+    ],
+    "34.18 Write property test for pattern share bounds": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050315297
+      }
+    ],
+    "34.19 Implement Game_Analyzer part 1: queue and per-position evaluation loop": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050315437
+      }
+    ],
+    "34.20 Implement Game_Analyzer part 2: failures, cancel and pause": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050315564
+      }
+    ],
+    "34.21 Write property test for Analysis_Cache idempotence": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050315695
+      }
+    ],
+    "35.1 Implement Chess backup and the full Chess ModuleDefinition": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050315819
+      }
+    ],
+    "35.2 Build the Chess start screen and the tips browser": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050315938
+      }
+    ],
+    "35.3 Build the free board screen": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050316097
+      }
+    ],
+    "35.4 Build the game list, Game_Viewer, rating history and sync UI": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050316236
+      }
+    ],
+    "35.5 Build the Puzzle_Trainer and puzzle statistics screens": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050316355
+      }
+    ],
+    "35.6 Build the repertoire tree list, tree editor and learn mode": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050316611
+      }
+    ],
+    "35.7 Build the drill and opening statistics screens": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050317217
+      }
+    ],
+    "35.8 Build the analysis queue, Game_Report and Pattern_Report screens": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050317396
+      }
+    ],
+    "35.9 Build the Chess settings section and the Chess DashboardCard": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050317532
+      }
+    ],
+    "36. Checkpoint: Chess module": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050317696
+      }
+    ],
+    "37.1 Download free-exercise-db and generate the exercise library": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050317837
+      }
+    ],
+    "37.2 Download the Lichess puzzle database and generate the puzzle file": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050317982
+      }
+    ],
+    "38.1 Run the backup properties against the real Module_Registry": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050318111
+      }
+    ],
+    "38.2 Write property test for the per-module round trip": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050318233
+      }
+    ],
+    "38.3 Extend the idempotent-create property to every module create path": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050318427
+      }
+    ],
+    "38.4 Extend the undo-identity property to every destructive action": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050319041
+      }
+    ],
+    "38.5 Add end-to-end wiring tests and verify the production build": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050319171
+      }
+    ],
+    "39. Final checkpoint: whole app": [
+      {
+        "executionId": "2c67be14-48b0-4c98-a0f0-1a5d162d34f1",
+        "chatSessionId": "sess_9322c981-9f02-46f2-b6e0-fc8318472627",
+        "timestamp": 1794050319281
+      }
+    ]
+  }
+}

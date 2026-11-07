@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+*.local
+.env*
+# downloaded source datasets
+.data-src/
+*.zst
+.tmp/
+worker/.wrangler/
+# copied at build time
+public/engine/
