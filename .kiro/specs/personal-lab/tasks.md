@@ -160,7 +160,7 @@ Rules that apply to every task:
     - **Validates: Requirements 11.5**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p21.property`; commit `test(core): add missing idempotency key property test (P21)`
 
-- [ ] 5. Settings and profile
+- [x] 5. Settings and profile
   - [x] 5.1 Implement settings, secrets and module setting schemas
     - `src/core/settings/schema.ts` (core key `core.backupReminderDays`, default 7; a schema registry that merges core schemas with each module's `settings.schema` read through `MODULES`), `repo.ts`, `useSetting.ts` (`[value, commit]`, stored value unchanged on failure, accepted-values text on error), `secrets.ts` (`getSecret`, `setSecret`, `deleteSecret`, Gemini key schema, `maskKey`).
     - `src/modules/gym/settings.ts`, `src/modules/nutrition/settings.ts`, `src/modules/chess/settings.ts`: the schemas and defaults from the design's module settings table; attach them to the stub definitions (`settings.Section` stays a placeholder until the module settings screens are built).
@@ -184,7 +184,7 @@ Rules that apply to every task:
     - **Validates: Requirements 5.2, 5.6, 30.2, 30.9, 40.2, 40.8**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p6.property`; commit `test(core): add settings acceptance property test (P6)`
 
-  - [~] 5.5 Write property test for the key mask
+  - [x] 5.5 Write property test for the key mask
     - **Property 7: Key mask shows only the last four characters**
     - **Validates: Requirements 5.7**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p7.property`; commit `test(core): add key mask property test (P7)`
