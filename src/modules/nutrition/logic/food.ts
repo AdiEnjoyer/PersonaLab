@@ -2,6 +2,7 @@ import { isMultipleOfStep, parseDecimal } from '../../../core/math/decimal';
 import { newId as defaultNewId } from '../../../core/ids';
 import type { LocalDate } from '../../../core/time/localDate';
 import { FOOD_LIMITS, MULTIPLIER } from '../constants';
+import { SavedMealItemSchema } from '../schema';
 import type { DayMark, FoodEntry, MealSlot, SavedMeal, SavedMealItem } from '../types';
 
 export interface Totals {
@@ -99,7 +100,7 @@ export type SavedMealFormError = { name?: string; items?: string; itemErrors: Ar
 /** Checks the Saved_Meal form: a name and 1 to 50 items with the food field rules (R31.4, R31.9). */
 export function validateSavedMealForm(
   nameText: string,
-  itemTexts: readonly FoodFormText[],
+  itemTexts: ReadonlyArray<FoodFormText | SavedMealItem>,
 ): { ok: true; value: { name: string; items: SavedMealItem[] } } | { ok: false; errors: SavedMealFormError } {
   const errors: SavedMealFormError = { itemErrors: [] };
   const name = nameText.trim();
@@ -107,8 +108,19 @@ export function validateSavedMealForm(
   if (itemTexts.length < 1 || itemTexts.length > FOOD_LIMITS.ITEMS) errors.items = `A meal needs 1 to ${FOOD_LIMITS.ITEMS} items.`;
   const items: SavedMealItem[] = [];
   let itemsOk = true;
-  itemTexts.forEach((text, i) => {
-    const r = validateFoodForm(text);
+  itemTexts.forEach((entered, i) => {
+    if (typeof entered.kcal === 'number') {
+      // An item copied from a Food_Entry keeps its stored values; they only have to be inside the ranges.
+      const checked = SavedMealItemSchema.safeParse(entered);
+      if (checked.success) {
+        items.push(checked.data);
+      } else {
+        itemsOk = false;
+        errors.itemErrors[i] = { kcal: 'The copied values are outside the allowed ranges. Edit this item.' };
+      }
+      return;
+    }
+    const r = validateFoodForm(entered as FoodFormText);
     if (r.ok) {
       items.push(r.value);
     } else {
@@ -119,7 +131,6 @@ export function validateSavedMealForm(
   if (errors.name !== undefined || errors.items !== undefined || !itemsOk) return { ok: false, errors };
   return { ok: true, value: { name, items } };
 }
-
 const FIELD_LIMITS: Array<[keyof SavedMealItem & ('kcal' | 'protein' | 'carbs' | 'fat' | 'grams'), number]> = [
   ['kcal', FOOD_LIMITS.KCAL],
   ['protein', FOOD_LIMITS.MACRO],

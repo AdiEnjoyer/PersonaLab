@@ -1,3 +1,4 @@
+import Dexie from 'dexie';
 import { createElement, lazy, Suspense } from 'react';
 import type { ModuleDefinition } from '../../core/registry/types';
 import { exportGymData, gymBackup, importGymData } from './data/backup';
@@ -74,8 +75,10 @@ export const gymModule: ModuleDefinition<GymBackupData> = {
   },
   provides: {
     trainingLog: {
-      async listFinishedSessions() {
-        return (await import('./data/trainingLog')).listFinishedSessions();
+      // Dexie.Promise keeps the caller's live-query zone across the dynamic import, so a liveQuery that calls
+      // this (Nutrition energy values) is re-run when gym_sessions changes; a native await would drop the zone.
+      listFinishedSessions() {
+        return Dexie.Promise.resolve(import('./data/trainingLog')).then((m) => m.listFinishedSessions());
       },
     },
   },
