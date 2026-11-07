@@ -16,7 +16,7 @@ Rules that apply to every task:
 
 ## Part 1: Core platform
 
-- [ ] 1. Environment check, git setup and project scaffold
+- [x] 1. Environment check, git setup and project scaffold
   - [x] 1.1 Check the toolchain before changing anything
     - Run `node --version`, `npm --version` and `git --version`.
     - If Node.js or npm is missing, stop at once with a clear error that names the missing tool and points to the Prerequisites section of `requirements.md` ("Node.js LTS installed on the Windows PC"). Create no files.
@@ -237,7 +237,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/backup`; commit `feat(core): add backup export and share flow`
     - _Requirements: 2.4, 2.9, 6.1, 6.2, 6.3, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 8.7_
 
-  - [~] 7.4 Implement the emergency export for failed migrations
+  - [x] 7.4 Implement the emergency export for failed migrations
     - `src/core/db/rawDump.ts`: `emergencyExport()` opening `new Dexie('personallab')` in dynamic mode, reading every table and building a Backup_File with the module data versions recorded for the stored version.
     - Example test: a database at a stored version with records produces a file containing every record.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/db`; commit `feat(core): add emergency export for failed migrations`

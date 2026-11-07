@@ -31,7 +31,8 @@ export class ImageExportError extends Error {
   }
 }
 
-function isBinary(value: unknown): value is ArrayBuffer | ArrayBufferView {
+/** True for an `ArrayBuffer` (from any realm) or a typed-array / DataView. */
+export function isBinary(value: unknown): value is ArrayBuffer | ArrayBufferView {
   return value instanceof ArrayBuffer || ArrayBuffer.isView(value) || Object.prototype.toString.call(value) === '[object ArrayBuffer]';
 }
 
