@@ -81,7 +81,7 @@ Rules that apply to every task:
     - **Validates: Requirements 25.4, 45.8**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p29.property`; commit `test(core): add month range property test (P29)`
 
-  - [~] 2.5 Implement shared image processing
+  - [x] 2.5 Implement shared image processing
     - `src/core/image/processImage.ts`: `scaleDims`, `processImage` (decode with `createImageBitmap(..., { imageOrientation: 'from-image' })`, `<img>` fallback, canvas re-encode to JPEG with no metadata, 32 × 32 BlurHash with `encode(…, 4, 3)`), `ImageDecodeError`.
     - Unit tests with mocked `createImageBitmap`, canvas and `toBlob` (jsdom has no canvas): decode failure throws `ImageDecodeError`; output is JPEG with the scaled size.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/image`; commit `feat(core): add image scaling and blurhash processing`
