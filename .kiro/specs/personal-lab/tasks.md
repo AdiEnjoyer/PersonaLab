@@ -331,7 +331,7 @@ Rules that apply to every task:
     - **Validates: Requirements 65.1**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p24.property`; commit `test(core): add age label property test (P24)`
 
-- [ ] 9. Service worker, update service and storage persistence
+- [x] 9. Service worker, update service and storage persistence
   - [~] 9.1 Configure the PWA plugin, service worker, manifest, icons and build info
     - `vite.config.ts`: `define` for `__APP_VERSION__` (`${pkg.version}+${gitShortSha}`) and `__BUILD_DATE__`; `VitePWA` with `injectManifest`, `registerType: 'prompt'`, `injectRegister: false`, the manifest from the design, glob patterns and ignores; a small plugin that emits `dist/version.json` = `{ "version": __APP_VERSION__ }`.
     - `src/sw.ts`: precache, outdated cache cleanup, navigation route to `index.html` inside the base path, `CacheFirst` for `exercises/img/` (200 only, no expiry), `NetworkOnly` for `version.json`, `SKIP_WAITING` and `PRECACHE_STATUS` messages; no `skipWaiting` on install and no `clientsClaim`.
@@ -349,7 +349,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/update src/core/storage`; commit `feat(core): add update service, precache status and storage persistence`
     - _Requirements: 1.6, 1.7, 10.1, 10.2, 10.3, 10.4, 10.5, 10.6, 10.7_
 
-- [ ] 10. Build scripts and deployment pipeline
+- [x] 10. Build scripts and deployment pipeline
   - [~] 10.1 Implement engine copy, 404 fallback and build output checks
     - `scripts/copy-engine.ts`: resolve the lite single-threaded Stockfish files in `node_modules/stockfish` by glob and copy them to `public/engine/` (design verification item 3: if the JS locates its WASM by its own file name, keep the original names and record them in an exported `ENGINE_FILES` constant in `src/modules/chess/engine/engineFiles.ts`).
     - `scripts/postbuild-404.ts` (copy `dist/index.html` to `dist/404.html`).
@@ -366,7 +366,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/test`; commit `ci: add github pages deploy workflow and safety scans`
     - _Requirements: 12.1, 12.2, 12.3, 12.4, 12.7, 12.8, 12.9_
 
-- [~] 11. Checkpoint: core platform
+- [x] 11. Checkpoint: core platform
   - Run `npm run typecheck`, `npx vitest --run` and `npm run build`; fix any failure and commit fixes with `fix(core): …`.
   - Ensure all tests pass, ask the user if questions arise.
 
