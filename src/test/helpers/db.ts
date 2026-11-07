@@ -73,6 +73,26 @@ export function installWriteFailures(database: Dexie): WriteFailures {
   };
 }
 
+export interface StoredDatabase {
+  /** Schema version (native IndexedDB version / 10). */
+  version: number;
+  /** Every record of every table, in primary-key order. */
+  tables: Record<string, unknown[]>;
+}
+
+/** Reads the stored version and every record of `name` in dynamic mode, so nothing is upgraded or created. */
+export async function inspectDatabase(name: string): Promise<StoredDatabase> {
+  const probe = new Dexie(name);
+  await probe.open();
+  try {
+    const tables: Record<string, unknown[]> = {};
+    for (const table of probe.tables) tables[table.name] = await table.toArray();
+    return { version: probe.backendDB().version / 10, tables };
+  } finally {
+    probe.close();
+  }
+}
+
 /** Runs `fn` with a uniquely named Dexie instance from `create`, then closes and deletes it. */
 export async function withTempDb<T>(create: (name: string) => Dexie, fn: (database: Dexie) => Promise<T>): Promise<T> {
   const name = uniqueDbName();

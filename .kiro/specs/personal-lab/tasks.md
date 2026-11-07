@@ -143,7 +143,7 @@ Rules that apply to every task:
     - **Validates: Requirements 2.3, 2.6**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p1.property`; commit `test(core): add registry derivation property test (P1)`
 
-  - [~] 4.4 Write property test for database migrations
+  - [x] 4.4 Write property test for database migrations
     - **Property 4: Database migrations preserve records**
     - **Validates: Requirements 3.3, 3.4**
     - Synthetic v1 → v2 → v3 chain with one field transform and one declared deletion; a throwing v3 step leaves v1 intact.
