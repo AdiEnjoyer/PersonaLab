@@ -27,7 +27,7 @@ export interface Exercise {
   secondaryMuscles: Muscle[];
   equipment: Equipment;
   instructions: string[];
-  /** `src` is a URL (library) or object URL (custom); absent when the image bytes are not loaded. */
-  photos: Array<{ src?: string; blurhash?: string; width: number; height: number }>;
+  /** Library photos carry a URL in `src`; custom photos carry the `imageId` of a stored image. */
+  photos: Array<{ src?: string; imageId?: string; blurhash?: string; width: number; height: number }>;
   archived: boolean;
 }

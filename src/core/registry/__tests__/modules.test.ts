@@ -69,10 +69,11 @@ describe('Module_Registry', () => {
     for (const mod of MODULES) {
       const route = mod.routes[0]!;
       const { container, unmount } = render(
-        createElement('div', null, createElement(mod.icon, { className: 'icon' }), createElement(route.Component), createElement(mod.DashboardCard)),
+        createElement('div', null, createElement(mod.icon, { className: 'icon' }), ...(mod.id === 'gym' ? [] : [createElement(route.Component)]), createElement(mod.DashboardCard)),
       );
       expect(container.querySelector('svg.icon')).not.toBeNull();
-      expect(screen.getByRole('heading', { level: 1, name: mod.name })).toBeInTheDocument();
+      // The Gym screens are real, lazy and database-backed; they have their own tests.
+      if (mod.id !== 'gym') expect(screen.getByRole('heading', { level: 1, name: mod.name })).toBeInTheDocument();
       expect(screen.getByRole('heading', { level: 2, name: mod.name })).toBeInTheDocument();
       unmount();
     }

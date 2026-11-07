@@ -1,4 +1,4 @@
-import { createElement } from 'react';
+import { createElement, lazy } from 'react';
 import type { ModuleDefinition } from '../../core/registry/types';
 import { exportGymData, gymBackup, importGymData } from './data/backup';
 import { gymSettings } from './settings';
@@ -14,9 +14,12 @@ function GymIcon({ className }: { className?: string }) {
   );
 }
 
-function GymStartScreen() {
-  return createElement('section', null, createElement('h1', null, 'Gym'));
-}
+const GymHome = lazy(() => import('./ui/GymHome'));
+const LibraryScreen = lazy(() => import('./ui/LibraryScreen'));
+const ExerciseDetailScreen = lazy(() => import('./ui/ExerciseDetailScreen'));
+const CustomExerciseForm = lazy(() => import('./ui/CustomExerciseForm'));
+const RoutineListScreen = lazy(() => import('./ui/RoutineListScreen'));
+const RoutineEditorScreen = lazy(() => import('./ui/RoutineEditorScreen'));
 
 function GymDashboardCard() {
   return createElement('article', null, createElement('h2', null, 'Gym'));
@@ -26,7 +29,15 @@ export const gymModule: ModuleDefinition<GymBackupData> = {
   id: 'gym',
   name: 'Gym',
   icon: GymIcon,
-  routes: [{ path: '/gym', Component: GymStartScreen, tabRoot: true, title: 'Gym' }],
+  routes: [
+    { path: '/gym', Component: GymHome, tabRoot: true, title: 'Gym' },
+    { path: '/gym/library', Component: LibraryScreen, title: 'Exercises' },
+    { path: '/gym/library/:exerciseId', Component: ExerciseDetailScreen, title: 'Exercise' },
+    { path: '/gym/exercises/new', Component: CustomExerciseForm, title: 'New exercise' },
+    { path: '/gym/exercises/:exerciseId/edit', Component: CustomExerciseForm, title: 'Edit exercise' },
+    { path: '/gym/routines', Component: RoutineListScreen, title: 'Routines' },
+    { path: '/gym/routines/:routineId', Component: RoutineEditorScreen, title: 'Routine' },
+  ],
   DashboardCard: GymDashboardCard,
   tables: gymTables,
   exportData: exportGymData,

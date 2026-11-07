@@ -502,7 +502,7 @@ Rules that apply to every task:
 
 ## Part 3: Gym module
 
-- [ ] 16. Gym domain model and Exercise_Build_Script
+- [x] 16. Gym domain model and Exercise_Build_Script
   - [~] 16.1 Define Gym constants, types, zod schemas and generators
     - `src/modules/gym/constants.ts` (exactly the design constants), `schema.ts` (zod schemas for `LibraryExercise`, `LibraryState`, `CustomExercise`, `Routine`, `RoutineItem`, `SetRecord`, `SessionEntry`, `Session`, `BackupImage` and the Gym backup data object), `types.ts` (`z.infer` types plus the `Exercise` view model).
     - `src/test/arbitraries/gym.ts`: `arbWeight2dp`, `arbReps`, `arbSetRecord`, `arbSession`, `arbSessions`, `arbExerciseMap`, `arbRoutine`.
@@ -529,7 +529,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run scripts`; commit `feat(gym): add exercise build script with fixture tests`
     - _Requirements: 13.1, 13.2, 13.4, 13.5, 13.8, 13.9, 74.6_
 
-- [ ] 17. Gym strength metrics and PR detection
+- [x] 17. Gym strength metrics and PR detection
   - [~] 17.1 Implement strength metrics, entry parsing and weight display
     - `src/modules/gym/logic/metrics.ts` (`isValidStoredSet`, `isCompletedSet`, `e1rm`, `setVolume`, `exerciseVolume`, `sessionVolume`, `topWeight`, `bestE1rm`, `topSet`, `sessionDurationMs`, `volumeChange`), `entry.ts` (`parseWeight`, `parseReps`, `canComplete`), `format.ts` (`formatWeight`, `formatE1rm`, `formatVolume`).
     - Example tests: E1RM 100 kg × 5 displays 116.7 kg (R74.5 reference); `volumeChange(0, undefined)` is `first`; no `pct` when the previous volume is 0.

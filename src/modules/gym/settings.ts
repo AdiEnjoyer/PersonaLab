@@ -1,4 +1,4 @@
-import { createElement } from 'react';
+import { createElement, lazy, Suspense } from 'react';
 import { z } from 'zod';
 import type { ModuleSettings } from '../../core/registry/types';
 
@@ -30,9 +30,15 @@ export const gymSettingsDefaults: { defaultRestSec: number; restSound: boolean }
   restSound: true,
 };
 
-// Placeholder: the Gym settings screen task replaces this section.
-function GymSettingsSection() {
+/** Keeps the section heading visible while the section (which uses the database) loads. */
+function GymSettingsFallback() {
   return createElement('section', { 'aria-label': 'Gym settings' }, createElement('h2', null, 'Gym'));
+}
+
+const LazyGymSettings = lazy(() => import('./ui/GymSettingsSection'));
+
+function GymSettingsSection() {
+  return createElement(Suspense, { fallback: createElement(GymSettingsFallback) }, createElement(LazyGymSettings));
 }
 
 export const gymSettings: ModuleSettings = {
