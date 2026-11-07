@@ -65,7 +65,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/math src/core/time src/core/text`; commit `feat(core): add rounding, decimal, date, text and id helpers`
     - _Requirements: Conventions (Rounding, Local_Date), 4.2, 4.3, 11.1, 14.1, 25.4, 28.2, 45.6, 72.3_
 
-  - [~] 2.2 Write property test for rounding
+  - [x] 2.2 Write property test for rounding
     - **Property 31: Rounding is half away from zero**
     - **Validates: Conventions (Rounding)**
     - BigInt oracle; values with up to 6 fractional digits; `d ∈ [0, 3]`.
