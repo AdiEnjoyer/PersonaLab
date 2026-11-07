@@ -179,7 +179,7 @@ Rules that apply to every task:
     - **Validates: Requirements 4.2, 4.3**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p5.property`; commit `test(core): add profile validation property test (P5)`
 
-  - [~] 5.4 Write property test for settings acceptance
+  - [x] 5.4 Write property test for settings acceptance
     - **Property 6: Settings accept exactly their accepted values**
     - **Validates: Requirements 5.2, 5.6, 30.2, 30.9, 40.2, 40.8**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p6.property`; commit `test(core): add settings acceptance property test (P6)`
