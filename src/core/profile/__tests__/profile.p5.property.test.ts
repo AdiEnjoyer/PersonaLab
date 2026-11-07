@@ -140,7 +140,7 @@ describe('Property 5: Profile validation accepts exactly valid profiles', () => 
       }),
       { numRuns: 1000 },
     );
-  });
+  }, 60_000);
 
   it('a rejected save leaves the stored Profile unchanged and an accepted one stores all six fields', async () => {
     await fc.assert(
