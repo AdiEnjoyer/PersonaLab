@@ -174,7 +174,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/profile`; commit `feat(core): add profile validation and repository`
     - _Requirements: 4.1, 4.2, 4.3, 4.6, 4.7, 4.8_
 
-  - [~] 5.3 Write property test for Profile validation
+  - [x] 5.3 Write property test for Profile validation
     - **Property 5: Profile validation accepts exactly valid profiles**
     - **Validates: Requirements 4.2, 4.3**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p5.property`; commit `test(core): add profile validation property test (P5)`
