@@ -216,7 +216,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run p22.property`; commit `test(core): add optimistic consistency property test (P22)`
 
 - [ ] 7. Backup service
-  - [~] 7.1 Implement the backup format, zod envelope, base64, file name and migrations
+  - [x] 7.1 Implement the backup format, zod envelope, base64, file name and migrations
     - `src/core/backup/format.ts` (`SUPPORTED_SCHEMA_VERSION = 1`, format id), `schema.ts` (`BackupEnvelope`, `BackupV1`), `base64.ts` (`toBase64`, `fromBase64` for `ArrayBuffer`), `filename.ts` (`backupFileName(date)` in local time), `migrations.ts` (`ENVELOPE_MIGRATIONS`, `migrateEnvelope`, `migrateModuleEntry`).
     - Example tests: the file name for 09:05 on 7 March 2025 is `personallab-backup-2025-03-07-0905.json`; empty bytes round-trip.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/backup`; commit `feat(core): add backup format, schemas and file naming`
