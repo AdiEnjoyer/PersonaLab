@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import { toDbWriteError } from '../../../core/db/errors';
+import { useSetting } from '../../../core/settings/useSetting';
+import { Select } from '../../../ui/form/Select';
+import { Switch } from '../../../ui/form/Switch';
 import { Button } from '../../../ui/primitives/Button';
 import { toast } from '../../../ui/toast/toastStore';
 import { restoreExercise, useArchivedExercises } from '../data/exercises';
 import { loadLibrary } from '../data/library';
+import { GYM_SETTING_KEYS } from '../settings';
 import { browserDeps, downloadAllPhotos, downloadMessage, libraryImageUrls } from '../data/photoDownload';
 
 function PhotoDownload() {
@@ -74,11 +78,37 @@ function ArchivedExercises() {
   );
 }
 
+const REST_OPTIONS = Array.from({ length: (600 - 30) / 15 + 1 }, (_, i) => {
+  const sec = 30 + i * 15;
+  return { value: String(sec), label: `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}` };
+});
+/** Default rest time and rest sound (R5.2, R20.2, R20.6). */
+function RestSettings() {
+  const [restSec, commitRest] = useSetting<number>(GYM_SETTING_KEYS.defaultRestSec);
+  const [sound, commitSound] = useSetting<boolean>(GYM_SETTING_KEYS.restSound);
+  const [error, setError] = useState<string>();
+  const save = async (commit: (v: unknown) => Promise<{ ok: true } | { ok: false; error: string }>, value: unknown) => {
+    try {
+      const result = await commit(value);
+      setError(result.ok ? undefined : result.error);
+    } catch (e) {
+      toast.show({ message: `Not saved: ${toDbWriteError(e).reason}.`, kind: 'error' });
+    }
+  };
+  return (
+    <div className="flex flex-col gap-3">
+      <Select label="Default rest time" value={String(restSec)} options={REST_OPTIONS} error={error} onChange={(v) => void save(commitRest, Number(v))} />
+      <Switch label="Rest timer sound" checked={sound} onChange={(v) => void save(commitSound, v)} />
+    </div>
+  );
+}
 /** Gym part of the Settings_Screen: archived exercises and photo download (R13.7, R16.8, R16.9). */
 export default function GymSettingsSection() {
   return (
     <section aria-label="Gym settings" className="flex flex-col gap-4">
       <h2 className="text-lg font-semibold">Gym</h2>
+      <RestSettings />
+      <RestSettings />
       <ArchivedExercises />
       <PhotoDownload />
     </section>

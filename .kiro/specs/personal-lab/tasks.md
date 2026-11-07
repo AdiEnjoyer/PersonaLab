@@ -598,7 +598,7 @@ Rules that apply to every task:
     - **Validates: Requirements 24.10**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p63.property`; commit `test(gym): add max weight provenance property test (P63)`
 
-- [ ] 18. Gym session, rest timer and routine logic
+- [x] 18. Gym session, rest timer and routine logic
   - [~] 18.1 Implement set pre-fill
     - `src/modules/gym/logic/prefill.ts`: `referenceSets`, `prefillFor`, `previousLabel`; draft sources `'prefill'`/`'owner'`.
     - Example tests: fewer reference sets than drafts reuse the last one; no history with a routine item pre-fills only reps.
@@ -686,7 +686,7 @@ Rules that apply to every task:
     - **Validates: Requirements 22.8**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p57.property`; commit `test(gym): add volume change baseline property test (P57)`
 
-- [ ] 19. Gym library, split analysis and chart logic
+- [x] 19. Gym library, split analysis and chart logic
   - [~] 19.1 Implement Exercise_Library filters and Custom_Exercise validation
     - `src/modules/gym/logic/library.ts` (`sortExercises`, `matchesText`, `matchesMuscles`, `matchesEquipment`, `filterExercises`, `muscleOptions`, `equipmentOptions`), `exerciseForm.ts` (`validateCustomExercise`, `findDuplicateName` ignoring archived exercises and the edited one, `archiveImpact(routines, exerciseId)`).
     - Example tests: "  squat " matches "Barbell Squat"; secondary toggle off ignores secondary muscles.
@@ -763,7 +763,7 @@ Rules that apply to every task:
     - **Validates: Requirements 25.3, 25.5**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p64.property`; commit `test(gym): add chart points property test (P64)`
 
-- [ ] 20. Gym data access and module wiring
+- [x] 20. Gym data access and module wiring
   - [~] 20.1 Implement exercise data access
     - `src/modules/gym/data/exercises.ts`: `useLibrary()` (fetch precached `exercises/exercises.json` once per run, error state), `useExercises()` (library + custom + archive flags, live), `createCustomExercise` via `createIdempotent` with the photo stored in `gym_images`, `updateCustomExercise`, `archiveExercise` (one write: archive flag + removal of every referencing Routine_Item, `recordDiffUndo('Exercise archived', …)`), `restoreExercise` (never re-adds Routine_Items), `getImageUrl` for stored photos.
     - Data tests on fake-indexeddb: archive removes routine items and Undo restores them; image read failure is reported.
@@ -817,7 +817,7 @@ Rules that apply to every task:
     - **Validates: Requirements 21.3**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p52.property`; commit `test(gym): add active session persistence property test (P52)`
 
-- [ ] 21. Gym screens
+- [x] 21. Gym screens
   - [~] 21.1 Build the Gym start screen, Exercise_Library and exercise detail
     - Gym start screen (Start workout, Resume, Routines, History, Split analysis, Library).
     - Library screen: search, muscle and equipment filters, secondary toggle, `VirtualList`, empty state, state restored when returning from detail (module-level store; toggle resets on a new launch), Skeleton gate.
@@ -878,7 +878,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/gym/ui`; commit `test(gym): add session logging autosave and resume component test`
     - _Requirements: 21.1, 21.2, 21.3, 21.4, 21.7, 22.3, 74.7_
 
-- [~] 22. Checkpoint: Gym module
+- [x] 22. Checkpoint: Gym module
   - Run `npm run typecheck`, `npx vitest --run` and `npm run build`; fix any failure and commit fixes with `fix(gym): …`.
   - Ensure all tests pass, ask the user if questions arise.
 
