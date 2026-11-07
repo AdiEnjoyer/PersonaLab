@@ -190,7 +190,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run p7.property`; commit `test(core): add key mask property test (P7)`
 
 - [ ] 6. Undo service and optimistic updates
-  - [~] 6.1 Implement the Undo service and record-diff undo
+  - [x] 6.1 Implement the Undo service and record-diff undo
     - `src/core/undo/undoService.ts` (`push` finalises the current action and starts a 6000 ms timer, `undo` acts on the first tap only, `dismiss`, `subscribe`, failure state "Could not undo" + reason), `recordDiff.ts` (`TableSnapshot`, `captureSnapshot(tables, keys)`, `recordDiffUndo(label, before, after)` restoring in one transaction).
     - The timer lives outside React so it survives navigation; undo data is memory-only.
     - Example tests with fake timers: second tap does nothing; a new push finalises the previous action; a failing undo keeps the after-state and reports the reason.
