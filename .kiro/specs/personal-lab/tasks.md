@@ -265,7 +265,7 @@ Rules that apply to every task:
     - **Validates: Requirements 6.2**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p8.property`; commit `test(core): add image base64 property test (P8)`
 
-  - [~] 7.9 Write property test for Gemini key exclusion from backups
+  - [x] 7.9 Write property test for Gemini key exclusion from backups
     - **Property 9: The Gemini key never appears in a Backup_File**
     - **Validates: Requirements 6.3**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p9.property`; commit `test(core): add backup key exclusion property test (P9)`
