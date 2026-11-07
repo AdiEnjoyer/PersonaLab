@@ -138,7 +138,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/db`; commit `feat(core): add idempotent create, write errors and write queue`
     - _Requirements: 3.5, 11.2, 11.5, 11.6, 63.3_
 
-  - [~] 4.3 Write property test for registry derivation
+  - [x] 4.3 Write property test for registry derivation
     - **Property 1: Registry derivation follows registry order**
     - **Validates: Requirements 2.3, 2.6**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p1.property`; commit `test(core): add registry derivation property test (P1)`
