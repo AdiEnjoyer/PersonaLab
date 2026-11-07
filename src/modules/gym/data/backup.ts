@@ -1,4 +1,4 @@
-﻿import Dexie from 'dexie';
+import Dexie from 'dexie';
 import { imageFromBackup, imageToBackup, type ImageRecord } from '../../../core/backup/base64';
 import { stripUndefined } from '../../../core/db/strip';
 import { GymBackupDataSchema } from '../schema';

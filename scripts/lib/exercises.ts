@@ -1,4 +1,4 @@
-﻿import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { encode } from 'blurhash';
 import sharp from 'sharp';
