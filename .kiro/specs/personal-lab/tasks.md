@@ -149,7 +149,7 @@ Rules that apply to every task:
     - Synthetic v1 → v2 → v3 chain with one field transform and one declared deletion; a throwing v3 step leaves v1 intact.
     - Verify and commit: `npm run typecheck`; `npx vitest --run p4.property`; commit `test(core): add migration preservation property test (P4)`
 
-  - [~] 4.5 Write property test for idempotent creates
+  - [x] 4.5 Write property test for idempotent creates
     - **Property 20: Create operations are idempotent**
     - **Validates: Requirements 11.2, 11.3, 15.6, 37.8, 48.11**
     - Run against generic idempotent test tables here; task 38.3 extends the same test to every real module create path.
