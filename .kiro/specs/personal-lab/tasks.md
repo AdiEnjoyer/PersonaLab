@@ -255,7 +255,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/backup`; commit `feat(core): add backup reminder decision`
     - _Requirements: 9.1, 9.2, 9.3, 9.4_
 
-  - [~] 7.7 Write property test for export call order
+  - [x] 7.7 Write property test for export call order
     - **Property 2: Export calls every module once, in order**
     - **Validates: Requirements 2.4**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p2.property`; commit `test(core): add export call order property test (P2)`
