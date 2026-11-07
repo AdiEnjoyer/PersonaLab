@@ -1,13 +1,12 @@
 import { createElement } from 'react';
-import { z } from 'zod';
 import type { ModuleDefinition } from '../../core/registry/types';
+import { exportNutritionData, importNutritionData, nutritionBackup } from './data/backup';
+import type { NutritionBackupData } from './types';
 import { nutritionSettings } from './settings';
 import { nutritionTables } from './tables';
 
 // Stub definition: the Nutrition tasks replace the icon, screens, card, export/import and backup schema.
 
-const nutritionBackupSchema = z.object({});
-type NutritionBackupData = z.infer<typeof nutritionBackupSchema>;
 
 function NutritionIcon({ className }: { className?: string }) {
   return createElement(
@@ -32,8 +31,8 @@ export const nutritionModule: ModuleDefinition<NutritionBackupData> = {
   routes: [{ path: '/nutrition', Component: NutritionTodayScreen, tabRoot: true, title: 'Nutrition' }],
   DashboardCard: NutritionDashboardCard,
   tables: nutritionTables,
-  exportData: async () => ({}),
-  importData: async () => undefined,
-  backup: { dataVersion: 1, schema: nutritionBackupSchema, migrations: {}, sections: () => [] },
+  exportData: exportNutritionData,
+  importData: importNutritionData,
+  backup: nutritionBackup,
   settings: nutritionSettings,
 };
