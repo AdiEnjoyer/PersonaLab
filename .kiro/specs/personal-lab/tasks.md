@@ -260,7 +260,7 @@ Rules that apply to every task:
     - **Validates: Requirements 2.4**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p2.property`; commit `test(core): add export call order property test (P2)`
 
-  - [~] 7.8 Write property test for image base64 round trip
+  - [x] 7.8 Write property test for image base64 round trip
     - **Property 8: Image base64 round trip**
     - **Validates: Requirements 6.2**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p8.property`; commit `test(core): add image base64 property test (P8)`
