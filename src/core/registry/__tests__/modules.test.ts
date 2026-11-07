@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+﻿import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { createElement } from 'react';
 import { MODULES } from '../modules';
@@ -60,7 +60,7 @@ describe('Module_Registry', () => {
       const data = await mod.exportData();
       expect(mod.backup.dataVersion).toBe(1);
       const parsed = mod.backup.schema.parse(data);
-      expect(mod.backup.sections(parsed)).toEqual([]);
+      expect(mod.backup.sections(parsed).flatMap((s) => s.records)).toEqual([]);
       await expect(mod.importData(parsed)).resolves.toBeUndefined();
     }
   });

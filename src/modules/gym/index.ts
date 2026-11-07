@@ -1,14 +1,11 @@
 import { createElement } from 'react';
-import { z } from 'zod';
 import type { ModuleDefinition } from '../../core/registry/types';
+import { exportGymData, gymBackup, importGymData } from './data/backup';
 import { gymSettings } from './settings';
 import { gymTables } from './tables';
+import type { GymBackupData } from './types';
 
-// Stub definition: the Gym tasks replace the icon, screens, card, export/import and backup schema.
-
-const gymBackupSchema = z.object({});
-type GymBackupData = z.infer<typeof gymBackupSchema>;
-
+// The icon, screens, card and backup are real; the Session_Logger, History and Split routes are added by later steps.
 function GymIcon({ className }: { className?: string }) {
   return createElement(
     'svg',
@@ -32,8 +29,8 @@ export const gymModule: ModuleDefinition<GymBackupData> = {
   routes: [{ path: '/gym', Component: GymStartScreen, tabRoot: true, title: 'Gym' }],
   DashboardCard: GymDashboardCard,
   tables: gymTables,
-  exportData: async () => ({}),
-  importData: async () => undefined,
-  backup: { dataVersion: 1, schema: gymBackupSchema, migrations: {}, sections: () => [] },
+  exportData: exportGymData,
+  importData: importGymData,
+  backup: gymBackup,
   settings: gymSettings,
 };

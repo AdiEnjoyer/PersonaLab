@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+﻿import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fc from 'fast-check';
 import type Dexie from 'dexie';
 import { CORE_TABLES, META_KEYS } from '../../db/tables';
@@ -84,7 +84,7 @@ describe('buildBackup', () => {
     await withFreshDb(async (database) => {
       const { file } = await buildBackup(NOW, MODULES, { database });
       expect(file.core).toEqual({ profile: null, settings: [] });
-      expect(file.modules).toEqual(MODULES.map((m) => ({ id: m.id, dataVersion: m.backup.dataVersion, data: {} })));
+      expect(file.modules).toEqual(await Promise.all(MODULES.map(async (m) => ({ id: m.id, dataVersion: m.backup.dataVersion, data: await m.exportData() }))));
     });
   });
 
