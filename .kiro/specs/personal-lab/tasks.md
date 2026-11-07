@@ -92,7 +92,7 @@ Rules that apply to every task:
     - **Validates: Requirements 13.2, 15.3, 36.2**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p30.property`; commit `test(core): add image scaling property test (P30)`
 
-- [ ] 3. Module registry
+- [x] 3. Module registry
   - [x] 3.1 Implement registry types, capabilities, validator and derivation helpers
     - `src/core/registry/types.ts` (`ModuleDefinition`, `ModuleRoute`, `CommandEntry`, `CommandContext`, `ModuleBackup`, `ModuleSettings` exactly as in the design), `capabilities.ts` (`Capabilities`, `getCapability` reading a module list), `validate.ts` (`validateRegistry`, including core paths `/` and `/settings` under pseudo-id `core`).
     - `src/core/registry/derive.ts`: pure `deriveTabs`, `deriveRoutes`, `deriveCards`, `deriveCommandSources` that follow list order.
@@ -116,7 +116,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/test`; commit `test(core): add architecture import scan and numRuns check`
     - _Requirements: 2.8, 74.2, 74.3_
 
-  - [~] 3.4 Write property test for the registry validator
+  - [x] 3.4 Write property test for the registry validator
     - **Property 3: Registry validator reports exactly the problems**
     - **Validates: Requirements 2.5**
     - Oracle in `src/test/oracles/registry.ts`.
