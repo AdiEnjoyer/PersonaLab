@@ -189,7 +189,7 @@ Rules that apply to every task:
     - **Validates: Requirements 5.7**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p7.property`; commit `test(core): add key mask property test (P7)`
 
-- [ ] 6. Undo service and optimistic updates
+- [x] 6. Undo service and optimistic updates
   - [x] 6.1 Implement the Undo service and record-diff undo
     - `src/core/undo/undoService.ts` (`push` finalises the current action and starts a 6000 ms timer, `undo` acts on the first tap only, `dismiss`, `subscribe`, failure state "Could not undo" + reason), `recordDiff.ts` (`TableSnapshot`, `captureSnapshot(tables, keys)`, `recordDiffUndo(label, before, after)` restoring in one transaction).
     - The timer lives outside React so it survives navigation; undo data is memory-only.
@@ -209,7 +209,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/optimistic`; commit `feat(core): add optimistic list overlay`
     - _Requirements: 63.1, 63.2, 63.3, 63.4, 3.5_
 
-  - [~] 6.4 Write property test for optimistic consistency
+  - [x] 6.4 Write property test for optimistic consistency
     - **Property 22: Optimistic UI equals stored state after settling**
     - **Validates: Requirements 3.5, 63.3, 63.4**
     - Use a Dexie middleware that fails a chosen subset of writes.
