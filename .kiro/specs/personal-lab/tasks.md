@@ -71,7 +71,7 @@ Rules that apply to every task:
     - BigInt oracle; values with up to 6 fractional digits; `d ∈ [0, 3]`.
     - Verify and commit: `npm run typecheck`; `npx vitest --run p31.property`; commit `test(core): add rounding property test (P31)`
 
-  - [~] 2.3 Write property test for clock formatting
+  - [x] 2.3 Write property test for clock formatting
     - **Property 28: Clock and elapsed formatting**
     - **Validates: Requirements 28.2, 45.6**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p28.property`; commit `test(core): add clock formatting property test (P28)`
