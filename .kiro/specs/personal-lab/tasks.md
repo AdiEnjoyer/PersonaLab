@@ -222,7 +222,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/backup`; commit `feat(core): add backup format, schemas and file naming`
     - _Requirements: 6.1, 6.2, 6.4, 7.6, 8.3_
 
-  - [~] 7.2 Implement backup file checking in R7.1 order
+  - [x] 7.2 Implement backup file checking in R7.1 order
     - `src/core/backup/import.ts`: `checkBackupFile(file, modules = MODULES)` and a pure `validateBackupValue(parsed, modules)` running read → JSON → envelope → version support (file and module data versions) → migration → record validation (core profile, core settings per key, module entries in file order with `module.backup.schema` and `sections()` positions); `ImportPlan` with `present`, `absent`, `skipped`.
     - `src/core/backup/messages.ts`: the exact R7 messages.
     - Example tests for each message, including section, 1-based record position and field path.
