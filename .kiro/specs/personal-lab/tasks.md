@@ -132,7 +132,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/db`; commit `feat(core): add dexie database, versioning and change tracking`
     - _Requirements: 2.6, 3.1, 3.3, 3.4, 3.6, 3.7, 8.4, 9.2_
 
-  - [~] 4.2 Implement the write path, idempotent creates and the per-record write queue
+  - [x] 4.2 Implement the write path, idempotent creates and the per-record write queue
     - `src/core/db/errors.ts` (`DbWriteError`, `toDbWriteError` with `quota` detection through the cause chain), `write(tables, fn)` in `db.ts` or `write.ts`, `idempotent.ts` (`createIdempotent` with the in-flight map, `&idemKey` lookup, `ConstraintError` recovery, `MissingIdempotencyKeyError`), `writeQueue.ts` (`enqueueWrite`).
     - Example tests: quota error mapping; a failed create leaves no record and a retry with the same key creates it; writes for one key apply in call order.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/db`; commit `feat(core): add idempotent create, write errors and write queue`
