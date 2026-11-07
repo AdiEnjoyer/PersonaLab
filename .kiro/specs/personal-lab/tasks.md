@@ -26,7 +26,7 @@ Rules that apply to every task:
     - Verify and commit: nothing changes in this sub-task, so there is no typecheck, test or commit.
     - _Requirements: 74.1, 12.2_
 
-  - [-] 1.2 Create the initial commit on `main` and switch to `feature/personal-lab`
+  - [x] 1.2 Create the initial commit on `main` and switch to `feature/personal-lab`
     - Make sure the unborn branch is `main` (`git symbolic-ref HEAD refs/heads/main`).
     - Create `.gitignore` with: `node_modules/`, `dist/`, `coverage/`, `*.local`, `.env*`, `.data-src/` (downloaded source datasets), `*.zst`, `.tmp/`, `worker/.wrangler/`, `public/engine/` (copied at build time).
     - Create a `README.md` stub: project name, one-paragraph description, "Status: in development on `feature/personal-lab`", and a pointer to `.kiro/specs/personal-lab/`.

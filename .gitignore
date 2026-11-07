@@ -10,3 +10,5 @@ coverage/
 worker/.wrangler/
 # copied at build time
 public/engine/
+# Kiro task-runner state (execution history), not project content
+.kiro/specs/**/tasks.meta.json
