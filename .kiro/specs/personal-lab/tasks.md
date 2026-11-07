@@ -249,7 +249,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/backup`; commit `feat(core): add transactional backup import with undo`
     - _Requirements: 7.9, 7.10, 7.11, 7.12, 8.2, 8.6_
 
-  - [~] 7.6 Implement the backup reminder decision
+  - [x] 7.6 Implement the backup reminder decision
     - `src/core/backup/reminder.ts` (pure `shouldShowBackupReminder`) and `snoozeReminder(now)` writing `reminderSnoozeUntil = now + 86_400_000`.
     - Example tests: off, snoozed, exactly 72 h (not shown), 72 h + 1 ms (shown).
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/backup`; commit `feat(core): add backup reminder decision`
