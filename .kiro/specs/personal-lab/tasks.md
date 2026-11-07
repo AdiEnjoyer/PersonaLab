@@ -168,7 +168,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/settings`; commit `feat(core): add settings, secrets and module setting schemas`
     - _Requirements: 5.2, 5.5, 5.6, 5.7, 9.1, 30.2, 40.2_
 
-  - [~] 5.2 Implement the Profile schema, text validation and repository
+  - [x] 5.2 Implement the Profile schema, text validation and repository
     - `src/core/profile/schema.ts` (`ProfileSchema` for stored records; `validateProfile(texts)` checking entered text with `parseDecimal` and `isMultipleOfStep`, returning per-field accepted range and step), `repo.ts` (`getProfile`, `saveProfile` writing all six fields only on a valid save, `useProfile`).
     - Example tests: 70.25 kg, 175.5 cm and 3.2 h are rejected; a failed write keeps the stored Profile.
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/core/profile`; commit `feat(core): add profile validation and repository`
