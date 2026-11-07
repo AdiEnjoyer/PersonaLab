@@ -496,7 +496,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/app`; commit `feat(app): add backup export and import screens`
     - _Requirements: 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.1, 7.2, 7.3, 7.4, 7.5, 7.7, 7.8, 7.12, 7.13, 7.14, 9.5, 74.7_
 
-- [~] 15. Checkpoint: UI kit and app shell
+- [x] 15. Checkpoint: UI kit and app shell
   - Run `npm run typecheck`, `npx vitest --run` and `npm run build`; fix any failure and commit fixes with `fix(ui): …` or `fix(app): …`.
   - Ensure all tests pass, ask the user if questions arise.
 
