@@ -1,4 +1,4 @@
-import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { encode } from 'blurhash';
 import sharp from 'sharp';
@@ -162,7 +162,7 @@ export async function resizeAndHash(source: Buffer, imagePath: string): Promise<
   const { data, info } = await sharp(source)
     .rotate()
     .resize({ width: LIBRARY_IMAGE_MAX_SIDE, height: LIBRARY_IMAGE_MAX_SIDE, fit: 'inside', withoutEnlargement: true })
-    .jpeg({ quality: 80 })
+    .jpeg({ quality: 72 })
     .toBuffer({ resolveWithObject: true });
   const raw = await sharp(data).resize(32, 32, { fit: 'fill' }).ensureAlpha().raw().toBuffer();
   const blurhash = encode(new Uint8ClampedArray(raw), 32, 32, 4, 3);
@@ -197,7 +197,7 @@ export async function buildExercises(options: BuildOptions): Promise<BuildResult
 
   // 3. Images go to a temporary directory that replaces the output only on success.
   const tmpDir = `${options.outDir}.tmp`;
-  await rm(tmpDir, { recursive: true, force: true });
+  await rm(tmpDir, { recursive: true, force: true, maxRetries: 10, retryDelay: 300 });
   await mkdir(path.join(tmpDir, 'img'), { recursive: true });
   const records: LibraryRecord[] = [];
   let imagesWritten = 0;
@@ -221,10 +221,16 @@ export async function buildExercises(options: BuildOptions): Promise<BuildResult
       records.push({ ...draft, images });
     }
     await writeFile(path.join(tmpDir, 'exercises.json'), serialiseLibrary(records), 'utf8');
-    await rm(options.outDir, { recursive: true, force: true });
-    await rename(tmpDir, options.outDir);
+    await rm(options.outDir, { recursive: true, force: true, maxRetries: 10, retryDelay: 300 });
+    try {
+      await rename(tmpDir, options.outDir);
+    } catch {
+      // Windows/OneDrive can lock the directory for a rename; copying is equivalent.
+      await cp(tmpDir, options.outDir, { recursive: true });
+      await rm(tmpDir, { recursive: true, force: true, maxRetries: 10, retryDelay: 300 });
+    }
   } catch (error) {
-    await rm(tmpDir, { recursive: true, force: true });
+    await rm(tmpDir, { recursive: true, force: true, maxRetries: 10, retryDelay: 300 });
     throw error;
   }
   log(`included ${drafts.length}, excluded ${excluded}, images ${imagesWritten} written, ${imagesDropped} dropped`);
