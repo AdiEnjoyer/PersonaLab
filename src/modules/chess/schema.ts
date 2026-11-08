@@ -131,6 +131,17 @@ export const ChessBackupDataSchema = z.strictObject({
   reports: z.array(ReportRecordSchema),
 });
 
+/** `public/data/puzzles.json` (R47.5). */
+export const PuzzleSchema = z.strictObject({
+  id: z.string().min(1),
+  fen: z.string().min(1),
+  moves: z.array(z.string().regex(/^[a-h][1-8][a-h][1-8][qrbn]?$/)).min(2),
+  rating: z.number(),
+  rd: z.number(),
+  themes: z.array(z.string()),
+});
+export const PuzzlesFileSchema = z.array(PuzzleSchema);
+
 /** `public/data/tips.json` (R41.1). */
 export const TipSchema = z.strictObject({
   id: z.string().min(1),

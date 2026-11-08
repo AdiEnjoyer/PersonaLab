@@ -71,6 +71,16 @@ export interface PuzzleAttempt {
   after: { rating: number; rd: number; vol: number };
 }
 
+/** One bundled puzzle (R47.5). `moves[0]` is the opponent's move played from `fen`; the rest alternate Owner / opponent. */
+export interface Puzzle {
+  id: string;
+  fen: string;
+  moves: string[];
+  rating: number;
+  rd: number;
+  themes: string[];
+}
+
 export interface Tip {
   id: string;
   band: RatingBand;
