@@ -1,4 +1,4 @@
-import { createElement } from 'react';
+import { createElement, lazy, Suspense } from 'react';
 import { z } from 'zod';
 import type { ModuleSettings } from '../../core/registry/types';
 
@@ -67,11 +67,16 @@ export const chessSettingsDefaults: { username: string; proxyUrl: string; rating
   manualRating: 1100,
 };
 
-// Placeholder: the Chess settings screen task replaces this section.
-function ChessSettingsSection() {
+/** Keeps the section heading visible while the section (which uses the database) loads. */
+function ChessSettingsFallback() {
   return createElement('section', { 'aria-label': 'Chess settings' }, createElement('h2', null, 'Chess'));
 }
 
+const LazyChessSettings = lazy(() => import('./ui/ChessSettingsSection'));
+
+function ChessSettingsSection() {
+  return createElement(Suspense, { fallback: createElement(ChessSettingsFallback) }, createElement(LazyChessSettings));
+}
 export const chessSettings: ModuleSettings = {
   schema: chessSettingsSchema,
   defaults: chessSettingsDefaults,
