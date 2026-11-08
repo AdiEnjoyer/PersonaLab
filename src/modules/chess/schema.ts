@@ -152,3 +152,8 @@ export const TipSchema = z.strictObject({
   detectors: z.array(z.enum(DETECTOR_IDS)),
 });
 export const TipsFileSchema = z.array(TipSchema);
+
+/** public/data/repertoire-starter.json (R51.1): authored lines of SAN moves, each optionally followed by  # note. */
+export const StarterFileSchema = z.strictObject({
+  trees: z.array(z.strictObject({ name: z.string().min(1).max(60), colour, lines: z.array(z.array(z.string().min(1)).min(1)).min(1) })).min(1),
+});
