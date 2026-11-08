@@ -3,7 +3,6 @@ import { APP_VERSION, BUILD_DATE } from '../../core/about/buildInfo';
 import { LICENCES } from '../../core/about/licences';
 import { getPersistStatus, type PersistStatus } from '../../core/storage/persist';
 import { getOfflineReady } from '../../core/update/precacheStatus';
-import { Button } from '../../ui/primitives/Button';
 import { CardFrame } from '../../ui/primitives/CardFrame';
 
 const STORAGE_TEXT: Record<PersistStatus, string> = {
@@ -38,15 +37,6 @@ export function AboutSection() {
       </dl>
       <p>{storage === null ? 'Persistent storage: checking…' : STORAGE_TEXT[storage]}</p>
       <p>Offline ready: {offlineReady === null ? '…' : offlineReady ? 'yes' : 'no'}</p>
-      <div>
-        {/* Gym wires this control later (offline exercise photos). */}
-        <Button variant="secondary" disabled aria-describedby="photos-note">
-          Download all exercise photos
-        </Button>
-        <p id="photos-note" className="mt-1 text-sm text-muted">
-          Available once the Gym module is ready.
-        </p>
-      </div>
       <h3 className="font-semibold">Open source and data</h3>
       <ul className="flex flex-col gap-2">
         {LICENCES.map((l) => (
