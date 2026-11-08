@@ -23,7 +23,8 @@ const GameViewerScreen = lazy(() => import('./ui/GameViewerScreen'));
 const PuzzlesScreen = lazy(() => import('./ui/PuzzlesScreen'));
 const OpeningsScreen = lazy(() => import('./ui/OpeningsScreen'));
 const DrillScreen = lazy(() => import('./ui/OpeningsScreen').then((m) => ({ default: m.DrillScreen })));
-const AnalysisScreen = lazy(() => import('./ui/ComingSoon').then((m) => ({ default: m.AnalysisScreen })));
+const AnalysisScreen = lazy(() => import('./ui/AnalysisScreen'));
+const ReportScreen = lazy(() => import('./ui/ReportScreen'));
 const LazyDashboardCard = lazy(() => import('./ui/ChessDashboardCard'));
 
 function ChessDashboardCard() {
@@ -44,6 +45,7 @@ export const chessModule: ModuleDefinition<ChessBackupData> = {
     { path: '/chess/openings', Component: OpeningsScreen, title: 'Openings' },
     { path: '/chess/drill', Component: DrillScreen, title: 'Drill' },
     { path: '/chess/analysis', Component: AnalysisScreen, title: 'Analysis' },
+    { path: '/chess/analysis/:gameId', Component: ReportScreen, title: 'Game report' },
   ],
   DashboardCard: ChessDashboardCard,
   tables: chessTables,

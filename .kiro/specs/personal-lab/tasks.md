@@ -1511,7 +1511,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/chess`; commit `feat(chess): add starter repertoire and repertoire data access`
     - _Requirements: 51.1, 51.2, 51.4, 51.8, 51.10, 51.11, 52.4, 52.6, 64.2, 64.3_
 
-- [ ] 34. Engine, Move_Classifier, Mistake_Detectors and Game_Analyzer
+- [x] 34. Engine, Move_Classifier, Mistake_Detectors and Game_Analyzer
   - [~] 34.1 Implement the Stockfish engine client
     - `src/modules/chess/engine/engineClient.ts`: `EngineTransport`, `createWorkerTransport` (worker URL from `ENGINE_FILES`), `EngineClient` (`start` with `uci`/`uciok`, Hash 16, `isready`/`readyok` within 10 s; `analyse` parsing the last `info` at the target depth, `score cp`/`score mate`, first 3 PV moves, resolving on `bestmove`, 60 s timeout; `ucinewgame` once per game; `stop` with 1 s grace then terminate; `restart`).
     - `src/test/helpers/mockEngine.ts`: deterministic mock transport that can fail at a chosen position.
@@ -1630,7 +1630,7 @@ Rules that apply to every task:
     - **Validates: Requirements 60.4, 60.5, 55.2**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p152.property`; commit `test(chess): add analysis cache property test (P152)`
 
-- [ ] 35. Chess module wiring and screens
+- [x] 35. Chess module wiring and screens
   - [~] 35.1 Implement Chess backup and the full Chess ModuleDefinition
     - `src/modules/chess/data/backup.ts`: `exportData` (games, sync state, ratings, puzzle attempts and rating, trees, SRS, reviews, tip state, evals, reports), `importData`, `backup.schema`, `sections()`.
     - `src/modules/chess/index.ts`: every route from the design list, each lazily loading a screen file under `src/modules/chess/ui/screens/` (create placeholders now; tasks 35.2–35.9 replace them), `useCommandEntries` (repertoire trees, "Chess" screen, "Next puzzle", "Drill openings", "Sync chess games" with `needsNetwork`), `settings.Section` (`ui/ChessSettingsSection.tsx` placeholder), `DashboardCard` (`ui/ChessDashboardCard.tsx` placeholder).
@@ -1689,7 +1689,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/chess/ui`; commit `feat(chess): add chess settings section and dashboard card`
     - _Requirements: 5.2, 40.1, 40.2, 40.3, 40.4, 40.5, 40.6, 40.7, 40.8, 46.7, 61.1, 61.2, 61.3, 61.4, 61.5_
 
-- [~] 36. Checkpoint: Chess module
+- [x] 36. Checkpoint: Chess module
   - Run `npm run typecheck`, `npx vitest --run` and `npm run build`; fix any failure and commit fixes with `fix(chess): …`.
   - Ensure all tests pass, ask the user if questions arise.
 

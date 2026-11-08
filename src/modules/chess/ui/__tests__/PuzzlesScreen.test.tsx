@@ -5,7 +5,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { db } from '../../../../core/db/db';
 import { withFreshDb } from '../../../../test/helpers/db';
 import { resetPuzzlesCache } from '../../data/puzzles';
-import { MATE_PUZZLE } from '../../logic/__tests__/puzzleFixtures';
+import { FIXTURE_PUZZLES, LINE_PUZZLE, MATE_PUZZLE } from '../../logic/__tests__/puzzleFixtures';
 import type { PuzzleAttempt, PuzzleRatingRecord } from '../../types';
 
 type Options = {
@@ -81,6 +81,31 @@ describe('PuzzlesScreen data', () => {
     vi.stubGlobal('fetch', respond(200, [MATE_PUZZLE]));
     await user.click(screen.getByRole('button', { name: 'Retry' }));
     await ownerTurn();
+  });
+});
+
+describe('PuzzlesScreen ?theme= query', () => {
+  it('opens theme practice for the themes in the query (R59.6)', async () => {
+    vi.stubGlobal('fetch', respond(200, FIXTURE_PUZZLES));
+    render(
+      <MemoryRouter initialEntries={['/chess/puzzles?theme=opening']}>
+        <PuzzlesScreen />
+      </MemoryRouter>,
+    );
+    await ownerTurn();
+    expect(screen.getByLabelText('Theme')).toHaveValue('opening');
+    expect(fenOf()).toContain('pppppppp/8/8/4P3');
+    expect(LINE_PUZZLE.themes).toContain('opening');
+  });
+  it('accepts several themes, comma-separated', async () => {
+    vi.stubGlobal('fetch', respond(200, FIXTURE_PUZZLES));
+    render(
+      <MemoryRouter initialEntries={['/chess/puzzles?theme=backRankMate,short']}>
+        <PuzzlesScreen />
+      </MemoryRouter>,
+    );
+    await ownerTurn();
+    expect(screen.getByLabelText('Theme')).toHaveValue('backRankMate,short');
   });
 });
 

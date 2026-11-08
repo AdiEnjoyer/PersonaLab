@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { newIdemKey } from '../../../core/ids';
+import { useSearchParams } from 'react-router';
 import { Select } from '../../../ui/form/Select';
 import { LineChartCard } from '../../../ui/chart/LineChartCard';
 import { Button } from '../../../ui/primitives/Button';
@@ -218,7 +219,9 @@ export default function PuzzlesScreen() {
   const [load, setLoad] = useState<Load>({ status: 'loading' });
   const [attempt, setAttempt] = useState(0);
   const [chessRating, setChessRating] = useState<number | undefined>(undefined);
-  const [theme, setTheme] = useState('');
+  const [params] = useSearchParams();
+  // `?theme=fork,pin` opens theme practice for those themes (R59.6); several themes are kept comma-separated.
+  const [theme, setTheme] = useState(() => params.get('theme') ?? '');
   const [current, setCurrent] = useState<Puzzle | null | undefined>(undefined);
   const [sessionKey, setSessionKey] = useState(0);
   const review = useRef<{ queue: Puzzle[]; index: number } | null>(null);
@@ -250,8 +253,11 @@ export default function PuzzlesScreen() {
 
   const puzzles = load.status === 'ready' ? load.puzzles : undefined;
   const puzzlesById = useMemo(() => new Map((puzzles ?? []).map((p) => [p.id, p])), [puzzles]);
-  const pool = useMemo(() => filterByThemes(puzzles ?? [], theme === '' ? [] : [theme]), [puzzles, theme]);
-  const themes = useMemo(() => [...new Set((puzzles ?? []).flatMap((p) => p.themes))].sort(), [puzzles]);
+  const pool = useMemo(() => filterByThemes(puzzles ?? [], theme.split(',').filter((t) => t !== '')), [puzzles, theme]);
+  const themes = useMemo(() => {
+    const all = [...new Set((puzzles ?? []).flatMap((p) => p.themes))].sort();
+    return theme.includes(',') ? [theme, ...all] : all;
+  }, [puzzles, theme]);
   const attempts = data.value?.attempts;
   const target = data.value?.rating?.rating ?? chessRating;
 

@@ -12,7 +12,8 @@ import { readLastSyncAt } from '../data/gameSync';
 import { useLiveValue } from '../data/live';
 import { readPuzzleRating } from '../data/puzzleRepo';
 import { readRatings, refreshRatings } from '../data/ratings';
-import { useDailyTip } from '../data/view';
+import { readAllGames, useDailyTip } from '../data/view';
+import { sortGames } from '../logic/games';
 import { displayRating, isProvisional } from '../logic/glicko2';
 import type { ChessComError } from '../net/chesscom';
 import { chessComMessage } from '../net/messages';
@@ -156,6 +157,20 @@ export function DailyTipCard() {
   );
 }
 
+/** Link to the report screen of the newest synced game with a readable PGN (the "Analyse my last game" shortcut). */
+export function AnalyseLastGame() {
+  const games = useLiveValue(readAllGames, []);
+  const last = sortGames((games.value ?? []).filter((g) => !g.pgnUnreadable))[0];
+  if (last === undefined) return null;
+  return (
+    <AppLink
+      to={`/chess/analysis/${encodeURIComponent(last.id)}`}
+      className="tap flex items-center justify-center rounded-continuous bg-surface-2 px-4 py-2 text-base font-medium text-fg"
+    >
+      Analyse my last game
+    </AppLink>
+  );
+}
 /** `/chess`: ratings, daily tip, sync and links to the Chess screens (R41.7, R43, R44.15). */
 export default function ChessHome() {
   const { online } = useOnline();
@@ -184,6 +199,7 @@ export default function ChessHome() {
       <CardFrame aria-label="Games sync">
         <SyncControls />
       </CardFrame>
+      <AnalyseLastGame />
       <nav aria-label="Chess sections" className="grid grid-cols-2 gap-2">
         {NAV.map((n) => (
           <AppLink key={n.to} to={n.to} className="tap flex items-center justify-center rounded-continuous bg-surface-2 px-4 py-2 text-base font-medium text-fg">
