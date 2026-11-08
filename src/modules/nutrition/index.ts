@@ -18,6 +18,7 @@ function NutritionIcon({ className }: { className?: string }) {
 const FoodLogScreen = lazy(() => import('./ui/FoodLogScreen'));
 const FoodForm = lazy(() => import('./ui/FoodForm'));
 const BarcodeScanner = lazy(() => import('./ui/BarcodeScanner'));
+const MealEstimator = lazy(() => import('./ui/MealEstimator'));
 const ProductScreen = lazy(() => import('./ui/ProductScreen'));
 const MealsScreen = lazy(() => import('./ui/MealsScreen'));
 const MealEditor = lazy(() => import('./ui/MealEditor'));
@@ -37,6 +38,7 @@ export const nutritionModule: ModuleDefinition<NutritionBackupData> = {
     { path: '/nutrition/day/:date', Component: FoodLogScreen, title: 'Food log' },
     { path: '/nutrition/add', Component: FoodForm, title: 'Add food' },
     { path: '/nutrition/scan', Component: BarcodeScanner, title: 'Scan barcode' },
+    { path: '/nutrition/estimate', Component: MealEstimator, title: 'Photo of meal' },
     { path: '/nutrition/product/:barcode', Component: ProductScreen, title: 'Product' },
     { path: '/nutrition/meals', Component: MealsScreen, title: 'Saved meals' },
     { path: '/nutrition/meals/:mealId', Component: MealEditor, title: 'Meal' },

@@ -1,6 +1,7 @@
 import { Navigate, useParams } from 'react-router';
 import { AppLink } from '../../../app/AppLink';
 import { toDbWriteError } from '../../../core/db/errors';
+import { useOnline } from '../../../core/net/online';
 import { addDays, isLocalDate, type LocalDate } from '../../../core/time/localDate';
 import { Switch } from '../../../ui/form/Switch';
 import { Button } from '../../../ui/primitives/Button';
@@ -56,6 +57,7 @@ export default function FoodLogScreen() {
   const entries = useFoodEntries(date);
   const energy = useEnergy(today);
   const incomplete = useDayMark(date);
+  const { online } = useOnline();
 
   if (!isLocalDate(date)) return <Navigate to="/nutrition" replace />;
   if (entries.failed) return <ErrorPanel message="The food log could not be loaded." onRetry={entries.retry} />;
@@ -110,6 +112,18 @@ export default function FoodLogScreen() {
       <AppLink to={`/nutrition/scan?date=${date}`} className="tap flex items-center justify-center rounded-continuous bg-accent px-4 py-2 font-medium text-accent-fg">
         Scan barcode
       </AppLink>
+      {online ? (
+        <AppLink to={`/nutrition/estimate?date=${date}`} className="tap flex items-center justify-center rounded-continuous bg-surface-2 px-4 font-medium">
+          Photo of meal
+        </AppLink>
+      ) : (
+        <div className="flex flex-col gap-1">
+          <Button variant="secondary" disabled>
+            Photo of meal
+          </Button>
+          <p className="text-xs text-muted">You are offline. AI estimates need a connection.</p>
+        </div>
+      )}
       {MEAL_SLOTS.map((slot) => (
         <CardFrame key={slot} aria-label={SLOT_LABELS[slot]}>
           <div className="flex items-center justify-between">

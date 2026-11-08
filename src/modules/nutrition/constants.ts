@@ -28,6 +28,7 @@ export const GEMINI_MODEL_ID = 'gemini-3.5-flash-lite';
 export const GEMINI_URL = (model: string) => `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
 export const GEMINI_PROMPT = `You are a nutrition estimator. Identify each distinct food in the photo. For each, estimate the edible portion in grams and its energy (kcal), protein, carbohydrate and fat in grams for that portion. Use typical recipes when unsure. Return only JSON matching the schema. Set confidence to low when the photo is unclear or portions are hard to judge.`;
 export const GEMINI_TIMEOUT_MS = 45_000;
+export const FREE_TIER_WARNING = 'Google may use data sent through the Gemini free tier, including your meal photos, to improve its products.';
 export const AI_LIMITS = { ITEMS: 20, GRAMS: 3000, KCAL: 5000, MACRO: 500, REVIEW_GRAMS_MIN: 1, REVIEW_GRAMS_MAX: 5000 };
 export const CONSISTENCY = { REL: 0.2, ABS_KCAL: 50 };
 export const KCAL_PER_KG = 7700;

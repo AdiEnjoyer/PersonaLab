@@ -9,6 +9,7 @@ import { toast } from '../../../ui/toast/toastStore';
 import { GOAL_ADJUST_DEFAULT, PROTEIN_DEFAULT } from '../constants';
 import { useLiveValue } from '../data/live';
 import { readBurnOffset, setBurnOffset } from '../data/state';
+import { GeminiKeySettings } from './GeminiKeySettings';
 import { NUTRITION_SETTING_KEYS, type GoalAdjust, type ProteinFactorSetting, type TrainingOverride } from '../settings';
 
 type Commit = (v: unknown) => Promise<{ ok: true } | { ok: false; error: string }>;
@@ -135,6 +136,7 @@ export default function NutritionSettingsSection() {
       <TrainingOverrideSettings />
       <GoalSettings />
       <BurnOffsetReset />
+      <GeminiKeySettings />
     </section>
   );
 }
