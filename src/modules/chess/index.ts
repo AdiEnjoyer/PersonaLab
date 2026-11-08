@@ -20,7 +20,7 @@ const BoardScreen = lazy(() => import('./ui/BoardScreen'));
 const TipsScreen = lazy(() => import('./ui/TipsScreen'));
 const GamesScreen = lazy(() => import('./ui/GamesScreen'));
 const GameViewerScreen = lazy(() => import('./ui/GameViewerScreen'));
-const PuzzlesScreen = lazy(() => import('./ui/ComingSoon').then((m) => ({ default: m.PuzzlesScreen })));
+const PuzzlesScreen = lazy(() => import('./ui/PuzzlesScreen'));
 const OpeningsScreen = lazy(() => import('./ui/ComingSoon').then((m) => ({ default: m.OpeningsScreen })));
 const AnalysisScreen = lazy(() => import('./ui/ComingSoon').then((m) => ({ default: m.AnalysisScreen })));
 const LazyDashboardCard = lazy(() => import('./ui/ChessDashboardCard'));

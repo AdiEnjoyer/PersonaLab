@@ -12,9 +12,15 @@ export interface BoardViewProps {
   movable?: 'w' | 'b' | undefined;
   /** Called with legal moves only (a promotion carries its piece). */
   onMove?: ((move: MoveInput) => void) | undefined;
+  /** Squares to colour: a hint origin or a wrong move (puzzles). */
+  marks?: ReadonlyArray<{ square: string; kind: 'hint' | 'wrong' }> | undefined;
+  /** Arrow shown as a second-level hint. */
+  arrow?: { from: string; to: string } | undefined;
 }
 
 const LAST_MOVE_STYLE: CSSProperties = { backgroundColor: 'rgba(255, 213, 0, 0.45)' };
+const HINT_STYLE: CSSProperties = { backgroundColor: 'rgba(40, 180, 90, 0.55)' };
+const WRONG_STYLE: CSSProperties = { backgroundColor: 'rgba(230, 50, 50, 0.6)' };
 const SELECTED_STYLE: CSSProperties = { backgroundColor: 'rgba(20, 130, 255, 0.5)' };
 const TARGET_STYLE: CSSProperties = { background: 'radial-gradient(circle, rgba(20, 130, 255, 0.55) 22%, transparent 24%)' };
 const PROMOTIONS = [
@@ -50,7 +56,7 @@ function useBoardSize(containerRef: React.RefObject<HTMLDivElement | null>): num
  * Chessboard with drag and tap-tap moves, legal-target hints, last-move highlight and a promotion picker
  * (R42.1 to R42.6). The squares are exempt from the 44 px touch rule.
  */
-export function BoardView({ fen, orientation, lastMove, movable, onMove }: BoardViewProps) {
+export function BoardView({ fen, orientation, lastMove, movable, onMove, marks, arrow }: BoardViewProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const size = useBoardSize(containerRef);
   const [selected, setSelected] = useState<string | null>(null);
@@ -93,6 +99,7 @@ export function BoardView({ fen, orientation, lastMove, movable, onMove }: Board
     squareStyles[lastMove.from] = LAST_MOVE_STYLE;
     squareStyles[lastMove.to] = LAST_MOVE_STYLE;
   }
+  for (const m of marks ?? []) squareStyles[m.square] = m.kind === 'hint' ? HINT_STYLE : WRONG_STYLE;
   if (selected !== null) squareStyles[selected] = SELECTED_STYLE;
   for (const t of targets) squareStyles[t] = { ...squareStyles[t], ...TARGET_STYLE };
 
@@ -105,6 +112,7 @@ export function BoardView({ fen, orientation, lastMove, movable, onMove }: Board
             boardOrientation: orientation,
             allowDragging: interactive,
             squareStyles,
+            arrows: arrow ? [{ startSquare: arrow.from, endSquare: arrow.to, color: 'rgb(40, 180, 90)' }] : [],
             showAnimations: true,
             animationDurationInMs: 150,
             canDragPiece: ({ piece }) => interactive && ownPiece(piece.pieceType),
