@@ -35,6 +35,18 @@ export const CLASS_THRESHOLDS = { inaccuracy: 5, mistake: 10, blunder: 15 };
 export const MATE_CP = 10_000;
 export const TACTIC_MIN_GAIN_CP = 200;
 export const PHASE = { ENDGAME_MAX_MINORS_MAJORS: 6, OPENING_MAX_FULLMOVE: 12 };
+/** Mistake_Detector thresholds (R57). */
+export const DETECTOR = {
+  /** Minimum value of a piece that counts as a hanging piece or a fork target. */
+  MIN_TARGET_VALUE: 3,
+  MIN_FORK_TARGETS: 2,
+  CASTLING_BY_OWNER_MOVE: 12,
+  EARLY_QUEEN_OWNER_MOVES: 5,
+  /** Owner Win_Probability at the first endgame position from which a draw or loss counts as poor technique. */
+  ENDGAME_WINNING_W: 75,
+  /** Time pressure: remaining clock below this fraction of the base time. */
+  TIME_PRESSURE_FRACTION: 0.1,
+};
 export const PIECE_VALUE = { p: 1, n: 3, b: 3, r: 5, q: 9, k: 0 };
 export const PATTERN = {
   MIN_GAMES: 5,
