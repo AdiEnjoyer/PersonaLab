@@ -1,4 +1,4 @@
-﻿import { Chess } from 'chess.js';
+import { Chess } from 'chess.js';
 import { round } from '../../../core/math/round';
 import { addDays, type LocalDate } from '../../../core/time/localDate';
 import { SM2 } from '../constants';

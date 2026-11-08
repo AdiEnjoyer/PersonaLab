@@ -9,8 +9,11 @@ import { ErrorPanel } from '../../../ui/status/ErrorPanel';
 import { Skeleton } from '../../../ui/status/Skeleton';
 import { CHESSCOM } from '../constants';
 import { readLastSyncAt } from '../data/gameSync';
+import { useLiveValue } from '../data/live';
+import { readPuzzleRating } from '../data/puzzleRepo';
 import { readRatings, refreshRatings } from '../data/ratings';
 import { useDailyTip } from '../data/view';
+import { displayRating, isProvisional } from '../logic/glicko2';
 import type { ChessComError } from '../net/chesscom';
 import { chessComMessage } from '../net/messages';
 import type { ChessComRatings } from '../types';
@@ -35,6 +38,20 @@ function RatingRow({ label, value }: { label: string; value: number | undefined 
     <div className="flex items-baseline justify-between">
       <dt className="text-muted">{label}</dt>
       <dd className="text-lg font-semibold tabular-nums">{ratingText(value)}</dd>
+    </div>
+  );
+}
+
+/** Puzzle_Rating with a provisional label while its deviation is above 110 (R49.8). */
+export function PuzzleRatingRow() {
+  const stored = useLiveValue(readPuzzleRating, []);
+  const rating = stored.value;
+  return (
+    <div className="flex items-baseline justify-between">
+      <dt className="text-muted">Puzzle rating</dt>
+      <dd className="text-lg font-semibold tabular-nums" data-testid="home-puzzle-rating">
+        {rating ? `${displayRating(rating.rating)}${isProvisional(rating.rd) ? ' (provisional)' : ''}` : '—'}
+      </dd>
     </div>
   );
 }
@@ -88,10 +105,14 @@ function RatingsCard() {
           <RatingRow label="Rapid" value={r?.rapid} />
           <RatingRow label="Blitz" value={r?.blitz} />
           <RatingRow label="Bullet" value={r?.bullet} />
+          <PuzzleRatingRow />
           <RatingRow label="Puzzle (highest)" value={r?.tacticsHigh} />
           <RatingRow label="Puzzle (lowest)" value={r?.tacticsLow} />
         </dl>
       )}
+      <AppLink to="/chess/puzzles" className="tap flex items-center justify-center rounded-continuous bg-accent px-4 py-2 text-base font-medium text-accent-fg">
+        Next puzzle
+      </AppLink>
       <p className="text-xs text-muted">
         {ratings.fetchedAt !== null ? ageLabel(ratings.fetchedAt, now) : null}
         {ratings.state === 'refreshing' && r !== null ? ' · Refreshing…' : null}

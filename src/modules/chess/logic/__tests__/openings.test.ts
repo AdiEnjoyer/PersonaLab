@@ -1,4 +1,4 @@
-﻿import { Chess } from 'chess.js';
+import { Chess } from 'chess.js';
 import { describe, expect, it } from 'vitest';
 import { SM2 } from '../../constants';
 import type { GameRecord, RepertoireTree } from '../../types';

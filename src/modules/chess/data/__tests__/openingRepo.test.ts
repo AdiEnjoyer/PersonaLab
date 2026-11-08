@@ -1,4 +1,4 @@
-﻿import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { db } from '../../../../core/db/db';
 import { installWriteFailures, withFreshDb } from '../../../../test/helpers/db';
 import { counterIds, fixtureTrees } from '../../logic/__tests__/repertoireFixtures';

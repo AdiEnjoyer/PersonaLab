@@ -139,3 +139,24 @@ export function stepAt(ctx: DrillContext, at: string | null, reach: Map<string |
 }
 
 export { reachMap };
+
+/** Number of drillable positions whose due date is on or before 	oday (R61.1). */
+export function dueCount(trees: readonly RepertoireTree[], srs: ReadonlyMap<string, { due?: LocalDate }>, today: LocalDate): number {
+  const expected = expectedByColour(trees);
+  const seen = new Set<string>();
+  for (const tree of trees) {
+    for (const p of ownerPositions(tree, expected[tree.colour])) {
+      const due = srs.get(p.posKey)?.due;
+      if (due !== undefined && due <= today) seen.add(p.posKey);
+    }
+  }
+  return seen.size;
+}
+
+/** Drillable positions of one tree whose due date is on or before 	oday. */
+export function treeDueCount(tree: RepertoireTree, trees: readonly RepertoireTree[], srs: ReadonlyMap<string, { due?: LocalDate }>, today: LocalDate): number {
+  return ownerPositions(tree, expectedMoves(trees, tree.colour)).filter((p) => {
+    const due = srs.get(p.posKey)?.due;
+    return due !== undefined && due <= today;
+  }).length;
+}

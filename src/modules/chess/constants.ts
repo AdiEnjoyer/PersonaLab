@@ -48,8 +48,9 @@ export const PATTERN = {
   ],
 };
 export const PUZZLE = { OPPONENT_DELAY_MS: 300, REVERT_MS: 500, SOLUTION_STEP_MS: 500, WINDOW_STEP: 100 };
-export const OPENING = { OPPONENT_DELAY_MS: 300, EXPLANATION_MAX: 300, TREE_NAME_MAX: 60, DEVIATION_LIST: 10 };
+export const OPENING = { OPPONENT_DELAY_MS: 300, REVERT_MS: 450, EXPLANATION_MAX: 300, TREE_NAME_MAX: 60, DEVIATION_LIST: 10 };
 export const BOARD_LIMITS = { FEN: 100, PGN: 100_000 };
 
 /** Time classes offered in filters and the rating chart (R45.3, R45.8). */
 export const TIME_CLASSES = ['rapid', 'blitz', 'bullet', 'daily'] as const;
+

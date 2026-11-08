@@ -12,14 +12,27 @@ import { db } from '../../../core/db/db';
 import { CHESS_TABLES } from '../data/backup';
 import { readLastSyncAt } from '../data/gameSync';
 import { useDailyTip } from '../data/view';
-import type { ChessComRatings } from '../types';
+import { dueCount } from '../logic/drill';
+import type { ChessComRatings, RepertoireTree, SrsRecord } from '../types';
 import { ratingText } from './ChessHome';
 import { startSync, useSyncView } from './syncStore';
 import { useMinuteClock } from './useMinuteClock';
 
-const readSummary = async (): Promise<{ ratings: ChessComRatings | null; lastSyncAt: number | null }> => {
-  const [ratings, lastSyncAt] = await Promise.all([db.table<ChessComRatings, string>(CHESS_TABLES.ratings).get('chesscom'), readLastSyncAt(db)]);
-  return { ratings: ratings ?? null, lastSyncAt };
+interface Summary {
+  ratings: ChessComRatings | null;
+  lastSyncAt: number | null;
+  trees: RepertoireTree[];
+  srs: SrsRecord[];
+}
+
+const readSummary = async (): Promise<Summary> => {
+  const [ratings, lastSyncAt, trees, srs] = await Promise.all([
+    db.table<ChessComRatings, string>(CHESS_TABLES.ratings).get('chesscom'),
+    readLastSyncAt(db),
+    db.table<RepertoireTree, string>(CHESS_TABLES.trees).toArray(),
+    db.table<SrsRecord, string>(CHESS_TABLES.srs).toArray(),
+  ]);
+  return { ratings: ratings ?? null, lastSyncAt, trees, srs };
 };
 
 /** Chess card of the Home_Dashboard: ratings, last sync age, today's tip headline and "Sync games" (R61). */
@@ -34,7 +47,8 @@ export default function ChessDashboardCard() {
 
   if (summary.failed) return <ErrorPanel message="The chess summary could not be loaded." onRetry={summary.retry} />;
   if (summary.value === undefined) return <Skeleton rows={3} />;
-  const { ratings, lastSyncAt } = summary.value;
+  const { ratings, lastSyncAt, trees, srs } = summary.value;
+  const due = dueCount(trees, new Map(srs.map((s) => [s.posKey, s])), today);
   const tip = view.status === 'ready' ? view.tip.title : view.status === 'loading' ? '…' : 'No tip today';
 
   return (
@@ -70,7 +84,14 @@ export default function ChessDashboardCard() {
           {tip}
         </p>
       </div>
-      <div className="flex items-center gap-3">
+      <p className="text-sm" data-testid="due-positions">
+        <span className="text-muted">Opening positions due: </span>
+        {due}
+      </p>
+      <div className="flex flex-wrap items-center gap-3">
+        <Button variant="secondary" onClick={() => navigate('/chess/drill')}>
+          Drill
+        </Button>
         <Button onClick={() => void startSync()} disabled={sync.running || !online}>
           Sync games
         </Button>

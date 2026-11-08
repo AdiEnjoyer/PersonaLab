@@ -64,3 +64,8 @@ export async function recordAttempt(
     database,
   );
 }
+
+/** The stored Puzzle_Rating, or null when no rated attempt exists. Safe inside liveQuery. */
+export async function readPuzzleRating(database: Dexie = appDb): Promise<PuzzleRatingRecord | null> {
+  return (await database.table<PuzzleRatingRecord, string>(CHESS_TABLES.puzzleRating).get('puzzle')) ?? null;
+}

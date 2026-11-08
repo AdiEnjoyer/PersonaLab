@@ -13,5 +13,4 @@ export function ComingSoon({ title }: { title: string }) {
   );
 }
 
-export const OpeningsScreen = () => <ComingSoon title="Openings" />;
 export const AnalysisScreen = () => <ComingSoon title="Analysis" />;
