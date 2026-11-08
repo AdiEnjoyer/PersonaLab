@@ -91,6 +91,14 @@ const arbUsername = fc.oneof(
   { arbitrary: arbJunk, weight: 1 },
 );
 
+const MODEL_CHARS = [...'abcXYZ019._-', ' ', '/', ':', 'ä'];
+const arbGeminiModel = fc.oneof(
+  { arbitrary: fc.tuple(arbPadding, fc.string({ unit: fc.constantFrom(...MODEL_CHARS), minLength: 0, maxLength: 85 }), arbPadding).map(([a, s, b]) => a + s + b), weight: 4 },
+  { arbitrary: fc.tuple(arbPadding, fc.stringMatching(/^[A-Za-z0-9._-]{1,82}$/), arbPadding).map(([a, s, b]) => a + s + b), weight: 4 },
+  { arbitrary: fc.constantFrom('gemini-3.8-flash', 'a'.repeat(80), 'a'.repeat(81), ''), weight: 1 },
+  { arbitrary: arbJunk, weight: 1 },
+);
+
 const arbProxyUrl = fc.oneof(
   fc.constant(''),
   fc.webUrl({ withQueryParameters: true, withFragments: true }),
@@ -125,6 +133,7 @@ const CANDIDATES: Record<string, fc.Arbitrary<unknown>> = {
   'nutrition.trainingOverride': arbTrainingOverride,
   'nutrition.goalAdjust': arbGoalAdjust,
   'nutrition.proteinFactor': arbProteinFactor,
+  'nutrition.geminiModel': arbGeminiModel,
   'chess.username': arbUsername,
   'chess.proxyUrl': arbProxyUrl,
   'chess.ratingSource': arbRatingSource,

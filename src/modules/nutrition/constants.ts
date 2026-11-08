@@ -23,8 +23,8 @@ export const OFF = {
   STALE_MS: 30 * 86_400_000,
   TIMEOUT_MS: 10_000,
 };
-/** Free-tier vision model id (500 requests/day per third-party sources; the official models page is not machine-readable). gemini-2.5-flash is closed to new projects. Change here only. */
-export const GEMINI_MODEL_ID = 'gemini-3.5-flash-lite';
+/** Default Gemini model id, used until the Owner sets nutrition.geminiModel (model ids are retired often). */
+export const GEMINI_DEFAULT_MODEL_ID = 'gemini-3.8-flash';
 export const GEMINI_URL = (model: string) => `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
 export const GEMINI_PROMPT = `You are a nutrition estimator. Identify each distinct food in the photo. For each, estimate the edible portion in grams and its energy (kcal), protein, carbohydrate and fat in grams for that portion. Use typical recipes when unsure. Return only JSON matching the schema. Set confidence to low when the photo is unclear or portions are hard to judge.`;
 export const GEMINI_TIMEOUT_MS = 45_000;

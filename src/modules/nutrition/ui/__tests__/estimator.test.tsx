@@ -7,7 +7,8 @@ import { SECRET_KEYS, setSecret } from '../../../../core/settings/secrets';
 import { toLocalDate } from '../../../../core/time/localDate';
 import { installWriteFailures, withFreshDb, type WriteFailures } from '../../../../test/helpers/db';
 import { toast } from '../../../../ui/toast/toastStore';
-import { GEMINI_MODEL_ID } from '../../constants';
+import { commitSetting } from '../../../../core/settings/repo';
+import { GEMINI_DEFAULT_MODEL_ID } from '../../constants';
 import { setAiWarningAck } from '../../data/estimate';
 import type { FoodEntry } from '../../types';
 import { GeminiKeySettings } from '../GeminiKeySettings';
@@ -97,7 +98,7 @@ describe('Meal_Estimator', () => {
     await screen.findByText('Review estimate');
     expect(fetchMock).toHaveBeenCalledTimes(1);
     const [url, init] = fetchMock.mock.calls[0] as [string, RequestInit];
-    expect(url).toBe(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL_ID}:generateContent`);
+    expect(url).toBe(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_DEFAULT_MODEL_ID}:generateContent`);
     expect(url).not.toContain(KEY);
     expect((init.headers as Record<string, string>)['x-goog-api-key']).toBe(KEY);
     expect(String(init.body)).not.toContain(KEY);
@@ -161,6 +162,34 @@ describe('Meal_Estimator', () => {
     expect(document.body.textContent).not.toContain(KEY);
   });
 
+  it('builds the URL from the nutrition.geminiModel setting at request time', async () => {
+    await setSecret(SECRET_KEYS.geminiKey, KEY);
+    await setAiWarningAck();
+    await commitSetting('nutrition.geminiModel', ' my-model_2.0 ');
+    fetchMock.mockResolvedValue(ok());
+    const user = userEvent.setup();
+    renderEstimator();
+    await pickPhoto(user);
+    await user.click(await screen.findByRole('button', { name: 'Estimate' }));
+    await screen.findByText('Review estimate');
+    const [url, init] = fetchMock.mock.calls[0] as [string, RequestInit];
+    expect(url).toBe('https://generativelanguage.googleapis.com/v1beta/models/my-model_2.0:generateContent');
+    expect(url).not.toContain(KEY);
+    expect(String(init.body)).not.toContain(KEY);
+  });
+  it('shows the model-not-found message for HTTP 404 with a Settings link and no Retry', async () => {
+    await setSecret(SECRET_KEYS.geminiKey, KEY);
+    await setAiWarningAck();
+    fetchMock.mockResolvedValue(new Response(`{"error":"no model, key ${KEY}"}`, { status: 404 }));
+    const user = userEvent.setup();
+    renderEstimator();
+    await pickPhoto(user);
+    await user.click(await screen.findByRole('button', { name: 'Estimate' }));
+    expect(await screen.findByText('That Gemini model name was not found. Check the model name in Settings.')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Retry' })).toBeNull();
+    expect(screen.getByRole('link', { name: 'Open Settings' })).toBeInTheDocument();
+    expect(document.body.textContent).not.toContain(KEY);
+  });
   it.each([
     [429, 'Free-tier limit reached. Try again later.'],
     [503, 'The AI service did not respond.'],

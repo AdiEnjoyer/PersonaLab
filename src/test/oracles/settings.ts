@@ -60,6 +60,12 @@ const ORACLES: Record<string, (v: unknown) => SettingOracleResult> = {
     isRecordWithKeys(v, GOALS) && GOALS.every((g) => v[g] === 'default' || numberOnGrid(v[g], '1.6', '2.2', '0.1'))
       ? ACCEPT(v)
       : REJECT,
+  // Gemini model id: after trimming, 1 to 80 of A–Z, a–z, 0–9, ".", "_" and "-"; stored trimmed.
+  'nutrition.geminiModel': (v) => {
+    if (typeof v !== 'string') return REJECT;
+    const t = v.trim();
+    return /^[A-Za-z0-9._-]{1,80}$/.test(t) ? ACCEPT(t) : REJECT;
+  },
   // Chess.com username: after trimming, 3 to 25 of A–Z, a–z, 0–9, "_" and "-"; stored trimmed.
   'chess.username': (v) => {
     if (typeof v !== 'string') return REJECT;

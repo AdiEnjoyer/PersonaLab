@@ -34,13 +34,14 @@ describe('schema registry', () => {
       'nutrition.trainingOverride': { enabled: false, hours: 0 },
       'nutrition.goalAdjust': { cut: -500, maintain: 0, bulk: 300 },
       'nutrition.proteinFactor': { cut: 'default', maintain: 'default', bulk: 'default' },
+      'nutrition.geminiModel': 'gemini-3.8-flash',
       'chess.username': 'AdiChessLarper',
       'chess.proxyUrl': '',
       'chess.ratingSource': 'rapid',
       'chess.manualRating': 1100,
     });
     expect([...settingsRegistry().values()].map((d) => d.owner)).toEqual([
-      'core', 'gym', 'gym', 'nutrition', 'nutrition', 'nutrition', 'chess', 'chess', 'chess', 'chess',
+      'core', 'gym', 'gym', 'nutrition', 'nutrition', 'nutrition', 'nutrition', 'chess', 'chess', 'chess', 'chess',
     ]);
   });
 
@@ -106,6 +107,7 @@ describe('schema registry', () => {
       [{ cut: 'default', maintain: 1.6, bulk: 2.2 }, { cut: 1.7, maintain: 1.9, bulk: 2.1 }],
       [{ cut: 1.5, maintain: 1.8, bulk: 1.8 }, { cut: 1.65, maintain: 1.8, bulk: 1.8 }, { cut: 2.3, maintain: 1.8, bulk: 1.8 }, { cut: 17 * 0.1, maintain: 1.8, bulk: 1.8 }, { cut: 'Default', maintain: 1.8, bulk: 1.8 }],
     ],
+    ['nutrition.geminiModel', ['gemini-3.8-flash', 'a', 'A'.repeat(80), 'models_v1.5-x', ' gemini-3.8-flash '], ['', '   ', 'A'.repeat(81), 'gemini 3', 'models/gemini', 'gemini:x', 'gémini', 5, null]],
     ['chess.username', ['abc', 'A'.repeat(25), 'Adi_Chess-1', ' abc '], ['ab', 'A'.repeat(26), 'adi chess', 'adi.chess', 'ädi', '', 5]],
     ['chess.proxyUrl', ['', 'https://proxy.example.com/', `https://a.io/${'x'.repeat(2035)}`], ['http://proxy.example.com', 'https://', 'proxy.example.com', `https://a.io/${'x'.repeat(2036)}`, ' https://a.io']],
     ['chess.ratingSource', ['rapid', 'manual'], ['Rapid', 'blitz', '']],

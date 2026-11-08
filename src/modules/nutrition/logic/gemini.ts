@@ -84,11 +84,12 @@ export function validateEstimate(text: string | undefined): Estimate | null {
   return parsed.success ? parsed.data : null;
 }
 
-export type GeminiErrorKind = 'key-rejected' | 'rate-limited' | 'service';
+export type GeminiErrorKind = 'key-rejected' | 'model-not-found' | 'rate-limited' | 'service';
 
-/** 400, 401, 403: key rejected; 429: rate limit; every other status: service (R37.12 to R37.14). */
+/** 400, 401, 403: key rejected; 404: model not found; 429: rate limit; every other status: service (R37.12 to R37.14). */
 export function httpErrorKind(status: number): GeminiErrorKind {
   if (status === 400 || status === 401 || status === 403) return 'key-rejected';
+  if (status === 404) return 'model-not-found';
   if (status === 429) return 'rate-limited';
   return 'service';
 }
@@ -98,6 +99,7 @@ export const ESTIMATE_MESSAGES = {
   offline: 'You are offline. AI estimates need a connection.',
   'no-key': 'Add your Gemini API key in Settings',
   'key-rejected': 'Your Gemini API key was rejected. Check it in Settings.',
+  'model-not-found': 'That Gemini model name was not found. Check the model name in Settings.',
   'rate-limited': 'Free-tier limit reached. Try again later.',
   service: 'The AI service did not respond.',
   unusable: 'The AI returned an unusable answer.',

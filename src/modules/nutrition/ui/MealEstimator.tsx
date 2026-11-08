@@ -41,7 +41,7 @@ const THUMB = { maxSide: 256, quality: 0.8 } as const;
 
 type NoticeKind = keyof typeof ESTIMATE_MESSAGES;
 /** Errors without a Retry action. */
-const NO_RETRY: readonly NoticeKind[] = ['no-key', 'key-rejected'];
+const NO_RETRY: readonly NoticeKind[] = ['no-key', 'key-rejected', 'model-not-found'];
 
 type NumField = Exclude<ReviewField, 'name'>;
 const NUM_FIELDS: { field: NumField; label: string; unit: string }[] = [
@@ -346,7 +346,7 @@ export default function MealEstimator() {
       {notice !== undefined ? (
         <div role="alert" className="flex flex-col gap-2 rounded-continuous bg-surface-2 p-3 text-sm">
           <p>{ESTIMATE_MESSAGES[notice]}</p>
-          {notice === 'no-key' || notice === 'key-rejected' ? (
+          {notice === 'no-key' || notice === 'key-rejected' || notice === 'model-not-found' ? (
             <AppLink to="/settings" className="tap flex items-center text-accent underline">
               Open Settings
             </AppLink>

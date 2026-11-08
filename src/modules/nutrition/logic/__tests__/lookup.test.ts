@@ -110,8 +110,9 @@ describe('Gemini estimate', () => {
   });
   it('maps HTTP statuses', () => {
     for (const s of [400, 401, 403]) expect(httpErrorKind(s)).toBe('key-rejected');
+    expect(httpErrorKind(404)).toBe('model-not-found');
     expect(httpErrorKind(429)).toBe('rate-limited');
-    for (const s of [404, 408, 500, 503, 302]) expect(httpErrorKind(s)).toBe('service');
+    for (const s of [408, 500, 503, 302]) expect(httpErrorKind(s)).toBe('service');
   });
   it('builds a request with the photo, the prompt and the schema, and nothing else', () => {
     const body = buildRequestBody('QUJD') as { contents: { parts: unknown[] }[]; generationConfig: { responseSchema: { required: string[] } } };

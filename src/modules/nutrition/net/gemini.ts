@@ -1,5 +1,7 @@
-import { GEMINI_MODEL_ID, GEMINI_TIMEOUT_MS, GEMINI_URL } from '../constants';
+import { readSetting } from '../../../core/settings/repo';
+import { GEMINI_TIMEOUT_MS, GEMINI_URL } from '../constants';
 import { buildRequestBody, extractText, httpErrorKind, validateEstimate, type Estimate, type GeminiErrorKind } from '../logic/gemini';
+import { NUTRITION_SETTING_KEYS } from '../settings';
 
 export type EstimateOutcome =
   | { kind: 'ok'; estimate: Estimate }
@@ -19,7 +21,7 @@ export interface EstimateRequest {
 }
 
 /**
- * One `generateContent` request (R36.3). The outcome carries only fixed kinds: no error object, response text
+ * One `generateContent` request (R36.3) to the model named by the `nutrition.geminiModel` setting, read per request. The outcome carries only fixed kinds: no error object, response text
  * or URL is returned or logged, so the key cannot reach a message (R36.5). A timeout counts as `service`.
  */
 export async function requestEstimate({ key, imageBase64, signal, timeoutMs = GEMINI_TIMEOUT_MS, fetchImpl = fetch }: EstimateRequest): Promise<EstimateOutcome> {
@@ -29,7 +31,8 @@ export async function requestEstimate({ key, imageBase64, signal, timeoutMs = GE
   signal?.addEventListener('abort', onAbort, { once: true });
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const response = await fetchImpl(GEMINI_URL(GEMINI_MODEL_ID), {
+    const model = await readSetting<string>(NUTRITION_SETTING_KEYS.geminiModel);
+    const response = await fetchImpl(GEMINI_URL(model), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
       body: JSON.stringify(buildRequestBody(imageBase64)),

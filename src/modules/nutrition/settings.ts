@@ -2,12 +2,14 @@ import { createElement, lazy, Suspense } from 'react';
 import { z } from 'zod';
 import { isMultipleOfStep } from '../../core/math/decimal';
 import type { ModuleSettings } from '../../core/registry/types';
+import { GEMINI_DEFAULT_MODEL_ID } from './constants';
 
 /** Full `core_settings` keys of the Nutrition settings. */
 export const NUTRITION_SETTING_KEYS = {
   trainingOverride: 'nutrition.trainingOverride',
   goalAdjust: 'nutrition.goalAdjust',
   proteinFactor: 'nutrition.proteinFactor',
+  geminiModel: 'nutrition.geminiModel',
 } as const;
 
 /**
@@ -45,6 +47,15 @@ export const proteinFactorSchema = z
   .strictObject({ cut: factorSchema, maintain: factorSchema, bulk: factorSchema })
   .describe('Accepted values: goal default, or 1.6 to 2.2 g/kg in steps of 0.1 g/kg.');
 
+/** Gemini model id used for meal photos: 1 to 80 characters of letters, digits, ".", "_" and "-" after trimming. */
+export const geminiModelSchema = z
+  .string()
+  .trim()
+  .min(1)
+  .max(80)
+  .regex(/^[A-Za-z0-9._-]+$/)
+  .describe('Accepted values: 1 to 80 characters: letters, digits, ".", "_" and "-".');
+
 export type TrainingOverride = z.infer<typeof trainingOverrideSchema>;
 export type GoalAdjust = z.infer<typeof goalAdjustSchema>;
 export type ProteinFactorSetting = z.infer<typeof proteinFactorSchema>;
@@ -53,16 +64,19 @@ export const nutritionSettingsSchema = {
   trainingOverride: trainingOverrideSchema,
   goalAdjust: goalAdjustSchema,
   proteinFactor: proteinFactorSchema,
+  geminiModel: geminiModelSchema,
 };
 
 export const nutritionSettingsDefaults: {
   trainingOverride: TrainingOverride;
   goalAdjust: GoalAdjust;
   proteinFactor: ProteinFactorSetting;
+  geminiModel: string;
 } = {
   trainingOverride: { enabled: false, hours: 0 },
   goalAdjust: { cut: -500, maintain: 0, bulk: 300 },
   proteinFactor: { cut: 'default', maintain: 'default', bulk: 'default' },
+  geminiModel: GEMINI_DEFAULT_MODEL_ID,
 };
 
 /** Keeps the section heading visible while the section (which uses the database) loads. */
