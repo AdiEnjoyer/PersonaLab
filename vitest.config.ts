@@ -26,6 +26,13 @@ export default defineConfig({
           include: ['scripts/**/*.test.ts'],
         },
       },
+      {
+        test: {
+          name: 'worker',
+          environment: 'node',
+          include: ['worker/test/**/*.test.ts'],
+        },
+      },
     ],
   },
 });

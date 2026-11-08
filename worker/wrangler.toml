@@ -1,0 +1,7 @@
+name = "personalab-chess-proxy"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+[vars]
+# The App origin only (no path, no trailing slash). Change "yourname" to your GitHub user name.
+ALLOWED_ORIGIN = "https://yourname.github.io"
