@@ -107,6 +107,9 @@ export default function FoodLogScreen() {
         </p>
       </CardFrame>
 
+      <AppLink to={`/nutrition/scan?date=${date}`} className="tap flex items-center justify-center rounded-continuous bg-accent px-4 py-2 font-medium text-accent-fg">
+        Scan barcode
+      </AppLink>
       {MEAL_SLOTS.map((slot) => (
         <CardFrame key={slot} aria-label={SLOT_LABELS[slot]}>
           <div className="flex items-center justify-between">
