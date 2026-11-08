@@ -12,3 +12,4 @@ worker/.wrangler/
 public/engine/
 # Kiro task-runner state (execution history), not project content
 .kiro/specs/**/tasks.meta.json
+premissions.yaml
