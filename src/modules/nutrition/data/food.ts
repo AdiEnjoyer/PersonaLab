@@ -32,6 +32,14 @@ export async function addManualEntry(fields: FoodFields, ctx: { date: LocalDate;
   return (await createIdempotent<FoodEntry>(NUTRITION_TABLES.foodEntries, entry)).record;
 }
 
+/** Adds a scanned-product entry with unrounded values; a missing macro stays absent (R35.9, R35.11). At most once per key. */
+export async function addBarcodeEntry(
+  fields: { name: string; kcal: number; protein?: number | undefined; carbs?: number | undefined; fat?: number | undefined; grams: number; barcode: string },
+  ctx: { date: LocalDate; slot: MealSlot; idemKey: string; now?: number },
+): Promise<FoodEntry> {
+  const entry: FoodEntry = stripUndefined({ id: newId(), idemKey: ctx.idemKey, date: ctx.date, slot: ctx.slot, source: 'barcode' as const, createdAt: ctx.now ?? Date.now(), ...fields });
+  return (await createIdempotent<FoodEntry>(NUTRITION_TABLES.foodEntries, entry)).record;
+}
 /** Replaces name, values and slot; date, source and key stay (R31.3). */
 export async function updateFoodEntry(id: string, fields: FoodFields, slot: MealSlot): Promise<void> {
   await write([NUTRITION_TABLES.foodEntries], async () => {
