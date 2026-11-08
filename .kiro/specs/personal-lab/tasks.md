@@ -929,7 +929,7 @@ Rules that apply to every task:
     - **Validates: Requirements 30.6, 30.7**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p75.property`; commit `test(nutrition): add protein target property test (P75)`
 
-- [ ] 24. Food log, progress rings and barcode logic
+- [x] 24. Food log, progress rings and barcode logic
   - [~] 24.1 Implement food log, Saved_Meal scaling and ring state
     - `src/modules/nutrition/logic/food.ts` (`dayTotals`, `groupBySlot`, `validateFoodForm`, `validateSavedMealForm`, `scaleMeal` with `${actionKey}:${index}` keys, `maxMultiplier`, `isLoggedDay`), `rings.ts` (`ringState`).
     - Example tests: missing macros count as 0; `ringState` with equal totals gives remaining 0; `maxMultiplier` returns `null` when 0.25 already exceeds a limit.
@@ -987,7 +987,7 @@ Rules that apply to every task:
     - **Validates: Requirements 33.9**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p84.property`; commit `test(nutrition): add barcode normalisation property test (P84)`
 
-- [ ] 25. Open Food Facts mapping and Portion_Calculator
+- [x] 25. Open Food Facts mapping and Portion_Calculator
   - [~] 25.1 Implement Open Food Facts mapping and portion scaling
     - `src/modules/nutrition/logic/off.ts` (`parseNutrient`, `mapOffProduct` reading `nutriments[k] ?? product[k]`, kJ fallback, plausibility caps, `classifyOffResponse`, `needsManualForm`), `portion.ts` (`scalePortion`, `servingsToGrams`, `validateGrams`, `validateServings`, `portionEntry` building the Food_Entry fields with absent macros left absent).
     - Example tests: kcal 1001 dropped and kJ used; "12,5" string rejected; servings 0.3 rejected.
@@ -1029,7 +1029,7 @@ Rules that apply to every task:
     - **Validates: Requirements 35.3, 35.10**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p91.property`; commit `test(nutrition): add portion input property test (P91)`
 
-- [ ] 26. AI estimate review, weight trend and trend correction logic
+- [x] 26. AI estimate review, weight trend and trend correction logic
   - [~] 26.1 Implement Gemini response validation and review logic
     - `src/modules/nutrition/logic/estimate.ts` (`extractText`, `EstimateSchema`, `validateEstimate`, `httpErrorKind`), `review.ts` (`ReviewItem`, `toReviewItems` assigning one key per item, `setGrams`, `consistencyWarning`, `reviewTotals`, `reviewSaveBlockers`).
     - Example tests: thought parts are ignored; unknown keys are stripped; `setGrams` from 0 changes only grams.
@@ -1115,7 +1115,7 @@ Rules that apply to every task:
     - **Validates: Requirements 39.14**
     - Verify and commit: `npm run typecheck`; `npx vitest --run p106.property`; commit `test(nutrition): add corrected burn property test (P106)`
 
-- [ ] 27. Nutrition data access, network clients and module wiring
+- [x] 27. Nutrition data access, network clients and module wiring
   - [~] 27.1 Implement food log, Saved_Meal, day mark and weight data access
     - `src/modules/nutrition/data/food.ts`: add manual/portion/AI entries via `createIdempotent`, add Saved_Meal entries with one transaction that checks existing keys then `bulkAdd`, Saved_Meal CRUD, delete Food_Entry and Saved_Meal with `recordDiffUndo`, mark/unmark a day incomplete, live queries per date.
     - `src/modules/nutrition/data/weights.ts`: `saveWeight` (one transaction replacing any entry with the same date, Undo covers replacement), `deleteWeight` with Undo, live series.
@@ -1160,7 +1160,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/nutrition`; commit `feat(nutrition): add nutrition backup and module wiring`
     - _Requirements: 2.1, 2.3, 2.7, 6.2, 8.4, 72.2_
 
-- [ ] 28. Nutrition screens
+- [x] 28. Nutrition screens
   - [~] 28.1 Build the daily Food_Log, rings, day view and add-food form
     - Today screen (tab root) and `/nutrition/day/:date`: calorie and protein rings with "over" state, entries grouped by meal slot, delete with Undo, "Mark day incomplete", date navigation; add-food form (manual entry, slot, date, idempotent key per opened form, inline errors, failure Toast keeping the draft).
     - Component tests: adding an entry updates the ring within 100 ms (optimistic); double-tap save creates one entry.
@@ -1211,7 +1211,7 @@ Rules that apply to every task:
     - Verify and commit: `npm run typecheck`; `npx vitest --run src/modules/nutrition/ui`; commit `feat(nutrition): add energy screen, settings section and dashboard card`
     - _Requirements: 4.4, 5.2, 5.7, 29.6, 29.13, 30.2, 30.4, 30.9, 32.4, 32.5, 32.7, 32.8, 36.8, 39.11_
 
-- [~] 29. Checkpoint: Nutrition module
+- [x] 29. Checkpoint: Nutrition module
   - Run `npm run typecheck`, `npx vitest --run` and `npm run build`; fix any failure and commit fixes with `fix(nutrition): …`.
   - Ensure all tests pass, ask the user if questions arise.
 
