@@ -1,0 +1,411 @@
+[
+  {
+    "id": "tip-below800-01",
+    "band": "below 800",
+    "topics": [
+      "opening"
+    ],
+    "title": "Develop knights and bishops first",
+    "body": "Move your knights and bishops off the back rank before moving the same piece twice. Pieces that are still at home cannot attack or defend. Aim to control the centre with a pawn or two, then bring out minor pieces.",
+    "detectors": [
+      "early-queen"
+    ]
+  },
+  {
+    "id": "tip-below800-02",
+    "band": "below 800",
+    "topics": [
+      "calculation"
+    ],
+    "title": "Before every move, ask what is attacked",
+    "body": "Before you move, check what your opponent's last move attacks. Look at every piece they moved and every line it opened. Most games at this level are decided by pieces left undefended for one move.",
+    "detectors": [
+      "hanging-piece"
+    ]
+  },
+  {
+    "id": "tip-below800-03",
+    "band": "below 800",
+    "topics": [
+      "tactics"
+    ],
+    "title": "Learn to spot a free piece",
+    "body": "A hanging piece is one that is attacked and not protected. Before each move, scan your opponent's pieces for any that nothing guards, and scan your own too. Taking free material is the simplest way to win games.",
+    "detectors": [
+      "hanging-piece"
+    ]
+  },
+  {
+    "id": "tip-800999-01",
+    "band": "800–999",
+    "topics": [
+      "calculation"
+    ],
+    "title": "Blunder check: look at the move you are about to play",
+    "body": "Before you release the piece, ask three questions: what does this move leave undefended, what can my opponent capture, and does it give a check I did not see? A five-second check removes most one-move blunders.",
+    "detectors": [
+      "hanging-piece"
+    ]
+  },
+  {
+    "id": "tip-800999-02",
+    "band": "800–999",
+    "topics": [
+      "opening"
+    ],
+    "title": "Do not bring the queen out early",
+    "body": "Moving the queen in the first few moves lets your opponent attack it with minor pieces and gain tempo while you retreat. Develop knights and bishops first, castle, and bring the queen out only when it has a clear job.",
+    "detectors": [
+      "early-queen"
+    ]
+  },
+  {
+    "id": "tip-800999-03",
+    "band": "800–999",
+    "topics": [
+      "strategy"
+    ],
+    "title": "Castle early to protect your king",
+    "body": "Castling moves the king away from the centre and brings a rook toward the action. Aim to castle within the first ten moves, usually after developing your kingside knight and bishop. A king in the middle is an easy target.",
+    "detectors": [
+      "delayed-castling"
+    ]
+  },
+  {
+    "id": "tip-800999-04",
+    "band": "800–999",
+    "topics": [
+      "tactics"
+    ],
+    "title": "Watch for knight forks",
+    "body": "A knight attacks in an L-shape that other pieces often overlook, so it can attack a king and a queen or rook at once. Before each move, check which squares your knights and your opponent's knights can reach next, and what they would attack from there.",
+    "detectors": [
+      "missed-opponent-fork",
+      "missed-own-tactic"
+    ]
+  },
+  {
+    "id": "tip-800999-05",
+    "band": "800–999",
+    "topics": [
+      "time management"
+    ],
+    "title": "Use your time on critical moves",
+    "body": "Play familiar opening moves quickly and save time for positions with captures, checks and threats. A rapid game lost on the clock in a good position is a wasted advantage. Check the clock after every few moves.",
+    "detectors": [
+      "time-pressure"
+    ]
+  },
+  {
+    "id": "tip-800999-06",
+    "band": "800–999",
+    "topics": [
+      "endgame"
+    ],
+    "title": "Activate your king in the endgame",
+    "body": "Once queens are off, the king becomes a strong piece. March it toward the centre and toward the pawns you want to win or stop. Do this early, because every move counts when the board is almost empty.",
+    "detectors": [
+      "endgame-technique"
+    ]
+  },
+  {
+    "id": "tip-10001199-01",
+    "band": "1000–1199",
+    "topics": [
+      "calculation"
+    ],
+    "title": "Check checks, captures and threats",
+    "body": "When you look for your move, list your checks, captures and threats first, then do the same for your opponent. This short list finds most tactics and stops most surprises. Do it every move, not only when the position looks sharp.",
+    "detectors": [
+      "missed-opponent-mate",
+      "missed-own-tactic"
+    ]
+  },
+  {
+    "id": "tip-10001199-02",
+    "band": "1000–1199",
+    "topics": [
+      "opening"
+    ],
+    "title": "Know one simple setup for each colour",
+    "body": "Pick a short, sound opening for White and a reply to 1.e4 and to 1.d4 for Black, and learn the ideas rather than long lines. Knowing why the pieces go where they go lets you handle moves you did not prepare.",
+    "detectors": []
+  },
+  {
+    "id": "tip-10001199-03",
+    "band": "1000–1199",
+    "topics": [
+      "tactics"
+    ],
+    "title": "Look for pins and skewers on open lines",
+    "body": "Rooks, bishops and queens attack along lines. A pin attacks a piece that cannot move without exposing a more valuable one behind it. A skewer attacks the valuable piece first. Check where your king and queen share a line with an enemy bishop or rook.",
+    "detectors": [
+      "missed-own-tactic"
+    ]
+  },
+  {
+    "id": "tip-10001199-04",
+    "band": "1000–1199",
+    "topics": [
+      "strategy"
+    ],
+    "title": "Put rooks on open files",
+    "body": "Rooks need open or half-open files to be effective. Place a rook on a file with no pawns of yours, double rooks when you can, and use the seventh rank when it is open. Rooks stuck behind their own pawns do little.",
+    "detectors": []
+  },
+  {
+    "id": "tip-10001199-05",
+    "band": "1000–1199",
+    "topics": [
+      "psychology"
+    ],
+    "title": "Stay calm after a mistake",
+    "body": "After you drop a piece, do not hurry or resign mentally. Take a breath and look for the most stubborn defence. Opponents at this level also blunder, and a calm player gets more of those chances.",
+    "detectors": []
+  },
+  {
+    "id": "tip-10001199-06",
+    "band": "1000–1199",
+    "topics": [
+      "endgame"
+    ],
+    "title": "Learn the basic king and pawn endgames",
+    "body": "Know the opposition and the rule of the square. Whether you can win or only draw a king and pawn ending depends on these ideas, so a few minutes of study repays itself many times over.",
+    "detectors": [
+      "endgame-technique"
+    ]
+  },
+  {
+    "id": "tip-12001399-01",
+    "band": "1200–1399",
+    "topics": [
+      "calculation"
+    ],
+    "title": "Look for your opponent's best reply",
+    "body": "After finding a good move, ask what the best answer is, not the answer you hope for. Look at the forcing replies first: checks, captures and threats. This habit stops many moves that win a pawn but lose to a tactic.",
+    "detectors": [
+      "missed-opponent-fork",
+      "missed-opponent-mate"
+    ]
+  },
+  {
+    "id": "tip-12001399-02",
+    "band": "1200–1399",
+    "topics": [
+      "strategy"
+    ],
+    "title": "Make a plan for every position",
+    "body": "When there is no tactic, ask where your worst-placed piece can go, which pawn break you can prepare, and what your opponent wants. A simple plan such as improving the worst piece beats random moves.",
+    "detectors": []
+  },
+  {
+    "id": "tip-12001399-03",
+    "band": "1200–1399",
+    "topics": [
+      "opening"
+    ],
+    "title": "Fight for the centre and finish development",
+    "body": "Count your developed pieces against your opponent's. If you are ahead, open the position with a pawn break. If you are behind, keep it closed and finish development before opening lines.",
+    "detectors": [
+      "delayed-castling"
+    ]
+  },
+  {
+    "id": "tip-12001399-04",
+    "band": "1200–1399",
+    "topics": [
+      "tactics"
+    ],
+    "title": "Recognise common mating patterns",
+    "body": "Learn the back-rank mate, smothered mate and the queen and bishop battery on a diagonal. Back-rank mate is the most frequent: give your king a flight square with a pawn move like h3 once your position is safe.",
+    "detectors": [
+      "missed-opponent-mate"
+    ]
+  },
+  {
+    "id": "tip-12001399-05",
+    "band": "1200–1399",
+    "topics": [
+      "time management"
+    ],
+    "title": "Set a rough time budget",
+    "body": "In a rapid game, avoid spending most of your clock before move 20. Play familiar moves quickly and keep a reserve for the critical moments. If you are ahead on the clock, use some of that time when the position becomes sharp.",
+    "detectors": [
+      "time-pressure"
+    ]
+  },
+  {
+    "id": "tip-12001399-06",
+    "band": "1200–1399",
+    "topics": [
+      "endgame"
+    ],
+    "title": "Rook endings: keep the rook active",
+    "body": "In rook endings an active rook matters more than a pawn. Put the rook behind a passed pawn, cut the enemy king off along a file, and avoid passive defence when counterplay is available.",
+    "detectors": [
+      "endgame-technique"
+    ]
+  },
+  {
+    "id": "tip-14001599-01",
+    "band": "1400–1599",
+    "topics": [
+      "calculation"
+    ],
+    "title": "Calculate lines to a quiet position",
+    "body": "When you calculate, follow forcing lines until the position is quiet, then judge who is better. Do not stop in the middle of an exchange. Write down the final position in your head before you commit.",
+    "detectors": [
+      "missed-own-tactic"
+    ]
+  },
+  {
+    "id": "tip-14001599-02",
+    "band": "1400–1599",
+    "topics": [
+      "strategy"
+    ],
+    "title": "Trade when you are ahead, avoid it when behind",
+    "body": "When you are up material, trade pieces, especially queens, to reduce your opponent's chances. When you are behind, keep pieces on and complicate. This one rule turns many won positions into wins.",
+    "detectors": []
+  },
+  {
+    "id": "tip-14001599-03",
+    "band": "1400–1599",
+    "topics": [
+      "tactics"
+    ],
+    "title": "Look for discovered attacks",
+    "body": "Moving a piece off a line can reveal an attack from the piece behind it, and the moved piece can make a threat of its own at the same time. Check where your bishops, rooks and queen are lined up behind your own pieces.",
+    "detectors": [
+      "missed-own-tactic"
+    ]
+  },
+  {
+    "id": "tip-14001599-04",
+    "band": "1400–1599",
+    "topics": [
+      "opening"
+    ],
+    "title": "Review your opening mistakes after games",
+    "body": "After each loss, find the move where you left your prepared line or first fell behind. Then look it up in a database or with an engine and fix that move. This is faster than learning new openings.",
+    "detectors": []
+  },
+  {
+    "id": "tip-14001599-05",
+    "band": "1400–1599",
+    "topics": [
+      "psychology"
+    ],
+    "title": "Do not play for a draw too early",
+    "body": "Accepting or offering a draw in an equal position often gives up chances. Keep playing while the position has play, and stop only when no side can make progress.",
+    "detectors": []
+  },
+  {
+    "id": "tip-14001599-06",
+    "band": "1400–1599",
+    "topics": [
+      "endgame"
+    ],
+    "title": "Know the Lucena and Philidor positions",
+    "body": "These two rook endgame positions decide many games. In Lucena the stronger side builds a bridge to promote. In Philidor the defender keeps the rook on the sixth rank. Learn them and practise both sides.",
+    "detectors": [
+      "endgame-technique"
+    ]
+  },
+  {
+    "id": "tip-16001799-01",
+    "band": "1600–1799",
+    "topics": [
+      "strategy"
+    ],
+    "title": "Find and use weaknesses",
+    "body": "Look for isolated, backward and doubled pawns, weak squares and exposed kings. Put pieces on the weak squares and attack the weak pawns with more pieces than your opponent can defend with.",
+    "detectors": []
+  },
+  {
+    "id": "tip-16001799-02",
+    "band": "1600–1799",
+    "topics": [
+      "calculation"
+    ],
+    "title": "Compare candidate moves",
+    "body": "Before choosing, pick two or three candidate moves and compare their outcomes. Do not stop at the first good-looking move, because a stronger one often exists.",
+    "detectors": []
+  },
+  {
+    "id": "tip-16001799-03",
+    "band": "1600–1799",
+    "topics": [
+      "time management"
+    ],
+    "title": "Avoid time trouble",
+    "body": "Time pressure creates blunders. If you are low on time often, play your opening faster and decide earlier in quiet positions, so you have time for the critical moments.",
+    "detectors": [
+      "time-pressure"
+    ]
+  },
+  {
+    "id": "tip-18001999-01",
+    "band": "1800–1999",
+    "topics": [
+      "strategy"
+    ],
+    "title": "Understand pawn structures",
+    "body": "Learn which plans fit each pawn structure, such as the minority attack in the Carlsbad structure or the central break in the isolated queen pawn. Knowing the plan shows you which pieces to trade and where to place them.",
+    "detectors": []
+  },
+  {
+    "id": "tip-18001999-02",
+    "band": "1800–1999",
+    "topics": [
+      "endgame"
+    ],
+    "title": "Convert advantages with technique",
+    "body": "Winning a pawn is not winning the game. Trade pieces, create a passed pawn, keep your king safe and avoid counterplay. Practise converting positions against an engine.",
+    "detectors": [
+      "endgame-technique"
+    ]
+  },
+  {
+    "id": "tip-18001999-03",
+    "band": "1800–1999",
+    "topics": [
+      "psychology"
+    ],
+    "title": "Prepare against your opponent's habits",
+    "body": "If you can see your opponent's earlier games, check which openings they repeat. A short preparation against a line they always play can give you a comfortable position before the game starts.",
+    "detectors": []
+  },
+  {
+    "id": "tip-2000andabove-01",
+    "band": "2000 and above",
+    "topics": [
+      "calculation"
+    ],
+    "title": "Calculate fewer lines more deeply",
+    "body": "Choose your candidate moves with care and calculate the critical lines to the end. Do not recalculate the same line repeatedly. Write the evaluation of the final position and decide.",
+    "detectors": []
+  },
+  {
+    "id": "tip-2000andabove-02",
+    "band": "2000 and above",
+    "topics": [
+      "opening"
+    ],
+    "title": "Build and maintain a repertoire",
+    "body": "Keep a repertoire file and update it with your games and new ideas. Check the lines where you were surprised and decide on your improvement.",
+    "detectors": []
+  },
+  {
+    "id": "tip-2000andabove-03",
+    "band": "2000 and above",
+    "topics": [
+      "endgame"
+    ],
+    "title": "Study endgames from master games",
+    "body": "Deep endgame knowledge wins half points that others lose. Study rook endings, minor piece endings and the conversion of small advantages.",
+    "detectors": [
+      "endgame-technique"
+    ]
+  }
+]

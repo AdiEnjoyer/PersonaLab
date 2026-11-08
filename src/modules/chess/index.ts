@@ -1,13 +1,12 @@
 import { createElement } from 'react';
-import { z } from 'zod';
 import type { ModuleDefinition } from '../../core/registry/types';
+import { chessBackup, exportChessData, importChessData } from './data/backup';
 import { chessSettings } from './settings';
 import { chessTables } from './tables';
+import type { ChessBackupData } from './types';
 
 // Stub definition: the Chess tasks replace the icon, screens, card, export/import and backup schema.
 
-const chessBackupSchema = z.object({});
-type ChessBackupData = z.infer<typeof chessBackupSchema>;
 
 function ChessIcon({ className }: { className?: string }) {
   return createElement(
@@ -32,8 +31,8 @@ export const chessModule: ModuleDefinition<ChessBackupData> = {
   routes: [{ path: '/chess', Component: ChessHomeScreen, tabRoot: true, title: 'Chess' }],
   DashboardCard: ChessDashboardCard,
   tables: chessTables,
-  exportData: async () => ({}),
-  importData: async () => undefined,
-  backup: { dataVersion: 1, schema: chessBackupSchema, migrations: {}, sections: () => [] },
+  exportData: exportChessData,
+  importData: importChessData,
+  backup: chessBackup,
   settings: chessSettings,
 };
