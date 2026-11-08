@@ -1217,7 +1217,7 @@ Rules that apply to every task:
 
 ## Part 5: Chess module
 
-- [ ] 30. Chess foundations: model, tips and board
+- [x] 30. Chess foundations: model, tips and board
   - [~] 30.1 Define Chess constants, types, zod schemas and generators
     - `src/modules/chess/constants.ts` (exactly the design constants), `schema.ts` (zod schemas for every Chess record type, `Tip`, `Puzzle` and the Chess backup data object), `types.ts`.
     - `src/test/arbitraries/chess.ts`: `arbPlayout(maxPlies)`, `arbGameJson`, `arbArchives`, `arbStoredEval`, `arbRepertoireOps`, `arbTips(n)`.

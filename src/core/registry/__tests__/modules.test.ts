@@ -69,11 +69,11 @@ describe('Module_Registry', () => {
     for (const mod of MODULES) {
       const route = mod.routes[0]!;
       const { container, unmount } = render(
-        createElement('div', null, createElement(mod.icon, { className: 'icon' }), ...(mod.id === 'gym' || mod.id === 'nutrition' ? [] : [createElement(route.Component)]), createElement(mod.DashboardCard)),
+        createElement('div', null, createElement(mod.icon, { className: 'icon' }), ...(mod.id === 'gym' || mod.id === 'nutrition' || mod.id === 'chess' ? [] : [createElement(route.Component)]), createElement(mod.DashboardCard)),
       );
       expect(container.querySelector('svg.icon')).not.toBeNull();
-      // The Gym and Nutrition screens are real, lazy and database-backed; they have their own tests.
-      if (mod.id !== 'gym' && mod.id !== 'nutrition') expect(screen.getByRole('heading', { level: 1, name: mod.name })).toBeInTheDocument();
+      // The Gym, Nutrition and Chess screens are real, lazy and database-backed; they have their own tests.
+      if (mod.id !== 'gym' && mod.id !== 'nutrition' && mod.id !== 'chess') expect(screen.getByRole('heading', { level: 1, name: mod.name })).toBeInTheDocument();
       expect(screen.getByRole('heading', { level: 2, name: mod.name })).toBeInTheDocument();
       unmount();
     }
